@@ -1,0 +1,173 @@
+[
+    {
+      "id": "crm",
+      "name": "CRM Software",
+      "priority": "must",
+      "keywords": [
+        "crm software",
+        "salesforce pricing",
+        "zoho crm"
+      ],
+      "vendors": [
+        "Salesforce",
+        "Pipedrive",
+        "Zoho CRM",
+        "Freshsales"
+      ],
+      "subTypes": [
+        "Small team",
+        "Sales pipeline",
+        "Free plan",
+        "Enterprise"
+      ]
+    },
+    {
+      "id": "project-management",
+      "name": "Project Management",
+      "priority": "must",
+      "keywords": [
+        "project management tool",
+        "asana pricing",
+        "jira pricing"
+      ],
+      "vendors": [
+        "Asana",
+        "monday.com",
+        "ClickUp",
+        "Jira",
+        "Trello"
+      ],
+      "subTypes": [
+        "Kanban",
+        "Software teams",
+        "Agencies",
+        "Free plan"
+      ]
+    },
+    {
+      "id": "accounting",
+      "name": "Accounting",
+      "priority": "must",
+      "keywords": [
+        "accounting software",
+        "quickbooks pricing",
+        "tallyprime"
+      ],
+      "vendors": [
+        "QuickBooks",
+        "Xero",
+        "FreshBooks",
+        "Zoho Books",
+        "TallyPrime"
+      ],
+      "subTypes": [
+        "Freelancers",
+        "Small business",
+        "GST invoicing",
+        "Inventory"
+      ]
+    },
+    {
+      "id": "hr-payroll",
+      "name": "HR & Payroll",
+      "priority": "must",
+      "keywords": [
+        "payroll software",
+        "hris software",
+        "gusto pricing"
+      ],
+      "vendors": [
+        "Gusto",
+        "Rippling",
+        "Keka",
+        "greytHR"
+      ],
+      "subTypes": [
+        "Payroll only",
+        "Full HR suite",
+        "India payroll",
+        "Contractors"
+      ]
+    },
+    {
+      "id": "team-collaboration",
+      "name": "Team Collaboration",
+      "priority": "must",
+      "keywords": [
+        "team chat app",
+        "slack vs teams"
+      ],
+      "vendors": [
+        "Slack",
+        "Microsoft Teams"
+      ],
+      "subTypes": [
+        "Chat",
+        "Docs and wikis",
+        "Whiteboards"
+      ]
+    },
+    {
+      "id": "video-conferencing",
+      "name": "Video Conferencing",
+      "priority": "must",
+      "keywords": [
+        "video conferencing",
+        "zoom pricing",
+        "google meet pricing"
+      ],
+      "vendors": [
+        "Zoom",
+        "Webex",
+        "Google Meet",
+        "GoTo Meeting"
+      ],
+      "subTypes": [
+        "Meetings",
+        "Webinars",
+        "Free plan limits"
+      ]
+    },
+    {
+      "id": "analytics",
+      "name": "Analytics",
+      "priority": "bonus",
+      "keywords": [
+        "product analytics",
+        "power bi pricing",
+        "mixpanel pricing"
+      ],
+      "vendors": [
+        "Mixpanel",
+        "Amplitude",
+        "Power BI",
+        "Tableau"
+      ],
+      "subTypes": [
+        "Product analytics",
+        "BI dashboards",
+        "Web analytics"
+      ]
+    },
+    {
+      "id": "reviews-comparisons",
+      "name": "Reviews & Comparisons",
+      "priority": "bonus",
+      "keywords": [
+        "software reviews",
+        "g2 reviews",
+        "capterra"
+      ],
+      "vendors": [
+        "G2",
+        "Capterra",
+        "TrustRadius"
+      ],
+      "subTypes": [
+        "Review sites",
+        "Head-to-head",
+        "How to read reviews"
+      ]
+    }
+  ]
+  
