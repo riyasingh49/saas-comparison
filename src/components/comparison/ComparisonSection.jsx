@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import ComparisonToolbar from './ComparisonToolbar'
-import VendorGrid from '../home/VendorGrid'
+import VendorGrid from './VendorGrid'
 import CompareSelectionBar from './CompareSelectionBar'
 import ComparisonTable from './ComparisonTable'
 import VendorDetailsSheet from './VendorDetailsSheet'
@@ -11,6 +11,8 @@ function ComparisonSection({
   vendors = [],
   features = [],
   title = 'Explore and compare software',
+  selectedCategory = null,
+  selectedSubcategory = '',
 }) {
   const [searchQuery, setSearchQuery] = useState('')
   const [sortBy, setSortBy] = useState('recommended')
@@ -18,7 +20,6 @@ function ComparisonSection({
   const [showComparison, setShowComparison] = useState(false)
   const [activeVendor, setActiveVendor] = useState(null)
 
-  // Keep only valid vendor records.
   const validVendors = useMemo(
     () =>
       vendors.filter(
@@ -27,6 +28,7 @@ function ComparisonSection({
     [vendors]
   )
 
+  // Keep the selected tools available even when the visible category changes.
   const selectedVendors = useMemo(
     () =>
       selectedVendorIds
@@ -37,8 +39,16 @@ function ComparisonSection({
 
   const filteredVendors = useMemo(() => {
     const query = searchQuery.trim().toLowerCase()
+    const categoryName = selectedCategory?.name?.toLowerCase()
 
-    const results = validVendors.filter((vendor) => {
+    let results = validVendors.filter((vendor) => {
+      if (
+        categoryName &&
+        vendor.category?.toLowerCase() !== categoryName
+      ) {
+        return false
+      }
+
       if (!query) return true
 
       const searchableText = [
@@ -54,15 +64,19 @@ function ComparisonSection({
     })
 
     if (sortBy === 'name-asc') {
-      results.sort((a, b) => a.name.localeCompare(b.name))
+      results = [...results].sort((a, b) =>
+        a.name.localeCompare(b.name)
+      )
     }
 
     if (sortBy === 'name-desc') {
-      results.sort((a, b) => b.name.localeCompare(a.name))
+      results = [...results].sort((a, b) =>
+        b.name.localeCompare(a.name)
+      )
     }
 
     return results
-  }, [validVendors, searchQuery, sortBy])
+  }, [validVendors, selectedCategory, searchQuery, sortBy])
 
   const handleToggleCompare = (vendor) => {
     if (!vendor?.id) return
@@ -115,6 +129,10 @@ function ComparisonSection({
     }
   }
 
+  const sectionTitle = selectedCategory
+    ? `${selectedCategory.name} software`
+    : title
+
   return (
     <section
       id="software-comparison"
@@ -122,11 +140,13 @@ function ComparisonSection({
     >
       <div>
         <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
-          {title}
+          {sectionTitle}
         </h2>
 
         <p className="mt-2 text-sm leading-6 text-slate-500 sm:text-base">
-          Find software that fits your needs and compare its features side by side.
+          {selectedSubcategory
+            ? `Explore ${selectedSubcategory.toLowerCase()} options and compare available tools.`
+            : 'Find software that fits your needs and compare its features side by side.'}
         </p>
       </div>
 
@@ -136,7 +156,10 @@ function ComparisonSection({
         sortBy={sortBy}
         onSortChange={setSortBy}
         resultCount={filteredVendors.length}
-        hasActiveFilters={Boolean(searchQuery.trim()) || sortBy !== 'recommended'}
+        hasActiveFilters={
+          Boolean(searchQuery.trim()) ||
+          sortBy !== 'recommended'
+        }
         onClearFilters={handleClearFilters}
       />
 
