@@ -1,6 +1,7 @@
 
 import overrides from '../data/vendor-research-overrides.json' with { type: 'json' }
 import pricingResearch from '../data/vendor-pricing-research.json' with { type: 'json' }
+import trelloResearch from '../data/trello-pricing-research.json' with { type: 'json' }
 
 function mergePlans(existingPlans = [], updatedPlans = []) {
   const plans = new Map()
@@ -47,16 +48,16 @@ function mergeVendorResearch(vendor, override) {
     }
   })
 
-  const existingPlans = vendor.pricing?.plans || []
-  const updatedPlans = override.pricing?.plans || []
-
   return {
     ...vendor,
     ...override,
     pricing: {
       ...vendor.pricing,
       ...(override.pricing || {}),
-      plans: mergePlans(existingPlans, updatedPlans),
+      plans: mergePlans(
+        vendor.pricing?.plans || [],
+        override.pricing?.plans || []
+      ),
     },
     features: {
       ...vendor.features,
@@ -79,9 +80,14 @@ export default function enrichVendorsWithResearch(vendors = []) {
       overrides[vendor?.id]
     )
 
-    return mergeVendorResearch(
+    const withPricingResearch = mergeVendorResearch(
       withExistingResearch,
       pricingResearch[vendor?.id]
+    )
+
+    return mergeVendorResearch(
+      withPricingResearch,
+      trelloResearch[vendor?.id]
     )
   })
 }

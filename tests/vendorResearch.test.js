@@ -1,3 +1,4 @@
+
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import vendors from '../src/data/vendors.json' with { type: 'json' }
@@ -5,7 +6,7 @@ import overrides from '../src/data/vendor-research-overrides.json' with { type: 
 import enrichVendorsWithResearch from '../src/utils/vendorResearch.js'
 import {
   getVerifiedPricingPlans,
-  isVendorPricingVerified
+  isVendorPricingVerified,
 } from '../src/utils/pricing.js'
 
 test('enriches the original vendor list without mutating it', () => {
@@ -23,10 +24,14 @@ test('enriches the original vendor list without mutating it', () => {
 test('preserves vendors that do not have a research override', () => {
   const enriched = enrichVendorsWithResearch(vendors)
 
-  const originalTrello = vendors.find((vendor) => vendor.id === 'trello')
-  const updatedTrello = enriched.find((vendor) => vendor.id === 'trello')
+  const originalSalesforce = vendors.find(
+    (vendor) => vendor.id === 'salesforce'
+  )
+  const updatedSalesforce = enriched.find(
+    (vendor) => vendor.id === 'salesforce'
+  )
 
-  assert.deepEqual(updatedTrello, originalTrello)
+  assert.deepEqual(updatedSalesforce, originalSalesforce)
 })
 
 test('adds only official sources with checked dates', () => {
@@ -82,39 +87,36 @@ test('does not treat account-based or usage-based pricing as per-seat rates', ()
     'mixpanel',
     'amplitude',
     'quickbooks',
-    'freshbooks'
+    'freshbooks',
   ]
 
   vendorIds.forEach((vendorId) => {
     const vendor = enriched.find((item) => item.id === vendorId)
 
     assert.ok(vendor, `Expected ${vendorId} to exist`)
-    assert.equal(
-      isVendorPricingVerified(vendor),
-      false,
-      `${vendorId} should not have verified per-seat pricing`
-    )
-    assert.deepEqual(
-      getVerifiedPricingPlans(vendor),
-      [],
-      `${vendorId} should not expose verified per-seat plans`
-    )
+    assert.equal(isVendorPricingVerified(vendor), false)
+    assert.deepEqual(getVerifiedPricingPlans(vendor), [])
   })
 })
 
 test('retains free-plan details when the vendor publishes a free tier', () => {
   const enriched = enrichVendorsWithResearch(vendors)
 
-  const asana = enriched.find((vendor) => vendor.id === 'asana')
-  const powerBi = enriched.find((vendor) => vendor.id === 'power-bi')
-  const zohoBooks = enriched.find((vendor) => vendor.id === 'zoho-books')
-  const mixpanel = enriched.find((vendor) => vendor.id === 'mixpanel')
-  const amplitude = enriched.find((vendor) => vendor.id === 'amplitude')
+  const vendorIds = [
+    'asana',
+    'power-bi',
+    'zoho-books',
+    'mixpanel',
+    'amplitude',
+    'trello',
+  ]
 
-  for (const vendor of [asana, powerBi, zohoBooks, mixpanel, amplitude]) {
+  for (const vendorId of vendorIds) {
+    const vendor = enriched.find((item) => item.id === vendorId)
+
     assert.ok(
       vendor.pricing.plans.some((plan) => plan.price === 0),
-      `${vendor.id} should retain its published free plan`
+      `${vendorId} should retain its published free plan`
     )
   }
 })

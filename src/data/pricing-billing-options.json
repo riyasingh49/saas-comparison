@@ -59,5 +59,19 @@
       "monthly": 71,
       "annual": 59
     }
+  },
+  "trello": {
+    "Standard": {
+      "monthly": 6,
+      "annual": 5
+    },
+    "Premium": {
+      "monthly": 12.5,
+      "annual": 10
+    },
+    "Enterprise": {
+      "monthly": null,
+      "annual": 17.5
+    }
   }
 }

@@ -1,0 +1,63 @@
+{
+    "trello": {
+      "website": "https://trello.com/en/pricing",
+      "startingPrice": "$5/user/month",
+      "pricing": {
+        "status": "verified",
+        "currency": "USD",
+        "billingModel": "per_user",
+        "billingOptions": [
+          "Monthly",
+          "Annually"
+        ],
+        "plans": [
+          {
+            "name": "Free",
+            "price": 0,
+            "billingPeriod": "Free",
+            "unit": "up to 10 collaborators per Workspace",
+            "note": "Free plan includes up to 10 boards per Workspace."
+          },
+          {
+            "name": "Standard",
+            "price": 5,
+            "billingPeriod": "Annually",
+            "unit": "user/month",
+            "note": "Billed annually. Monthly billing is $6/user/month."
+          },
+          {
+            "name": "Premium",
+            "price": 10,
+            "billingPeriod": "Annually",
+            "unit": "user/month",
+            "note": "Billed annually. Monthly billing is $12.50/user/month."
+          },
+          {
+            "name": "Enterprise",
+            "price": 17.5,
+            "billingPeriod": "Annually",
+            "unit": "user/month",
+            "note": "Billed annually at $210 per user/year."
+          }
+        ],
+        "freeTrial": true
+      },
+      "features": {
+        "freePlan": true
+      },
+      "sources": [
+        {
+          "label": "Official Trello pricing and plan comparison",
+          "url": "https://trello.com/en/pricing",
+          "type": "official",
+          "checkedAt": "2026-11-15",
+          "status": "verified"
+        }
+      ],
+      "verification": {
+        "status": "verified",
+        "checkedAt": "2026-11-15"
+      }
+    }
+  }
+  
