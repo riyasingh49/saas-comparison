@@ -1,4 +1,5 @@
 import vendorSubcategoryMappings from '../data/vendor-subcategory-mappings.json'
+import { findCategoryByKeyword } from './categoryMatcher'
 
 const normalize = (value) =>
   String(value || '').trim().toLowerCase()
@@ -35,12 +36,23 @@ export function getPageState(categories = [], vendors = []) {
   const subcategory = params.get('subcategory') || ''
   const searchTerm = params.get('q') || ''
   const searchType = params.get('type') || ''
+  const region = params.get('loc')?.toUpperCase() === 'IN' ? 'IN' : 'US'
 
-  const category =
+  let category =
     categories.find((item) => item.id === categoryId) || null
 
+  const matchedResult = searchTerm && !category
+    ? findCategoryByKeyword(searchTerm)
+    : null
+
+  if (matchedResult?.category) category = matchedResult.category
+
+  const resolvedType = matchedResult?.type === 'no-results'
+    ? 'all'
+    : (searchType || matchedResult?.type || '')
+
   const vendor =
-    searchType === 'vendor'
+    resolvedType === 'vendor'
       ? vendors.find(
           (item) => normalize(item.name) === normalize(searchTerm)
         ) || null
@@ -48,10 +60,11 @@ export function getPageState(categories = [], vendors = []) {
 
   return {
     category,
-    subcategory,
+    subcategory: matchedResult?.subcategory || subcategory,
     searchTerm,
-    searchType,
+    searchType: resolvedType,
     vendor,
+    region,
   }
 }
 
@@ -74,6 +87,8 @@ export function updatePageUrl(nextState = {}) {
     params.set('type', nextState.searchType)
   }
 
+  if (nextState.region === 'IN') params.set('loc', 'IN')
+
   const queryString = params.toString()
   const nextUrl = queryString
     ? `${window.location.pathname}?${queryString}${window.location.hash}`
@@ -90,10 +105,6 @@ export function filterVisibleVendors(vendors = [], pageState = {}) {
   const enrichedVendors = vendors
     .filter((vendor) => vendor?.id && vendor?.name)
     .map(enrichVendor)
-
-  if (pageState.searchType === 'no-results') {
-    return []
-  }
 
   if (pageState.searchType === 'vendor') {
     return enrichedVendors.filter(
@@ -125,14 +136,6 @@ export function filterVisibleVendors(vendors = [], pageState = {}) {
 }
 
 export function getSummaryContent(pageState = {}, visibleVendors = []) {
-  if (pageState.searchType === 'no-results') {
-    return {
-      title: 'No matching software found',
-      summary: `We couldn't find a match for "${pageState.searchTerm}".`,
-      details:
-        'Try a different software name, category, or subcategory to explore the available options.',
-    }
-  }
 
   if (pageState.searchType === 'vendor' && pageState.vendor) {
     return {
@@ -165,4 +168,24 @@ export function getSummaryContent(pageState = {}, visibleVendors = []) {
     details:
       'Vendor information and comparison details are being organized with clear verification status so that confirmed facts can be distinguished from provisional assignments.',
   }
+}
+
+export function getPricingRange(vendors = [], region = 'US') {
+  const pricesByCurrency = new Map()
+
+  vendors.forEach((vendor) => {
+    const currency = vendor?.pricing?.currency
+    const prices = (vendor?.pricing?.plans || []).map((plan) => plan?.price)
+      .filter((price) => Number.isFinite(price) && price > 0)
+    if (currency && prices.length) {
+      pricesByCurrency.set(currency, [...(pricesByCurrency.get(currency) || []), ...prices])
+    }
+  })
+
+  const preferred = region === 'IN' && pricesByCurrency.has('INR') ? ['INR'] : [...pricesByCurrency.keys()]
+  return preferred.map((currency) => {
+    const prices = pricesByCurrency.get(currency)
+    const formatted = new Intl.NumberFormat(currency === 'INR' ? 'en-IN' : 'en-US', { style: 'currency', currency, maximumFractionDigits: 0 })
+    return `${formatted.format(Math.min(...prices))}-${formatted.format(Math.max(...prices))}/user/month`
+  }).join(' · ')
 }

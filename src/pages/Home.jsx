@@ -20,6 +20,7 @@ function Home() {
     pageState,
     visibleVendors,
     summaryContent,
+    pricingRange,
     handleCategoryChange,
     handleSubcategoryChange,
     handleSearchResult,
@@ -37,12 +38,13 @@ function Home() {
           title={summaryContent.title}
           summary={summaryContent.summary}
           details={summaryContent.details}
+          pricingRange={pricingRange}
           sources={summarySources}
           dateChecked={checkedDates[0] || ''}
         />
 
         <div className="container mx-auto px-4 pt-6">
-          <SoftwareSearch onSearchResult={handleSearchResult} />
+          <SoftwareSearch key={pageState.searchTerm} initialQuery={pageState.searchTerm} onSearchResult={handleSearchResult} />
         </div>
 
         <div id="categories" className="scroll-mt-24">

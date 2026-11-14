@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import {
   filterVisibleVendors,
   getPageState,
+  getPricingRange,
   getSummaryContent,
   updatePageUrl,
 } from '../utils/homePageHelpers'
@@ -67,6 +68,11 @@ function useHomePage(categories = [], vendors = []) {
     [pageState, visibleVendors]
   )
 
+  const pricingRange = useMemo(
+    () => getPricingRange(visibleVendors, pageState.region),
+    [visibleVendors, pageState.region]
+  )
+
   useEffect(() => {
     const handlePopState = () => {
       const nextState = getPageState(categories, vendors)
@@ -86,6 +92,7 @@ function useHomePage(categories = [], vendors = []) {
     pageState,
     visibleVendors,
     summaryContent,
+    pricingRange,
     handleCategoryChange,
     handleSubcategoryChange,
     handleSearchResult,

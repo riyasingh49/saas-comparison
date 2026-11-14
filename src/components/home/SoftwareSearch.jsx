@@ -3,8 +3,8 @@ import { useState } from 'react'
 import { Search, X } from 'lucide-react'
 import { findCategoryByKeyword } from '../../utils/categoryMatcher'
 
-function SoftwareSearch({ onSearchResult }) {
-  const [query, setQuery] = useState('')
+function SoftwareSearch({ onSearchResult, initialQuery = '' }) {
+  const [query, setQuery] = useState(initialQuery)
 
   const handleSubmit = (event) => {
     event.preventDefault()
