@@ -1,9 +1,14 @@
-
 import { useState } from 'react'
 import { Search, X } from 'lucide-react'
 import { findCategoryByKeyword } from '../../utils/categoryMatcher'
 
-function SoftwareSearch({ onSearchResult, initialQuery = '' }) {
+function SoftwareSearch({
+  onSearchResult,
+  initialQuery = '',
+  placeholder = 'Search CRM, project management, accounting...',
+  formId = 'software-search',
+  inputId = 'software-search-input',
+}) {
   const [query, setQuery] = useState(initialQuery)
 
   const handleSubmit = (event) => {
@@ -38,7 +43,7 @@ function SoftwareSearch({ onSearchResult, initialQuery = '' }) {
 
   return (
     <form
-      id="software-search"
+      id={formId}
       role="search"
       onSubmit={handleSubmit}
       className="mx-auto flex w-full max-w-2xl items-center gap-2 rounded-2xl border border-gray-200 bg-white p-2 shadow-sm transition focus-within:border-gray-400 focus-within:ring-2 focus-within:ring-gray-100"
@@ -49,16 +54,16 @@ function SoftwareSearch({ onSearchResult, initialQuery = '' }) {
         aria-hidden="true"
       />
 
-      <label htmlFor="software-search-input" className="sr-only">
+      <label htmlFor={inputId} className="sr-only">
         Search software categories and vendors
       </label>
 
       <input
-        id="software-search-input"
+        id={inputId}
         type="search"
         value={query}
         onChange={(event) => setQuery(event.target.value)}
-        placeholder="Search CRM, project management, accounting..."
+        placeholder={placeholder}
         className="min-w-0 flex-1 bg-transparent py-2 text-sm text-gray-800 outline-none placeholder:text-gray-400"
         autoComplete="off"
         maxLength={100}

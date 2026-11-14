@@ -4,6 +4,7 @@ import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
 import SummarySection from '../components/home/SummarySection'
 import SoftwareSearch from '../components/home/SoftwareSearch'
+import FixedBottomSearch from '../components/home/FixedBottomSearch'
 import CategoryNavigation from '../components/home/CategoryNavigation'
 import SoftwareCostCalculator from '../components/home/SoftwareCostCalculator'
 import DecisionSupport from '../components/home/DecisionSupport'
@@ -11,7 +12,7 @@ import PricingExplainer from '../components/home/PricingExplainer'
 import ComparisonSection from '../components/comparison/ComparisonSection'
 import useHomePage from '../hooks/useHomePage'
 import enrichVendorsWithResearch from '../utils/vendorResearch'
-
+import getSearchPlaceholder from '../utils/getSearchPlaceholder'
 import vendors from '../data/vendors.json'
 import categories from '../data/categories.json'
 import comparisonFeatures from '../data/comparison-features.json'
@@ -27,7 +28,7 @@ function Home() {
     pricingRange,
     handleCategoryChange,
     handleSubcategoryChange,
-    handleSearchResult
+    handleSearchResult,
   } = useHomePage(categories, researchedVendors)
 
   const resetRecommendations = () => {
@@ -69,11 +70,16 @@ function Home() {
     .map((source) => source.checkedAt)
     .filter(Boolean)
 
+  const searchPlaceholder = getSearchPlaceholder(
+    pageState.category,
+    pageState.subcategory
+  )
+
   return (
     <div id="top" className="min-h-screen bg-gray-50">
       <Navbar />
 
-      <main>
+      <main className="pb-32">
         <SummarySection
           title={summaryContent.title}
           summary={summaryContent.summary}
@@ -129,6 +135,13 @@ function Home() {
       </main>
 
       <Footer />
+
+      <FixedBottomSearch
+        key={`${pageState.searchTerm}-${pageState.category?.id || 'all'}-${pageState.subcategory}`}
+        initialQuery={pageState.searchTerm}
+        placeholder={searchPlaceholder}
+        onSearchResult={handleSearchSelection}
+      />
     </div>
   )
 }

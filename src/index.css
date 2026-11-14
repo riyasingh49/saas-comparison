@@ -117,6 +117,58 @@ svg {
   padding-block: 48px;
 }
 
+
+/* Keeps the search accessible without covering page content. */
+.fixed-search-dock {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 40;
+  padding: 12px 14px calc(12px + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--color-border);
+  background: rgb(255 255 255 / 96%);
+  box-shadow: 0 -4px 18px rgb(15 23 42 / 6%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.fixed-search-dock__inner {
+  width: min(100%, 1200px);
+  margin-inline: auto;
+}
+
+@media (max-width: 640px) {
+  .fixed-search-dock {
+    padding-inline: 10px;
+  }
+}
+
+
+/* Fixed search bar stays above the phone's bottom safe area. */
+.fixed-search-dock {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 40;
+  padding: 12px 14px calc(12px + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--color-border);
+  background: rgb(255 255 255 / 96%);
+  box-shadow: 0 -4px 18px rgb(15 23 42 / 6%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.fixed-search-dock__inner {
+  width: min(100%, 1200px);
+  margin-inline: auto;
+}
+
+@media (max-width: 640px) {
+  .fixed-search-dock {
+    padding-inline: 10px;
+  }
+}
+
 @media (max-width: 640px) {
   .container {
     width: min(100% - 28px, 1200px);
