@@ -1,0 +1,514 @@
+{
+    "jira": {
+        "pricing": {
+            "status": "verified",
+            "currency": "USD",
+            "billingModel": "per_user",
+            "billingOptions": [
+                "Annually"
+            ],
+            "plans": [
+                {
+                    "name": "Free",
+                    "price": 0,
+                    "billingPeriod": "Free",
+                    "unit": "up to 10 users",
+                    "note": "Free Cloud plan."
+                },
+                {
+                    "name": "Standard",
+                    "price": 7.91,
+                    "billingPeriod": "Annually",
+                    "unit": "user/month",
+                    "note": "Published annual-billing rate. Actual price depends on the user tier."
+                },
+                {
+                    "name": "Premium",
+                    "price": 14.54,
+                    "billingPeriod": "Annually",
+                    "unit": "user/month",
+                    "note": "Published annual-billing rate. Actual price depends on the user tier."
+                }
+            ],
+            "freePlan": true
+        },
+        "sources": [
+            {
+                "label": "Official Jira Cloud pricing",
+                "url": "https://www.atlassian.com/en/software/jira/pricing",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "verified",
+            "checkedAt": "2026-11-15"
+        }
+    },
+    "quickbooks": {
+        "pricing": {
+            "status": "partially_verified",
+            "currency": "USD",
+            "billingModel": "per_organization",
+            "billingOptions": [
+                "Monthly"
+            ],
+            "plans": [
+                {
+                    "name": "Free",
+                    "price": 0,
+                    "billingPeriod": "Monthly",
+                    "unit": "per organization/month",
+                    "note": "QuickBooks Free availability and eligibility may vary."
+                },
+                {
+                    "name": "Simple Start",
+                    "price": 38,
+                    "billingPeriod": "Monthly",
+                    "unit": "per organization/month",
+                    "note": "Regular list price. Promotional introductory pricing may be lower."
+                },
+                {
+                    "name": "Essentials",
+                    "price": 85,
+                    "billingPeriod": "Monthly",
+                    "unit": "per organization/month",
+                    "note": "Regular list price. Promotional introductory pricing may be lower."
+                },
+                {
+                    "name": "Plus",
+                    "price": 140,
+                    "billingPeriod": "Monthly",
+                    "unit": "per organization/month",
+                    "note": "Regular list price. Promotional introductory pricing may be lower."
+                },
+                {
+                    "name": "Advanced",
+                    "price": 340,
+                    "billingPeriod": "Monthly",
+                    "unit": "per organization/month",
+                    "note": "Regular list price. Promotional introductory pricing may be lower."
+                }
+            ],
+            "freePlan": true
+        },
+        "sources": [
+            {
+                "label": "Official QuickBooks Online pricing",
+                "url": "https://quickbooks.intuit.com/pricing/",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "partially_verified",
+            "checkedAt": "2026-11-15"
+        }
+    },
+    "xero": {
+        "pricing": {
+            "status": "partially_verified",
+            "currency": "USD",
+            "billingModel": "per_organization",
+            "billingOptions": [
+                "Monthly"
+            ],
+            "plans": [
+                {
+                    "name": "Early",
+                    "price": 27,
+                    "billingPeriod": "Monthly",
+                    "unit": "per organization/month",
+                    "note": "US list price effective October 1, 2026. Excludes sales tax and optional add-ons."
+                },
+                {
+                    "name": "Growing",
+                    "price": 59,
+                    "billingPeriod": "Monthly",
+                    "unit": "per organization/month",
+                    "note": "US list price effective October 1, 2026. Excludes sales tax and optional add-ons."
+                },
+                {
+                    "name": "Established",
+                    "price": 97,
+                    "billingPeriod": "Monthly",
+                    "unit": "per organization/month",
+                    "note": "US list price effective October 1, 2026. Excludes sales tax and optional add-ons."
+                }
+            ]
+        },
+        "sources": [
+            {
+                "label": "Official Xero US pricing",
+                "url": "https://www.xero.com/us/pricing-plans/",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            },
+            {
+                "label": "Official Xero 2026 US price update",
+                "url": "https://www.xero.com/us/pricing-plans/update/",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "partially_verified",
+            "checkedAt": "2026-11-15"
+        }
+    },
+    "freshbooks": {
+        "pricing": {
+            "status": "partially_verified",
+            "currency": "USD",
+            "billingModel": "per_organization",
+            "billingOptions": [
+                "Monthly",
+                "Annually"
+            ],
+            "plans": [
+                {
+                    "name": "Lite",
+                    "price": 23,
+                    "billingPeriod": "Monthly",
+                    "unit": "per account/month",
+                    "note": "Regular list price. Team members are an additional $11/user/month."
+                },
+                {
+                    "name": "Plus",
+                    "price": 43,
+                    "billingPeriod": "Monthly",
+                    "unit": "per account/month",
+                    "note": "Regular list price. Team members are an additional $11/user/month."
+                },
+                {
+                    "name": "Premium",
+                    "price": 70,
+                    "billingPeriod": "Monthly",
+                    "unit": "per account/month",
+                    "note": "Regular list price. Team members are an additional $11/user/month."
+                }
+            ]
+        },
+        "sources": [
+            {
+                "label": "Official FreshBooks pricing",
+                "url": "https://www.freshbooks.com/pricing",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            },
+            {
+                "label": "FreshBooks official 2026 price update",
+                "url": "https://www.freshbooks.com/2026-faq-price-change",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "partially_verified",
+            "checkedAt": "2026-11-15"
+        }
+    },
+    "zoho-books": {
+        "pricing": {
+            "status": "partially_verified",
+            "currency": "INR",
+            "billingModel": "per_organization",
+            "billingOptions": [
+                "Monthly",
+                "Annually"
+            ],
+            "plans": [
+                {
+                    "name": "Free",
+                    "price": 0,
+                    "billingPeriod": "Monthly",
+                    "unit": "per organization/month",
+                    "note": "Includes 1 user and 1 accountant."
+                },
+                {
+                    "name": "Standard",
+                    "price": 899,
+                    "billingPeriod": "Monthly",
+                    "unit": "per organization/month",
+                    "note": "Annual billing rate is ₹749 per organization/month. Includes 3 users."
+                },
+                {
+                    "name": "Professional",
+                    "price": 1799,
+                    "billingPeriod": "Monthly",
+                    "unit": "per organization/month",
+                    "note": "Annual billing rate is ₹1,499 per organization/month. Includes 5 users."
+                },
+                {
+                    "name": "Premium",
+                    "price": 3599,
+                    "billingPeriod": "Monthly",
+                    "unit": "per organization/month",
+                    "note": "Annual billing rate is ₹2,999 per organization/month. Includes 10 users."
+                },
+                {
+                    "name": "Elite",
+                    "price": 5999,
+                    "billingPeriod": "Monthly",
+                    "unit": "per organization/month",
+                    "note": "Annual billing rate is ₹4,999 per organization/month. Includes 15 users."
+                },
+                {
+                    "name": "Ultimate",
+                    "price": 9599,
+                    "billingPeriod": "Monthly",
+                    "unit": "per organization/month",
+                    "note": "Annual billing rate is ₹7,999 per organization/month. Includes 25 users."
+                }
+            ],
+            "freePlan": true
+        },
+        "sources": [
+            {
+                "label": "Official Zoho Books India pricing",
+                "url": "https://www.zoho.com/in/books/pricing/",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "partially_verified",
+            "checkedAt": "2026-11-15"
+        }
+    },
+    "tallyprime": {
+        "pricing": {
+            "status": "partially_verified",
+            "currency": "INR",
+            "billingModel": "license_based",
+            "billingOptions": [
+                "Monthly",
+                "Annually",
+                "Lifetime"
+            ],
+            "plans": [
+                {
+                    "name": "Silver Monthly",
+                    "price": 750,
+                    "billingPeriod": "Monthly",
+                    "unit": "single-PC license/month",
+                    "note": "Plus 18% GST. Licence is for a single PC."
+                },
+                {
+                    "name": "Silver Annual",
+                    "price": 8100,
+                    "billingPeriod": "Annually",
+                    "unit": "single-PC license/year",
+                    "note": "Plus 18% GST. Effective ₹675/month when paid annually."
+                },
+                {
+                    "name": "Silver Lifetime",
+                    "price": 22500,
+                    "billingPeriod": "One-time",
+                    "unit": "single-PC license",
+                    "note": "One-time licence price. Plus 18% GST."
+                }
+            ]
+        },
+        "sources": [
+            {
+                "label": "Official TallyPrime licence pricing",
+                "url": "https://tallysolutions.com/buy-tally/",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            },
+            {
+                "label": "Official TallyPrime monthly subscription",
+                "url": "https://tallysolutions.com/tally-monthly-subscription/",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "partially_verified",
+            "checkedAt": "2026-11-15"
+        }
+    },
+    "gusto": {
+        "pricing": {
+            "status": "partially_verified",
+            "currency": "USD",
+            "billingModel": "base_plus_per_employee",
+            "billingOptions": [
+                "Monthly"
+            ],
+            "plans": [
+                {
+                    "name": "Simple",
+                    "price": 49,
+                    "billingPeriod": "Monthly",
+                    "unit": "base fee/month",
+                    "note": "Additional $6 per person/month."
+                },
+                {
+                    "name": "Plus",
+                    "price": 80,
+                    "billingPeriod": "Monthly",
+                    "unit": "base fee/month",
+                    "note": "Additional $12 per person/month."
+                },
+                {
+                    "name": "Premium",
+                    "price": 180,
+                    "billingPeriod": "Monthly",
+                    "unit": "base fee/month",
+                    "note": "Additional $22 per person/month."
+                }
+            ]
+        },
+        "sources": [
+            {
+                "label": "Official Gusto pricing",
+                "url": "https://gusto.com/product/pricing",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "partially_verified",
+            "checkedAt": "2026-11-15"
+        }
+    },
+    "rippling": {
+        "pricing": {
+            "status": "partially_verified",
+            "currency": "USD",
+            "billingModel": "base_plus_per_employee",
+            "billingOptions": [
+                "Monthly"
+            ],
+            "plans": [
+                {
+                    "name": "Starting price",
+                    "price": 8,
+                    "billingPeriod": "Monthly",
+                    "unit": "per employee/month",
+                    "note": "Starting rate only. A monthly base fee applies and the final price depends on selected products and services."
+                }
+            ]
+        },
+        "sources": [
+            {
+                "label": "Official Rippling pricing",
+                "url": "https://www.rippling.com/pricing",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "partially_verified",
+            "checkedAt": "2026-11-15"
+        }
+    },
+    "greythr": {
+        "pricing": {
+            "status": "partially_verified",
+            "currency": "INR",
+            "billingModel": "base_plus_per_employee",
+            "billingOptions": [
+                "Monthly"
+            ],
+            "plans": [
+                {
+                    "name": "Essential",
+                    "price": 2495,
+                    "billingPeriod": "Monthly",
+                    "unit": "base fee/month",
+                    "note": "Includes the first 50 employees. Additional employees cost ₹45/employee/month."
+                },
+                {
+                    "name": "Growth",
+                    "price": 4495,
+                    "billingPeriod": "Monthly",
+                    "unit": "base fee/month",
+                    "note": "Includes the first 50 employees. Additional employees cost ₹85/employee/month."
+                },
+                {
+                    "name": "Premium",
+                    "price": null,
+                    "billingPeriod": "Custom",
+                    "unit": "custom quote",
+                    "note": "Custom pricing for the full suite."
+                }
+            ]
+        },
+        "sources": [
+            {
+                "label": "Official greytHR pricing",
+                "url": "https://www.greythr.com/pricing",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            },
+            {
+                "label": "Official greytHR pricing calculator",
+                "url": "https://www.greythr.com/pricing-calculator/",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "partially_verified",
+            "checkedAt": "2026-11-15"
+        }
+    },
+    "keka": {
+        "pricing": {
+            "status": "unverified",
+            "billingModel": "custom_quote",
+            "plans": [],
+            "pricingNote": "Keka publishes product tiers and feature information, but the official pricing page requires customers to request a custom quote. No numeric subscription price has been added."
+        },
+        "sources": [
+            {
+                "label": "Official Keka pricing and plans",
+                "url": "https://keka.com/pricing",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "partially_verified",
+            "checkedAt": "2026-11-15"
+        }
+    },
+    "gotomeeting": {
+        "pricing": {
+            "status": "unverified",
+            "billingModel": "per_organizer",
+            "plans": [],
+            "pricingNote": "The official page offers Professional and Business plans, but the displayed price depends on the selected currency and billing term. No numeric price has been recorded without a confirmed selection."
+        },
+        "sources": [
+            {
+                "label": "Official GoTo Meeting pricing",
+                "url": "https://www.goto.com/pricing/meeting",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "partially_verified",
+            "checkedAt": "2026-11-15"
+        }
+    }
+}

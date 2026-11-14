@@ -4,46 +4,81 @@ import {
   formatBillingPeriod,
 } from './comparison-section/formatPrice'
 
+const BILLING_MODEL_NOTES = {
+  per_organization:
+    'This subscription is priced per organisation, not per user. It is not used in per-seat cost comparisons.',
+  base_plus_per_employee:
+    'This plan combines a base fee with employee charges. The displayed base price is not the complete team cost.',
+  license_based:
+    'This is a licence-based product. The licence price is not treated as a per-user monthly subscription.',
+  per_organizer:
+    'This product is priced per meeting organiser. It is not treated as a per-attendee price.',
+  custom_quote:
+    'The vendor requires a custom quote. No numeric price has been assumed.',
+}
+
 function PricingPlans({ vendor }) {
   const pricing = vendor?.pricing
 
   if (!pricing || pricing.status === 'unverified') {
     return (
       <p className="text-sm text-gray-500">
-        Pricing information is awaiting verification.
+        {pricing?.pricingNote ||
+          'Pricing information is awaiting verification.'}
       </p>
     )
   }
 
   const plans = Array.isArray(pricing.plans)
-    ? pricing.plans.filter((plan) => plan && typeof plan === 'object')
+    ? pricing.plans.filter(
+        (plan) => plan && typeof plan === 'object'
+      )
     : []
 
   if (plans.length === 0) {
     return (
       <p className="text-sm text-gray-500">
-        No pricing plans listed.
+        No numeric pricing plans are currently listed.
       </p>
     )
   }
 
   const trialDays = pricing.freeTrialDays || pricing.trialDays
-  const hasFreeTrial = pricing.freeTrial === true || Number(trialDays) > 0
+  const hasFreeTrial =
+    pricing.freeTrial === true || Number(trialDays) > 0
+
+  const billingNote =
+    BILLING_MODEL_NOTES[pricing.billingModel]
 
   return (
     <div className="min-w-0">
-      {pricing.status !== 'verified' && (
+      {billingNote && (
         <div className="mb-3 flex items-start gap-2 rounded-lg bg-gray-50 px-3 py-2 text-xs text-gray-600">
           <Info size={14} className="mt-0.5 shrink-0" />
-          <span>Pricing details still need verification.</span>
+          <span>{billingNote}</span>
+        </div>
+      )}
+
+      {pricing.status !== 'verified' && !billingNote && (
+        <div className="mb-3 flex items-start gap-2 rounded-lg bg-gray-50 px-3 py-2 text-xs text-gray-600">
+          <Info size={14} className="mt-0.5 shrink-0" />
+          <span>
+            Some pricing details still need verification.
+          </span>
         </div>
       )}
 
       <div className="divide-y divide-gray-100">
         {plans.map((plan, index) => {
           const planName = plan.name || `Plan ${index + 1}`
-          const price = formatPrice(plan.price, pricing.currency)
-          const billingPeriod = formatBillingPeriod(plan.billingPeriod)
+          const price =
+            plan.price === null || plan.price === undefined
+              ? 'Custom quote'
+              : formatPrice(plan.price, pricing.currency)
+
+          const billingPeriod = formatBillingPeriod(
+            plan.billingPeriod
+          )
 
           return (
             <div
@@ -62,7 +97,9 @@ function PricingPlans({ vendor }) {
 
               {(billingPeriod || plan.unit) && (
                 <p className="text-xs text-gray-500">
-                  {[billingPeriod, plan.unit].filter(Boolean).join(' · ')}
+                  {[billingPeriod, plan.unit]
+                    .filter(Boolean)
+                    .join(' · ')}
                 </p>
               )}
 
