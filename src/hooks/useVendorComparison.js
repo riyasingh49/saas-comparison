@@ -1,4 +1,3 @@
-
 import { useMemo, useState } from 'react'
 import { MAX_COMPARE } from '../components/comparison/comparison-section/constants'
 
