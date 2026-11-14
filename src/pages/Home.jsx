@@ -11,6 +11,7 @@ import DecisionSupport from '../components/home/DecisionSupport'
 import PricingExplainer from '../components/home/PricingExplainer'
 import ComparisonSection from '../components/comparison/ComparisonSection'
 import useHomePage from '../hooks/useHomePage'
+import useTheme from '../hooks/useTheme'
 import enrichVendorsWithResearch from '../utils/vendorResearch'
 import getSearchPlaceholder from '../utils/getSearchPlaceholder'
 import vendors from '../data/vendors.json'
@@ -19,6 +20,8 @@ import comparisonFeatures from '../data/comparison-features.json'
 
 function Home() {
   const [recommendedVendorIds, setRecommendedVendorIds] = useState([])
+  const { theme, toggleTheme } = useTheme()
+
   const researchedVendors = enrichVendorsWithResearch(vendors)
 
   const {
@@ -81,6 +84,8 @@ function Home() {
       <Navbar
         region={pageState.region}
         onRegionChange={handleRegionChange}
+        theme={theme}
+        onThemeToggle={toggleTheme}
       />
 
       <main className="pb-32">

@@ -181,29 +181,78 @@ svg {
 }
 
 
-@media (max-width: 640px) {
-  .fixed-search-dock {
-    padding-inline: 10px;
-  }
+
+/* Dark theme colours for the existing neutral palette. */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --color-page: #111827;
+  --color-surface: #1f2937;
+  --color-surface-muted: #273449;
+  --color-border: #374151;
+  --color-border-strong: #4b5563;
+  --color-heading: #f9fafb;
+  --color-text: #d1d5db;
+  --color-muted: #9ca3af;
+  --color-accent: #d1d5db;
+  --color-accent-hover: #f9fafb;
+  --shadow-card: 0 1px 3px rgb(0 0 0 / 20%);
+
+  --color-gray-50: #111827;
+  --color-gray-100: #1f2937;
+  --color-gray-200: #374151;
+  --color-gray-300: #4b5563;
+  --color-gray-400: #6b7280;
+  --color-gray-500: #9ca3af;
+  --color-gray-600: #d1d5db;
+  --color-gray-700: #e5e7eb;
+  --color-gray-800: #f3f4f6;
+  --color-gray-900: #f9fafb;
+  --color-gray-950: #ffffff;
+
+  --color-slate-50: #111827;
+  --color-slate-100: #1f2937;
+  --color-slate-200: #374151;
+  --color-slate-300: #4b5563;
+  --color-slate-400: #6b7280;
+  --color-slate-500: #9ca3af;
+  --color-slate-600: #d1d5db;
+  --color-slate-700: #e5e7eb;
+  --color-slate-800: #f3f4f6;
+  --color-slate-900: #f9fafb;
+  --color-slate-950: #ffffff;
 }
 
-@media (max-width: 640px) {
-  .container {
-    width: min(100% - 28px, 1200px);
-  }
-
-  .section-spacing {
-    padding-block: 32px;
-  }
+/* White surfaces become dark grey surfaces. */
+:root[data-theme='dark'] .bg-white {
+  background-color: var(--color-surface);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
+:root[data-theme='dark'] .bg-white\/95 {
+  background-color: rgb(31 41 55 / 95%);
+}
+
+/* Keep dark buttons dark with readable white text. */
+:root[data-theme='dark'] .bg-gray-900,
+:root[data-theme='dark'] .bg-slate-800 {
+  background-color: #374151;
+  color: #ffffff;
+  border-color: #4b5563;
+}
+
+:root[data-theme='dark'] .hover\:bg-gray-700:hover {
+  background-color: #4b5563;
+}
+
+/* Keep the fixed search dock consistent with the selected theme. */
+:root[data-theme='dark'] .fixed-search-dock {
+  background: rgb(31 41 55 / 96%);
+  border-color: var(--color-border);
+  box-shadow: 0 -4px 18px rgb(0 0 0 / 20%);
+}
+
+/* Readable text selection. */
+:root[data-theme='dark'] ::selection {
+  background: #4b5563;
+  color: #ffffff;
 }

@@ -1,13 +1,19 @@
 import { useState } from 'react'
 import { Menu, X, Search, ArrowRight } from 'lucide-react'
 import RegionSelector from './RegionSelector'
+import ThemeToggle from './ThemeToggle'
 
 const navigationLinks = [
   { label: 'Categories', href: '#categories' },
   { label: 'Compare Tools', href: '#comparison' },
 ]
 
-function Navbar({ region = 'US', onRegionChange }) {
+function Navbar({
+  region = 'US',
+  onRegionChange,
+  theme = 'light',
+  onThemeToggle,
+}) {
   const [menuOpen, setMenuOpen] = useState(false)
 
   const closeMenu = () => setMenuOpen(false)
@@ -67,6 +73,11 @@ function Navbar({ region = 'US', onRegionChange }) {
             onChange={onRegionChange}
           />
 
+          <ThemeToggle
+            theme={theme}
+            onToggle={onThemeToggle}
+          />
+
           <button
             type="button"
             onClick={focusSearch}
@@ -115,6 +126,13 @@ function Navbar({ region = 'US', onRegionChange }) {
               <RegionSelector
                 region={region}
                 onChange={onRegionChange}
+              />
+            </div>
+
+            <div className="px-4 py-2">
+              <ThemeToggle
+                theme={theme}
+                onToggle={onThemeToggle}
               />
             </div>
 
