@@ -1,5 +1,5 @@
-import categories from '../data/categories.json'
-import vendors from '../data/vendors.json'
+import categories from '../data/categories.json' with { type: 'json' }
+import vendors from '../data/vendors.json' with { type: 'json' }
 
 function normalize(value) {
   return String(value ?? '').trim().toLowerCase().replace(/\s+/g, ' ')
@@ -36,6 +36,20 @@ function matchCategoryName(query) {
   ) || null
 }
 
+function matchCategoryKeyword(query) {
+  for (const category of categories) {
+    const keywords = Array.isArray(category.keywords)
+      ? category.keywords
+      : []
+
+    if (keywords.some((keyword) => matchesPhrase(query, keyword))) {
+      return category
+    }
+  }
+
+  return null
+}
+
 function matchSubcategory(query) {
   for (const category of categories) {
     const subcategory = (category.subTypes || []).find((item) =>
@@ -54,20 +68,6 @@ function matchVendor(query) {
   ) || null
 }
 
-function matchCategoryKeyword(query) {
-  for (const category of categories) {
-    const keywords = Array.isArray(category.keywords)
-      ? category.keywords
-      : []
-
-    if (keywords.some((keyword) => matchesPhrase(query, keyword))) {
-      return category
-    }
-  }
-
-  return null
-}
-
 export function findCategoryByKeyword(searchTerm) {
   const query = normalize(searchTerm)
 
@@ -79,6 +79,14 @@ export function findCategoryByKeyword(searchTerm) {
 
   if (category) {
     return createResult('category', { category })
+  }
+
+  const keywordCategory = matchCategoryKeyword(query)
+
+  if (keywordCategory) {
+    return createResult('category', {
+      category: keywordCategory,
+    })
   }
 
   const subcategoryMatch = matchSubcategory(query)
@@ -100,14 +108,6 @@ export function findCategoryByKeyword(searchTerm) {
     return createResult('vendor', {
       category: vendorCategory,
       vendor,
-    })
-  }
-
-  const keywordCategory = matchCategoryKeyword(query)
-
-  if (keywordCategory) {
-    return createResult('category', {
-      category: keywordCategory,
     })
   }
 
