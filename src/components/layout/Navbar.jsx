@@ -1,11 +1,10 @@
 
 import { useState } from 'react'
-import { Menu, X, Search, ChevronDown } from 'lucide-react'
+import { Menu, X, Search, ArrowRight } from 'lucide-react'
 
 const navigationLinks = [
   { label: 'Categories', href: '#categories' },
   { label: 'Compare Tools', href: '#comparison' },
-  { label: 'Guides', href: '#guides' },
 ]
 
 function Navbar() {
@@ -26,14 +25,16 @@ function Navbar() {
     }, 350)
   }
 
+  const exploreButtonClass =
+    'inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-black px-5 py-2.5 text-sm font-semibold text-whites shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:bg-gray-800 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2'
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-200 bg-white">
+    <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/95 backdrop-blur">
       <nav
-        className="container mx-auto flex min-h-16 items-center justify-between gap-4 py-3"
+        className="mx-auto flex min-h-16 max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8"
         aria-label="Main navigation"
       >
         <a
-          href="/"
+          href="#top"
           className="flex shrink-0 items-center gap-2.5"
           aria-label="SaaS Compare home"
           onClick={closeMenu}
@@ -52,7 +53,7 @@ function Navbar() {
             <a
               key={link.label}
               href={link.href}
-              className="text-sm font-medium text-gray-600 transition-colors hover:text-gray-950"
+              className="text-sm font-medium text-gray-600 transition-colors hover:text-gray-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-4"
             >
               {link.label}
             </a>
@@ -69,12 +70,9 @@ function Navbar() {
             <Search size={19} />
           </button>
 
-          <a
-            href="#comparison"
-            className="flex items-center gap-2 rounded-lg border border-gray-900 bg-gray-900 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-gray-700"
-          >
-            Explore tools
-            <ChevronDown size={15} />
+          <a href="#comparison" className={exploreButtonClass}>
+            Explore Tools
+            <ArrowRight size={17} strokeWidth={2.5} />
           </a>
         </div>
 
@@ -95,7 +93,7 @@ function Navbar() {
           id="mobile-navigation"
           className="border-t border-gray-200 bg-white px-4 py-4 md:hidden"
         >
-          <div className="container mx-auto flex flex-col gap-1">
+          <div className="mx-auto flex max-w-7xl flex-col gap-1 sm:px-2">
             {navigationLinks.map((link) => (
               <a
                 key={link.label}
@@ -110,7 +108,7 @@ function Navbar() {
             <button
               type="button"
               onClick={focusSearch}
-              className="mt-2 flex items-center justify-center gap-2 rounded-lg border border-gray-200 px-4 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50"
+              className="mt-2 flex items-center justify-center gap-2 rounded-lg border border-gray-200 px-4 py-3 text-sm font-medium text-gray-300 transition-colors hover:bg-gray-50"
             >
               <Search size={17} />
               Search software
@@ -119,10 +117,10 @@ function Navbar() {
             <a
               href="#comparison"
               onClick={closeMenu}
-              className="mt-2 flex items-center justify-center gap-2 rounded-lg bg-gray-900 px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-gray-700"
+              className={`${exploreButtonClass} mt-2 w-full`}
             >
-              Explore tools
-              <ChevronDown size={15} />
+              Explore Tools
+              <ArrowRight size={17} strokeWidth={2.5} />
             </a>
           </div>
         </div>

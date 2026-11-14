@@ -1,20 +1,13 @@
 
 import { ArrowUpRight, Layers3, Mail } from 'lucide-react'
 
-const footerGroups = [
+const footerLinks = [
   {
     title: 'Explore',
     links: [
       { label: 'All categories', href: '#categories' },
       { label: 'Compare software', href: '#comparison' },
       { label: 'Search tools', href: '#software-search' },
-    ],
-  },
-  {
-    title: 'Resources',
-    links: [
-      { label: 'How it works', href: '#how-it-works' },
-      { label: 'Software guides', href: '#guides' },
     ],
   },
 ]
@@ -25,12 +18,12 @@ function Footer() {
   return (
     <footer className="mt-16 border-t border-gray-200 bg-white">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr]">
           <div className="max-w-sm">
             <a
               href="#top"
               className="inline-flex items-center gap-2 text-gray-900"
-              aria-label="Back to top"
+              aria-label="Back to SaaS Compare homepage"
             >
               <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gray-900 text-white">
                 <Layers3 size={19} />
@@ -56,7 +49,7 @@ function Footer() {
             </a>
           </div>
 
-          {footerGroups.map((group) => (
+          {footerLinks.map((group) => (
             <div key={group.title}>
               <h2 className="text-sm font-semibold text-gray-900">
                 {group.title}
@@ -90,9 +83,7 @@ function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col gap-3 border-t border-gray-200 pt-6 text-sm text-gray-500 sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            © {currentYear} SaaS Compare. All rights reserved.
-          </p>
+          <p>© {currentYear} SaaS Compare. All rights reserved.</p>
 
           <a
             href="#top"

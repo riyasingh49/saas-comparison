@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { ExternalLink, X, Check, Minus } from 'lucide-react'
+import PricingPlans from './PricingPlans'
 
 function VendorDetailsSheet({
   vendor,
@@ -149,6 +150,12 @@ function VendorDetailsSheet({
               </p>
             </div>
           )}
+
+          <div className="mt-7">
+            <h3 className="text-sm font-semibold text-slate-900">Plans and pricing</h3>
+            <div className="mt-3 rounded-2xl border border-slate-200 p-4"><PricingPlans vendor={vendor} /></div>
+            {vendor.sources?.length > 0 && <a href={vendor.sources[0].url} target="_blank" rel="noreferrer" className="mt-3 inline-flex text-sm font-medium text-indigo-600 hover:text-indigo-700">View pricing source (checked {vendor.sources[0].checkedAt || 'date unavailable'})</a>}
+          </div>
 
           <div className="mt-7">
             <h3 className="text-sm font-semibold text-slate-900">

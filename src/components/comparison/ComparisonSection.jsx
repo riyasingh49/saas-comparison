@@ -124,6 +124,8 @@ function ComparisonSection({
             You've reached the limit of {maxCompare} tools per comparison.
           </p>
         )}
+
+        <p className="text-center text-xs leading-5 text-gray-500">SaaS Compare is an independent research tool, not a reseller. Prices are list prices from the recorded sources, may change, and can exclude taxes, onboarding, add-ons, or usage charges.</p>
       </div>
     </section>
   )

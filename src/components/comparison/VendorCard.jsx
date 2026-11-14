@@ -37,6 +37,12 @@ function VendorCard({
         {vendor.description || 'Vendor information is not available yet.'}
       </p>
 
+      <div className="mt-3 flex flex-wrap gap-2 text-xs">
+        {vendor.startingPrice && <span className="rounded-full bg-slate-100 px-2.5 py-1 font-medium text-slate-700">From {vendor.startingPrice}</span>}
+        {vendor.features?.freePlan === true && <span className="rounded-full bg-emerald-50 px-2.5 py-1 font-medium text-emerald-700">Free plan</span>}
+        {vendor.pricing?.freeTrial === true && <span className="rounded-full bg-blue-50 px-2.5 py-1 font-medium text-blue-700">Free trial</span>}
+      </div>
+
       {vendor.subcategories?.length > 0 && (
         <div className="mt-4 flex flex-wrap gap-2">
           {vendor.subcategories.slice(0, 3).map((subcategory) => (

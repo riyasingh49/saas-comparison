@@ -1,8 +1,12 @@
+
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
 import SummarySection from '../components/home/SummarySection'
 import SoftwareSearch from '../components/home/SoftwareSearch'
 import CategoryNavigation from '../components/home/CategoryNavigation'
+import SoftwareCostCalculator from '../components/home/SoftwareCostCalculator'
+import DecisionSupport from '../components/home/DecisionSupport'
+import PricingExplainer from '../components/home/PricingExplainer'
 import ComparisonSection from '../components/comparison/ComparisonSection'
 
 import useHomePage from '../hooks/useHomePage'
@@ -21,8 +25,11 @@ function Home() {
     handleSearchResult,
   } = useHomePage(categories, vendors)
 
+  const summarySources = visibleVendors.flatMap((vendor) => vendor.sources || []).slice(0, 5)
+  const checkedDates = summarySources.map((source) => source.checkedAt).filter(Boolean)
+
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div id="top" className="min-h-screen bg-gray-50">
       <Navbar />
 
       <main>
@@ -30,20 +37,26 @@ function Home() {
           title={summaryContent.title}
           summary={summaryContent.summary}
           details={summaryContent.details}
+          sources={summarySources}
+          dateChecked={checkedDates[0] || ''}
         />
 
         <div className="container mx-auto px-4 pt-6">
-          <SoftwareSearch
-            onSearchResult={handleSearchResult}
+          <SoftwareSearch onSearchResult={handleSearchResult} />
+        </div>
+
+        <div id="categories" className="scroll-mt-24">
+          <CategoryNavigation
+            initialCategoryId={pageState.category?.id || 'all'}
+            initialSubcategory={pageState.subcategory}
+            onCategoryChange={handleCategoryChange}
+            onSubcategoryChange={handleSubcategoryChange}
           />
         </div>
 
-        <CategoryNavigation
-          initialCategoryId={pageState.category?.id || 'all'}
-          initialSubcategory={pageState.subcategory}
-          onCategoryChange={handleCategoryChange}
-          onSubcategoryChange={handleSubcategoryChange}
-        />
+        <SoftwareCostCalculator vendors={visibleVendors} />
+
+        <PricingExplainer />
 
         <ComparisonSection
           vendors={visibleVendors}
@@ -52,6 +65,8 @@ function Home() {
           selectedSubcategory={pageState.subcategory}
           title="Explore and compare software"
         />
+
+        <DecisionSupport categoryName={pageState.category?.name || 'business software'} />
       </main>
 
       <Footer />
