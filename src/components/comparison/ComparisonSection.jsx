@@ -33,17 +33,27 @@ function ComparisonSection({
     openVendorDetails,
     closeVendorDetails,
     maxCompare,
-  } = useVendorComparison(vendors, selectedCategory?.id || '')
+  } = useVendorComparison(
+    vendors,
+    `${selectedCategory?.id || 'all'}:${selectedSubcategory || 'all'}`
+  )
 
   const filteredVendors = useMemo(
     () =>
       filterAndSortVendors({
         vendors,
         selectedCategory,
+        selectedSubcategory,
         searchQuery,
         sortBy,
       }),
-    [vendors, selectedCategory, searchQuery, sortBy]
+    [
+      vendors,
+      selectedCategory,
+      selectedSubcategory,
+      searchQuery,
+      sortBy,
+    ]
   )
 
   const handleClearFilters = () => {
@@ -109,7 +119,7 @@ function ComparisonSection({
       />
 
       {selectedVendorIds.length >= maxCompare && !showComparison && (
-        <p className="text-center text-sm text-slate-500">
+        <p className="text-center text-sm text-gray-500">
           You've reached the limit of {maxCompare} tools per comparison.
         </p>
       )}

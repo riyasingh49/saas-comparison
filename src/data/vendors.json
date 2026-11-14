@@ -3,218 +3,590 @@
       "id": "salesforce",
       "name": "Salesforce",
       "category": "CRM Software",
-      "description": "Product details not yet verified.",
-      "features": {}
+      "description": "Vendor information is awaiting verification.",
+      "subcategories": [],
+      "pricing": {
+        "status": "unverified",
+        "currency": null,
+        "billingOptions": [],
+        "plans": []
+      },
+      "features": {},
+      "sources": [],
+      "verification": {
+        "status": "pending",
+        "checkedAt": null
+      }
     },
     {
       "id": "pipedrive",
       "name": "Pipedrive",
       "category": "CRM Software",
-      "description": "Product details not yet verified.",
-      "features": {}
+      "description": "Vendor information is awaiting verification.",
+      "subcategories": [],
+      "pricing": {
+        "status": "unverified",
+        "currency": null,
+        "billingOptions": [],
+        "plans": []
+      },
+      "features": {},
+      "sources": [],
+      "verification": {
+        "status": "pending",
+        "checkedAt": null
+      }
     },
     {
       "id": "zoho-crm",
       "name": "Zoho CRM",
       "category": "CRM Software",
-      "description": "Product details not yet verified.",
-      "features": {}
+      "description": "Vendor information is awaiting verification.",
+      "subcategories": [],
+      "pricing": {
+        "status": "unverified",
+        "currency": null,
+        "billingOptions": [],
+        "plans": []
+      },
+      "features": {},
+      "sources": [],
+      "verification": {
+        "status": "pending",
+        "checkedAt": null
+      }
     },
     {
       "id": "freshsales",
       "name": "Freshsales",
       "category": "CRM Software",
-      "description": "Product details not yet verified.",
-      "features": {}
+      "description": "Vendor information is awaiting verification.",
+      "subcategories": [],
+      "pricing": {
+        "status": "unverified",
+        "currency": null,
+        "billingOptions": [],
+        "plans": []
+      },
+      "features": {},
+      "sources": [],
+      "verification": {
+        "status": "pending",
+        "checkedAt": null
+      }
     },
     {
       "id": "asana",
       "name": "Asana",
       "category": "Project Management",
-      "description": "Product details not yet verified.",
-      "features": {}
+      "description": "Vendor information is awaiting verification.",
+      "subcategories": [],
+      "pricing": {
+        "status": "unverified",
+        "currency": null,
+        "billingOptions": [],
+        "plans": []
+      },
+      "features": {},
+      "sources": [],
+      "verification": {
+        "status": "pending",
+        "checkedAt": null
+      }
     },
     {
       "id": "monday",
       "name": "monday.com",
       "category": "Project Management",
-      "description": "Product details not yet verified.",
-      "features": {}
+      "description": "Vendor information is awaiting verification.",
+      "subcategories": [],
+      "pricing": {
+        "status": "unverified",
+        "currency": null,
+        "billingOptions": [],
+        "plans": []
+      },
+      "features": {},
+      "sources": [],
+      "verification": {
+        "status": "pending",
+        "checkedAt": null
+      }
     },
     {
       "id": "clickup",
       "name": "ClickUp",
       "category": "Project Management",
-      "description": "Product details not yet verified.",
-      "features": {}
+      "description": "Vendor information is awaiting verification.",
+      "subcategories": [],
+      "pricing": {
+        "status": "unverified",
+        "currency": null,
+        "billingOptions": [],
+        "plans": []
+      },
+      "features": {},
+      "sources": [],
+      "verification": {
+        "status": "pending",
+        "checkedAt": null
+      }
     },
     {
       "id": "jira",
       "name": "Jira",
       "category": "Project Management",
-      "description": "Product details not yet verified.",
-      "features": {}
+      "description": "Vendor information is awaiting verification.",
+      "subcategories": [],
+      "pricing": {
+        "status": "unverified",
+        "currency": null,
+        "billingOptions": [],
+        "plans": []
+      },
+      "features": {},
+      "sources": [],
+      "verification": {
+        "status": "pending",
+        "checkedAt": null
+      }
     },
     {
       "id": "trello",
       "name": "Trello",
       "category": "Project Management",
-      "description": "Product details not yet verified.",
-      "features": {}
+      "description": "Vendor information is awaiting verification.",
+      "subcategories": [],
+      "pricing": {
+        "status": "unverified",
+        "currency": null,
+        "billingOptions": [],
+        "plans": []
+      },
+      "features": {},
+      "sources": [],
+      "verification": {
+        "status": "pending",
+        "checkedAt": null
+      }
     },
     {
       "id": "quickbooks",
       "name": "QuickBooks",
       "category": "Accounting",
-      "description": "Product details not yet verified.",
-      "features": {}
+      "description": "Vendor information is awaiting verification.",
+      "subcategories": [],
+      "pricing": {
+        "status": "unverified",
+        "currency": null,
+        "billingOptions": [],
+        "plans": []
+      },
+      "features": {},
+      "sources": [],
+      "verification": {
+        "status": "pending",
+        "checkedAt": null
+      }
     },
     {
       "id": "xero",
       "name": "Xero",
       "category": "Accounting",
-      "description": "Product details not yet verified.",
-      "features": {}
+      "description": "Vendor information is awaiting verification.",
+      "subcategories": [],
+      "pricing": {
+        "status": "unverified",
+        "currency": null,
+        "billingOptions": [],
+        "plans": []
+      },
+      "features": {},
+      "sources": [],
+      "verification": {
+        "status": "pending",
+        "checkedAt": null
+      }
     },
     {
       "id": "freshbooks",
       "name": "FreshBooks",
       "category": "Accounting",
-      "description": "Product details not yet verified.",
-      "features": {}
+      "description": "Vendor information is awaiting verification.",
+      "subcategories": [],
+      "pricing": {
+        "status": "unverified",
+        "currency": null,
+        "billingOptions": [],
+        "plans": []
+      },
+      "features": {},
+      "sources": [],
+      "verification": {
+        "status": "pending",
+        "checkedAt": null
+      }
     },
     {
       "id": "zoho-books",
       "name": "Zoho Books",
       "category": "Accounting",
-      "description": "Product details not yet verified.",
-      "features": {}
+      "description": "Vendor information is awaiting verification.",
+      "subcategories": [],
+      "pricing": {
+        "status": "unverified",
+        "currency": null,
+        "billingOptions": [],
+        "plans": []
+      },
+      "features": {},
+      "sources": [],
+      "verification": {
+        "status": "pending",
+        "checkedAt": null
+      }
     },
     {
       "id": "tallyprime",
       "name": "TallyPrime",
       "category": "Accounting",
-      "description": "Product details not yet verified.",
-      "features": {}
+      "description": "Vendor information is awaiting verification.",
+      "subcategories": [],
+      "pricing": {
+        "status": "unverified",
+        "currency": null,
+        "billingOptions": [],
+        "plans": []
+      },
+      "features": {},
+      "sources": [],
+      "verification": {
+        "status": "pending",
+        "checkedAt": null
+      }
     },
     {
       "id": "gusto",
       "name": "Gusto",
       "category": "HR & Payroll",
-      "description": "Product details not yet verified.",
-      "features": {}
+      "description": "Vendor information is awaiting verification.",
+      "subcategories": [],
+      "pricing": {
+        "status": "unverified",
+        "currency": null,
+        "billingOptions": [],
+        "plans": []
+      },
+      "features": {},
+      "sources": [],
+      "verification": {
+        "status": "pending",
+        "checkedAt": null
+      }
     },
     {
       "id": "rippling",
       "name": "Rippling",
       "category": "HR & Payroll",
-      "description": "Product details not yet verified.",
-      "features": {}
+      "description": "Vendor information is awaiting verification.",
+      "subcategories": [],
+      "pricing": {
+        "status": "unverified",
+        "currency": null,
+        "billingOptions": [],
+        "plans": []
+      },
+      "features": {},
+      "sources": [],
+      "verification": {
+        "status": "pending",
+        "checkedAt": null
+      }
     },
     {
       "id": "keka",
       "name": "Keka",
       "category": "HR & Payroll",
-      "description": "Product details not yet verified.",
-      "features": {}
+      "description": "Vendor information is awaiting verification.",
+      "subcategories": [],
+      "pricing": {
+        "status": "unverified",
+        "currency": null,
+        "billingOptions": [],
+        "plans": []
+      },
+      "features": {},
+      "sources": [],
+      "verification": {
+        "status": "pending",
+        "checkedAt": null
+      }
     },
     {
       "id": "greythr",
       "name": "greytHR",
       "category": "HR & Payroll",
-      "description": "Product details not yet verified.",
-      "features": {}
+      "description": "Vendor information is awaiting verification.",
+      "subcategories": [],
+      "pricing": {
+        "status": "unverified",
+        "currency": null,
+        "billingOptions": [],
+        "plans": []
+      },
+      "features": {},
+      "sources": [],
+      "verification": {
+        "status": "pending",
+        "checkedAt": null
+      }
     },
     {
       "id": "slack",
       "name": "Slack",
       "category": "Team Collaboration",
-      "description": "Product details not yet verified.",
-      "features": {}
+      "description": "Vendor information is awaiting verification.",
+      "subcategories": [],
+      "pricing": {
+        "status": "unverified",
+        "currency": null,
+        "billingOptions": [],
+        "plans": []
+      },
+      "features": {},
+      "sources": [],
+      "verification": {
+        "status": "pending",
+        "checkedAt": null
+      }
     },
     {
       "id": "microsoft-teams",
       "name": "Microsoft Teams",
       "category": "Team Collaboration",
-      "description": "Product details not yet verified.",
-      "features": {}
+      "description": "Vendor information is awaiting verification.",
+      "subcategories": [],
+      "pricing": {
+        "status": "unverified",
+        "currency": null,
+        "billingOptions": [],
+        "plans": []
+      },
+      "features": {},
+      "sources": [],
+      "verification": {
+        "status": "pending",
+        "checkedAt": null
+      }
     },
     {
       "id": "zoom",
       "name": "Zoom",
       "category": "Video Conferencing",
-      "description": "Product details not yet verified.",
-      "features": {}
+      "description": "Vendor information is awaiting verification.",
+      "subcategories": [],
+      "pricing": {
+        "status": "unverified",
+        "currency": null,
+        "billingOptions": [],
+        "plans": []
+      },
+      "features": {},
+      "sources": [],
+      "verification": {
+        "status": "pending",
+        "checkedAt": null
+      }
     },
     {
       "id": "webex",
       "name": "Webex",
       "category": "Video Conferencing",
-      "description": "Product details not yet verified.",
-      "features": {}
+      "description": "Vendor information is awaiting verification.",
+      "subcategories": [],
+      "pricing": {
+        "status": "unverified",
+        "currency": null,
+        "billingOptions": [],
+        "plans": []
+      },
+      "features": {},
+      "sources": [],
+      "verification": {
+        "status": "pending",
+        "checkedAt": null
+      }
     },
     {
       "id": "google-meet",
       "name": "Google Meet",
       "category": "Video Conferencing",
-      "description": "Product details not yet verified.",
-      "features": {}
+      "description": "Vendor information is awaiting verification.",
+      "subcategories": [],
+      "pricing": {
+        "status": "unverified",
+        "currency": null,
+        "billingOptions": [],
+        "plans": []
+      },
+      "features": {},
+      "sources": [],
+      "verification": {
+        "status": "pending",
+        "checkedAt": null
+      }
     },
     {
       "id": "gotomeeting",
       "name": "GoTo Meeting",
       "category": "Video Conferencing",
-      "description": "Product details not yet verified.",
-      "features": {}
+      "description": "Vendor information is awaiting verification.",
+      "subcategories": [],
+      "pricing": {
+        "status": "unverified",
+        "currency": null,
+        "billingOptions": [],
+        "plans": []
+      },
+      "features": {},
+      "sources": [],
+      "verification": {
+        "status": "pending",
+        "checkedAt": null
+      }
     },
     {
       "id": "mixpanel",
       "name": "Mixpanel",
       "category": "Analytics",
-      "description": "Product details not yet verified.",
-      "features": {}
+      "description": "Vendor information is awaiting verification.",
+      "subcategories": [],
+      "pricing": {
+        "status": "unverified",
+        "currency": null,
+        "billingOptions": [],
+        "plans": []
+      },
+      "features": {},
+      "sources": [],
+      "verification": {
+        "status": "pending",
+        "checkedAt": null
+      }
     },
     {
       "id": "amplitude",
       "name": "Amplitude",
       "category": "Analytics",
-      "description": "Product details not yet verified.",
-      "features": {}
+      "description": "Vendor information is awaiting verification.",
+      "subcategories": [],
+      "pricing": {
+        "status": "unverified",
+        "currency": null,
+        "billingOptions": [],
+        "plans": []
+      },
+      "features": {},
+      "sources": [],
+      "verification": {
+        "status": "pending",
+        "checkedAt": null
+      }
     },
     {
       "id": "power-bi",
       "name": "Power BI",
       "category": "Analytics",
-      "description": "Product details not yet verified.",
-      "features": {}
+      "description": "Vendor information is awaiting verification.",
+      "subcategories": [],
+      "pricing": {
+        "status": "unverified",
+        "currency": null,
+        "billingOptions": [],
+        "plans": []
+      },
+      "features": {},
+      "sources": [],
+      "verification": {
+        "status": "pending",
+        "checkedAt": null
+      }
     },
     {
       "id": "tableau",
       "name": "Tableau",
       "category": "Analytics",
-      "description": "Product details not yet verified.",
-      "features": {}
+      "description": "Vendor information is awaiting verification.",
+      "subcategories": [],
+      "pricing": {
+        "status": "unverified",
+        "currency": null,
+        "billingOptions": [],
+        "plans": []
+      },
+      "features": {},
+      "sources": [],
+      "verification": {
+        "status": "pending",
+        "checkedAt": null
+      }
     },
     {
       "id": "g2",
       "name": "G2",
       "category": "Reviews & Comparisons",
-      "description": "Product details not yet verified.",
-      "features": {}
+      "description": "Vendor information is awaiting verification.",
+      "subcategories": [],
+      "pricing": {
+        "status": "unverified",
+        "currency": null,
+        "billingOptions": [],
+        "plans": []
+      },
+      "features": {},
+      "sources": [],
+      "verification": {
+        "status": "pending",
+        "checkedAt": null
+      }
     },
     {
       "id": "capterra",
       "name": "Capterra",
       "category": "Reviews & Comparisons",
-      "description": "Product details not yet verified.",
-      "features": {}
+      "description": "Vendor information is awaiting verification.",
+      "subcategories": [],
+      "pricing": {
+        "status": "unverified",
+        "currency": null,
+        "billingOptions": [],
+        "plans": []
+      },
+      "features": {},
+      "sources": [],
+      "verification": {
+        "status": "pending",
+        "checkedAt": null
+      }
     },
     {
       "id": "trustradius",
       "name": "TrustRadius",
       "category": "Reviews & Comparisons",
-      "description": "Product details not yet verified.",
-      "features": {}
+      "description": "Vendor information is awaiting verification.",
+      "subcategories": [],
+      "pricing": {
+        "status": "unverified",
+        "currency": null,
+        "billingOptions": [],
+        "plans": []
+      },
+      "features": {},
+      "sources": [],
+      "verification": {
+        "status": "pending",
+        "checkedAt": null
+      }
     }
   ]
   

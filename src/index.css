@@ -1,58 +1,63 @@
+
 @import "tailwindcss";
 
-/* ==============================
-   GLOBAL DESIGN VARIABLES
-============================== */
-
 :root {
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system,
-    BlinkMacSystemFont, "Segoe UI", sans-serif;
-
-  color: #172033;
-  background: #f8fafc;
-
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  color: #202124;
+  background: #f5f6f7;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --primary: #635bff;
-  --primary-hover: #5148e5;
-  --background: #f8fafc;
-  --surface: #ffffff;
-  --text-primary: #172033;
-  --text-secondary: #64748b;
-  --border: #e2e8f0;
+  --color-page: #f5f6f7;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f9fafb;
+  --color-border: #e5e7eb;
+  --color-border-strong: #d1d5db;
+  --color-heading: #202124;
+  --color-text: #4b5563;
+  --color-muted: #6b7280;
+  --color-accent: #374151;
+  --color-accent-hover: #1f2937;
+
+  --radius-card: 14px;
+  --radius-control: 9px;
+  --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.05);
 }
 
-/* ==============================
-   RESET
-============================== */
-
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
 html {
+  min-width: 320px;
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 90px;
 }
 
 body {
   min-width: 320px;
   min-height: 100vh;
-  background: var(--background);
-  color: var(--text-primary);
-  overflow-x: hidden;
+  margin: 0;
+  background: var(--color-page);
+  color: var(--color-text);
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
 }
 
 button,
 input,
-textarea,
-select {
-  font: inherit;
+select,
+textarea {
+  font-size: inherit;
 }
 
 button {
@@ -61,7 +66,6 @@ button {
 
 button:disabled {
   cursor: not-allowed;
-  opacity: 0.5;
 }
 
 a {
@@ -69,120 +73,67 @@ a {
   text-decoration: none;
 }
 
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #6b7280;
+  outline-offset: 3px;
+}
+
 img,
-video {
+svg {
   display: block;
   max-width: 100%;
 }
 
-#root {
-  width: 100%;
-  min-height: 100vh;
+::selection {
+  background: #e5e7eb;
+  color: #111827;
 }
-
-/* ==============================
-   GLOBAL CONTAINER
-============================== */
 
 .container {
-  width: 100%;
-  max-width: 1280px;
+  width: min(100% - 40px, 1200px);
   margin-inline: auto;
-  padding-inline: 24px;
 }
 
-/* ==============================
-   SCROLLBAR
-============================== */
-
-::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
+.surface-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
 }
 
-::-webkit-scrollbar-track {
-  background: transparent;
+.section-spacing {
+  padding-block: 48px;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 20px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
-}
-
-/* ==============================
-   SELECTION
-============================== */
-
-::selection {
-  background: #ddd9ff;
-  color: #3730a3;
-}
-
-/* ==============================
-   INPUT FOCUS
-============================== */
-
-input:focus-visible,
-textarea:focus-visible,
-select:focus-visible,
-button:focus-visible,
-a:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 3px;
-}
-
-/* ==============================
-   RESPONSIVE BREAKPOINTS
-============================== */
-
-/* Tablets */
-
-@media (max-width: 1024px) {
+@media (max-width: 640px) {
   .container {
-    padding-inline: 20px;
+    width: min(100% - 28px, 1200px);
+  }
+
+  .section-spacing {
+    padding-block: 32px;
   }
 }
 
-/* Mobile */
-
-@media (max-width: 768px) {
-  .container {
-    padding-inline: 16px;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
-
-  html {
-    scroll-padding-top: 65px;
-  }
-}
-
-/* Small mobile */
-
-@media (max-width: 480px) {
-  .container {
-    padding-inline: 12px;
-  }
-}
-
-/* ==============================
-   DARK THEME FOUNDATION
-============================== */
-
-.dark {
-  --background: #0f172a;
-  --surface: #1e293b;
-  --text-primary: #f1f5f9;
-  --text-secondary: #94a3b8;
-  --border: #334155;
-
-  color: var(--text-primary);
-  background: var(--background);
-}
-
-.dark body {
-  background: var(--background);
-  color: var(--text-primary);
 }

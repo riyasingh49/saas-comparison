@@ -1,5 +1,5 @@
 function SubcategorySelector({
-  categoryName,
+  categoryName = '',
   subTypes = [],
   activeSubType = '',
   onSelectSubType,
@@ -7,18 +7,13 @@ function SubcategorySelector({
   const validSubTypes = Array.isArray(subTypes)
     ? [...new Set(
         subTypes.filter(
-          (subType) =>
-            typeof subType === 'string' && subType.trim().length > 0
+          (item) => typeof item === 'string' && item.trim()
         )
       )]
     : []
 
-  if (validSubTypes.length === 0) {
+  if (!validSubTypes.length) {
     return null
-  }
-
-  const handleSelect = (subType) => {
-    onSelectSubType?.(activeSubType === subType ? '' : subType)
   }
 
   return (
@@ -26,17 +21,34 @@ function SubcategorySelector({
       className="mt-5 border-t border-slate-200 pt-5"
       aria-label={`${categoryName} subcategory filters`}
     >
-      <div className="mb-3 flex items-center justify-between gap-3">
+      <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
         <h3 className="text-sm font-semibold text-slate-800">
           {categoryName} options
         </h3>
 
-        <span className="shrink-0 text-xs text-slate-400">
+        <span className="text-xs text-slate-400">
           {validSubTypes.length} options
         </span>
       </div>
 
-      <div className="flex flex-wrap gap-2">
+      <div
+        className="flex flex-wrap gap-2"
+        role="group"
+        aria-label={`Filter by ${categoryName} subcategory`}
+      >
+        <button
+          type="button"
+          onClick={() => onSelectSubType?.('')}
+          aria-pressed={!activeSubType}
+          className={`rounded-full border px-4 py-2 text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 focus-visible:ring-offset-2 ${
+            !activeSubType
+              ? 'border-slate-800 bg-slate-800 text-white'
+              : 'border-slate-200 bg-white text-slate-600 hover:border-slate-400 hover:bg-slate-50'
+          }`}
+        >
+          All
+        </button>
+
         {validSubTypes.map((subType) => {
           const isActive = activeSubType === subType
 
@@ -44,12 +56,14 @@ function SubcategorySelector({
             <button
               key={subType}
               type="button"
-              onClick={() => handleSelect(subType)}
+              onClick={() => onSelectSubType?.(
+                isActive ? '' : subType
+              )}
               aria-pressed={isActive}
-              className={`rounded-full border px-4 py-2 text-sm transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 ${
+              className={`rounded-full border px-4 py-2 text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 focus-visible:ring-offset-2 ${
                 isActive
-                  ? 'border-indigo-600 bg-indigo-600 text-white'
-                  : 'border-slate-200 bg-white text-slate-600 hover:border-indigo-300 hover:text-indigo-600'
+                  ? 'border-slate-800 bg-slate-800 text-white'
+                  : 'border-slate-200 bg-white text-slate-600 hover:border-slate-400 hover:bg-slate-50'
               }`}
             >
               {subType}

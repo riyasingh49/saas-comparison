@@ -1,0 +1,588 @@
+[
+    {
+      "vendorId": "salesforce",
+      "subcategories": [
+        {
+          "name": "Sales pipeline",
+          "status": "assumed",
+          "reason": "Assigned based on its CRM and sales-management positioning."
+        },
+        {
+          "name": "Enterprise",
+          "status": "assumed",
+          "reason": "Assigned as an enterprise-oriented CRM comparison candidate."
+        }
+      ]
+    },
+    {
+      "vendorId": "pipedrive",
+      "subcategories": [
+        {
+          "name": "Small team",
+          "status": "assumed",
+          "reason": "Assigned as a candidate for smaller sales teams."
+        },
+        {
+          "name": "Sales pipeline",
+          "status": "assumed",
+          "reason": "Assigned based on its sales pipeline management focus."
+        }
+      ]
+    },
+    {
+      "vendorId": "zoho-crm",
+      "subcategories": [
+        {
+          "name": "Small team",
+          "status": "assumed",
+          "reason": "Assigned as a candidate for small business CRM needs."
+        },
+        {
+          "name": "Sales pipeline",
+          "status": "assumed",
+          "reason": "Assigned based on its CRM sales-management positioning."
+        },
+        {
+          "name": "Free plan",
+          "status": "assumed",
+          "reason": "Requires confirmation against current regional plan terms."
+        },
+        {
+          "name": "Enterprise",
+          "status": "assumed",
+          "reason": "Requires confirmation against current enterprise edition details."
+        }
+      ]
+    },
+    {
+      "vendorId": "freshsales",
+      "subcategories": [
+        {
+          "name": "Small team",
+          "status": "assumed",
+          "reason": "Assigned as a candidate for smaller sales teams."
+        },
+        {
+          "name": "Sales pipeline",
+          "status": "assumed",
+          "reason": "Assigned based on its CRM and sales-management positioning."
+        },
+        {
+          "name": "Free plan",
+          "status": "assumed",
+          "reason": "Requires confirmation against current plan availability."
+        }
+      ]
+    },
+    {
+      "vendorId": "asana",
+      "subcategories": [
+        {
+          "name": "Software teams",
+          "status": "assumed",
+          "reason": "Assigned as a general project coordination candidate."
+        },
+        {
+          "name": "Agencies",
+          "status": "assumed",
+          "reason": "Assigned as a candidate for multi-project team workflows."
+        },
+        {
+          "name": "Free plan",
+          "status": "assumed",
+          "reason": "Requires confirmation against current plan limits."
+        }
+      ]
+    },
+    {
+      "vendorId": "monday",
+      "subcategories": [
+        {
+          "name": "Kanban",
+          "status": "assumed",
+          "reason": "Assigned based on its visual board-based project workflows."
+        },
+        {
+          "name": "Software teams",
+          "status": "assumed",
+          "reason": "Assigned as a candidate for team project coordination."
+        },
+        {
+          "name": "Agencies",
+          "status": "assumed",
+          "reason": "Assigned as a candidate for multi-project workflows."
+        },
+        {
+          "name": "Free plan",
+          "status": "assumed",
+          "reason": "Requires confirmation against current plan limits."
+        }
+      ]
+    },
+    {
+      "vendorId": "clickup",
+      "subcategories": [
+        {
+          "name": "Kanban",
+          "status": "assumed",
+          "reason": "Assigned based on its visual task management capabilities."
+        },
+        {
+          "name": "Software teams",
+          "status": "assumed",
+          "reason": "Assigned as a candidate for software project workflows."
+        },
+        {
+          "name": "Agencies",
+          "status": "assumed",
+          "reason": "Assigned as a candidate for multi-client project workflows."
+        },
+        {
+          "name": "Free plan",
+          "status": "assumed",
+          "reason": "Requires confirmation against current plan limits."
+        }
+      ]
+    },
+    {
+      "vendorId": "jira",
+      "subcategories": [
+        {
+          "name": "Kanban",
+          "status": "assumed",
+          "reason": "Assigned based on its agile project management positioning."
+        },
+        {
+          "name": "Software teams",
+          "status": "assumed",
+          "reason": "Assigned based on its software development team focus."
+        },
+        {
+          "name": "Free plan",
+          "status": "assumed",
+          "reason": "Requires confirmation against current plan limits."
+        }
+      ]
+    },
+    {
+      "vendorId": "trello",
+      "subcategories": [
+        {
+          "name": "Kanban",
+          "status": "assumed",
+          "reason": "Assigned based on its visual board-based task management."
+        },
+        {
+          "name": "Agencies",
+          "status": "assumed",
+          "reason": "Assigned as a candidate for lightweight project coordination."
+        },
+        {
+          "name": "Free plan",
+          "status": "assumed",
+          "reason": "Requires confirmation against current plan limits."
+        }
+      ]
+    },
+    {
+      "vendorId": "quickbooks",
+      "subcategories": [
+        {
+          "name": "Freelancers",
+          "status": "assumed",
+          "reason": "Assigned as a candidate for independent business accounting."
+        },
+        {
+          "name": "Small business",
+          "status": "assumed",
+          "reason": "Assigned based on its small business accounting positioning."
+        },
+        {
+          "name": "Inventory",
+          "status": "assumed",
+          "reason": "Requires confirmation of inventory features by plan and region."
+        }
+      ]
+    },
+    {
+      "vendorId": "xero",
+      "subcategories": [
+        {
+          "name": "Freelancers",
+          "status": "assumed",
+          "reason": "Assigned as a candidate for independent business accounting."
+        },
+        {
+          "name": "Small business",
+          "status": "assumed",
+          "reason": "Assigned based on its small business accounting positioning."
+        },
+        {
+          "name": "Inventory",
+          "status": "assumed",
+          "reason": "Requires confirmation of inventory features by plan."
+        }
+      ]
+    },
+    {
+      "vendorId": "freshbooks",
+      "subcategories": [
+        {
+          "name": "Freelancers",
+          "status": "assumed",
+          "reason": "Assigned as a candidate for freelancer accounting workflows."
+        },
+        {
+          "name": "Small business",
+          "status": "assumed",
+          "reason": "Assigned as a candidate for small business accounting."
+        }
+      ]
+    },
+    {
+      "vendorId": "zoho-books",
+      "subcategories": [
+        {
+          "name": "Freelancers",
+          "status": "assumed",
+          "reason": "Assigned as a candidate for independent business accounting."
+        },
+        {
+          "name": "Small business",
+          "status": "assumed",
+          "reason": "Assigned based on its small business accounting positioning."
+        },
+        {
+          "name": "GST invoicing",
+          "status": "assumed",
+          "reason": "Requires confirmation of applicable India GST features."
+        },
+        {
+          "name": "Inventory",
+          "status": "assumed",
+          "reason": "Requires confirmation of inventory features by plan."
+        }
+      ]
+    },
+    {
+      "vendorId": "tallyprime",
+      "subcategories": [
+        {
+          "name": "Small business",
+          "status": "assumed",
+          "reason": "Assigned as a candidate for business accounting workflows."
+        },
+        {
+          "name": "GST invoicing",
+          "status": "assumed",
+          "reason": "Requires confirmation against current official GST documentation."
+        },
+        {
+          "name": "Inventory",
+          "status": "assumed",
+          "reason": "Requires confirmation against current inventory documentation."
+        }
+      ]
+    },
+    {
+      "vendorId": "gusto",
+      "subcategories": [
+        {
+          "name": "Payroll only",
+          "status": "assumed",
+          "reason": "Assigned as a candidate for payroll-focused comparison."
+        },
+        {
+          "name": "Full HR suite",
+          "status": "assumed",
+          "reason": "Requires verification of the HR capabilities included in each plan."
+        },
+        {
+          "name": "Contractors",
+          "status": "assumed",
+          "reason": "Requires verification of contractor payroll availability."
+        }
+      ]
+    },
+    {
+      "vendorId": "rippling",
+      "subcategories": [
+        {
+          "name": "Payroll only",
+          "status": "assumed",
+          "reason": "Requires verification of payroll-only purchasing options."
+        },
+        {
+          "name": "Full HR suite",
+          "status": "assumed",
+          "reason": "Assigned based on its integrated workforce management positioning."
+        },
+        {
+          "name": "Contractors",
+          "status": "assumed",
+          "reason": "Requires verification of contractor management capabilities."
+        }
+      ]
+    },
+    {
+      "vendorId": "keka",
+      "subcategories": [
+        {
+          "name": "Payroll only",
+          "status": "assumed",
+          "reason": "Assigned as a candidate for payroll-focused comparison."
+        },
+        {
+          "name": "Full HR suite",
+          "status": "assumed",
+          "reason": "Assigned based on its HR and workforce management positioning."
+        },
+        {
+          "name": "India payroll",
+          "status": "assumed",
+          "reason": "Requires verification against current India payroll documentation."
+        }
+      ]
+    },
+    {
+      "vendorId": "greythr",
+      "subcategories": [
+        {
+          "name": "Payroll only",
+          "status": "assumed",
+          "reason": "Assigned as a candidate for payroll-focused comparison."
+        },
+        {
+          "name": "Full HR suite",
+          "status": "assumed",
+          "reason": "Requires verification of the HR modules included."
+        },
+        {
+          "name": "India payroll",
+          "status": "assumed",
+          "reason": "Requires verification against current India payroll documentation."
+        }
+      ]
+    },
+    {
+      "vendorId": "slack",
+      "subcategories": [
+        {
+          "name": "Chat",
+          "status": "assumed",
+          "reason": "Assigned based on its team messaging focus."
+        },
+        {
+          "name": "Docs and wikis",
+          "status": "assumed",
+          "reason": "Requires verification of current documentation and knowledge features."
+        }
+      ]
+    },
+    {
+      "vendorId": "microsoft-teams",
+      "subcategories": [
+        {
+          "name": "Chat",
+          "status": "assumed",
+          "reason": "Assigned based on its team communication capabilities."
+        },
+        {
+          "name": "Docs and wikis",
+          "status": "assumed",
+          "reason": "Requires verification of included document and knowledge features."
+        },
+        {
+          "name": "Whiteboards",
+          "status": "assumed",
+          "reason": "Requires verification of Whiteboard availability and licensing."
+        }
+      ]
+    },
+    {
+      "vendorId": "zoom",
+      "subcategories": [
+        {
+          "name": "Meetings",
+          "status": "assumed",
+          "reason": "Assigned based on its video meeting product."
+        },
+        {
+          "name": "Webinars",
+          "status": "assumed",
+          "reason": "Requires verification of webinar product and plan requirements."
+        },
+        {
+          "name": "Free plan limits",
+          "status": "assumed",
+          "reason": "Requires verification of current free-plan restrictions."
+        }
+      ]
+    },
+    {
+      "vendorId": "webex",
+      "subcategories": [
+        {
+          "name": "Meetings",
+          "status": "assumed",
+          "reason": "Assigned based on its video meeting product."
+        },
+        {
+          "name": "Webinars",
+          "status": "assumed",
+          "reason": "Requires verification of webinar availability and plan requirements."
+        },
+        {
+          "name": "Free plan limits",
+          "status": "assumed",
+          "reason": "Requires verification of current free-plan restrictions."
+        }
+      ]
+    },
+    {
+      "vendorId": "google-meet",
+      "subcategories": [
+        {
+          "name": "Meetings",
+          "status": "assumed",
+          "reason": "Assigned based on its video meeting product."
+        },
+        {
+          "name": "Free plan limits",
+          "status": "assumed",
+          "reason": "Requires verification of current free access and restrictions."
+        }
+      ]
+    },
+    {
+      "vendorId": "gotomeeting",
+      "subcategories": [
+        {
+          "name": "Meetings",
+          "status": "assumed",
+          "reason": "Assigned based on its video meeting product."
+        },
+        {
+          "name": "Webinars",
+          "status": "assumed",
+          "reason": "Requires verification of the vendor's webinar offering and plan requirements."
+        }
+      ]
+    },
+    {
+      "vendorId": "mixpanel",
+      "subcategories": [
+        {
+          "name": "Product analytics",
+          "status": "assumed",
+          "reason": "Assigned based on its product analytics positioning."
+        },
+        {
+          "name": "Web analytics",
+          "status": "assumed",
+          "reason": "Requires verification of supported web analytics use cases."
+        }
+      ]
+    },
+    {
+      "vendorId": "amplitude",
+      "subcategories": [
+        {
+          "name": "Product analytics",
+          "status": "assumed",
+          "reason": "Assigned based on its product analytics positioning."
+        },
+        {
+          "name": "Web analytics",
+          "status": "assumed",
+          "reason": "Requires verification of supported web analytics use cases."
+        }
+      ]
+    },
+    {
+      "vendorId": "power-bi",
+      "subcategories": [
+        {
+          "name": "BI dashboards",
+          "status": "assumed",
+          "reason": "Assigned based on its business intelligence and reporting positioning."
+        }
+      ]
+    },
+    {
+      "vendorId": "tableau",
+      "subcategories": [
+        {
+          "name": "BI dashboards",
+          "status": "assumed",
+          "reason": "Assigned based on its business intelligence and visualization positioning."
+        },
+        {
+          "name": "Web analytics",
+          "status": "assumed",
+          "reason": "Requires verification of relevant web analytics use cases."
+        }
+      ]
+    },
+    {
+      "vendorId": "g2",
+      "subcategories": [
+        {
+          "name": "Review sites",
+          "status": "assumed",
+          "reason": "Assigned based on its software review platform positioning."
+        },
+        {
+          "name": "Head-to-head",
+          "status": "assumed",
+          "reason": "Requires verification of current comparison functionality."
+        },
+        {
+          "name": "How to read reviews",
+          "status": "assumed",
+          "reason": "Assigned as a candidate resource for evaluating software reviews."
+        }
+      ]
+    },
+    {
+      "vendorId": "capterra",
+      "subcategories": [
+        {
+          "name": "Review sites",
+          "status": "assumed",
+          "reason": "Assigned based on its software review platform positioning."
+        },
+        {
+          "name": "Head-to-head",
+          "status": "assumed",
+          "reason": "Requires verification of current comparison functionality."
+        },
+        {
+          "name": "How to read reviews",
+          "status": "assumed",
+          "reason": "Assigned as a candidate resource for evaluating software reviews."
+        }
+      ]
+    },
+    {
+      "vendorId": "trustradius",
+      "subcategories": [
+        {
+          "name": "Review sites",
+          "status": "assumed",
+          "reason": "Assigned based on its software review platform positioning."
+        },
+        {
+          "name": "Head-to-head",
+          "status": "assumed",
+          "reason": "Requires verification of current comparison functionality."
+        },
+        {
+          "name": "How to read reviews",
+          "status": "assumed",
+          "reason": "Assigned as a candidate resource for evaluating software reviews."
+        }
+      ]
+    }
+  ]
+  

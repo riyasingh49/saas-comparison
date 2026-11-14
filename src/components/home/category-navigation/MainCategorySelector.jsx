@@ -23,59 +23,64 @@ const categoryIcons = {
 
 function MainCategorySelector({
   categories = [],
-  activeCategoryId,
+  activeCategoryId = 'all',
   onSelectCategory,
 }) {
   const validCategories = Array.isArray(categories)
     ? categories.filter(
         (category) =>
-          category &&
-          typeof category.id === 'string' &&
-          typeof category.name === 'string'
+          category?.id && category?.name
       )
     : []
 
-  if (validCategories.length === 0) {
-    return (
-      <p className="rounded-xl border border-slate-200 bg-white px-4 py-6 text-center text-sm text-slate-500">
-        No categories are available right now.
-      </p>
-    )
-  }
+  const items = [
+    {
+      id: 'all',
+      name: 'All',
+      icon: LayoutGrid,
+      category: null,
+    },
+    ...validCategories.map((category) => ({
+      id: category.id,
+      name: category.name,
+      icon: categoryIcons[category.id] || LayoutGrid,
+      category,
+    })),
+  ]
 
   return (
     <nav aria-label="Software categories">
       <ul className="flex gap-5 overflow-x-auto pb-4">
-        {validCategories.map((category) => {
-          const Icon = categoryIcons[category.id] || LayoutGrid
-          const isActive = activeCategoryId === category.id
+        {items.map((item) => {
+          const Icon = item.icon
+          const isActive = activeCategoryId === item.id
 
           return (
-            <li key={category.id} className="shrink-0">
+            <li key={item.id} className="shrink-0">
               <button
                 type="button"
-                onClick={() => onSelectCategory?.(category)}
+                onClick={() => onSelectCategory?.(item.category)}
                 aria-pressed={isActive}
-                className="group flex min-w-[76px] flex-col items-center gap-2 rounded-xl px-1 py-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-indigo-600"
+                className="group flex min-w-[76px] flex-col items-center gap-2 rounded-xl px-1 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 focus-visible:ring-offset-2"
               >
                 <span
                   className={`flex h-14 w-14 items-center justify-center rounded-full border transition duration-200 ${
                     isActive
-                      ? 'border-indigo-100 bg-indigo-100 text-indigo-700 shadow-sm'
-                      : 'border-slate-200 bg-white text-slate-600 group-hover:border-indigo-200 group-hover:bg-indigo-50'
+                      ? 'border-slate-800 bg-slate-800 text-white shadow-sm'
+                      : 'border-slate-200 bg-white text-slate-600 group-hover:border-slate-400 group-hover:bg-slate-50'
                   }`}
                 >
-                  <Icon size={21} strokeWidth={1.8} />
+                  <Icon size={21} strokeWidth={1.8} aria-hidden="true" />
                 </span>
 
                 <span
-                  className={`max-w-[90px] text-center text-xs leading-4 ${
+                  className={`max-w-[100px] text-center text-xs leading-4 ${
                     isActive
-                      ? 'font-semibold text-indigo-700'
+                      ? 'font-semibold text-slate-900'
                       : 'font-medium text-slate-600'
                   }`}
                 >
-                  {category.name}
+                  {item.name}
                 </span>
               </button>
             </li>
