@@ -1,8 +1,8 @@
-
 import { useMemo, useState } from 'react'
 import ComparisonToolbar from './ComparisonToolbar'
 import VendorGrid from './VendorGrid'
 import CompareSelectionBar from './CompareSelectionBar'
+import CompareSelectionPanel from './CompareSelectionPanel'
 import ComparisonTable from './ComparisonTable'
 import VendorDetailsSheet from './VendorDetailsSheet'
 import ComparisonHeader from './comparison-section/ComparisonHeader'
@@ -75,36 +75,56 @@ function ComparisonSection({
           selectedSubcategory={selectedSubcategory}
         />
 
-        <ComparisonToolbar
-          searchQuery={searchQuery}
-          onSearchChange={setSearchQuery}
-          sortBy={sortBy}
-          onSortChange={setSortBy}
-          resultCount={filteredVendors.length}
-          hasActiveFilters={
-            Boolean(searchQuery.trim()) ||
-            sortBy !== 'recommended'
-          }
-          onClearFilters={handleClearFilters}
-        />
+        <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-12 lg:gap-8">
+          <div className="min-w-0 space-y-6 lg:col-span-8">
+            <ComparisonToolbar
+              searchQuery={searchQuery}
+              onSearchChange={setSearchQuery}
+              sortBy={sortBy}
+              onSortChange={setSortBy}
+              resultCount={filteredVendors.length}
+              hasActiveFilters={
+                Boolean(searchQuery.trim()) ||
+                sortBy !== 'recommended'
+              }
+              onClearFilters={handleClearFilters}
+            />
 
-        {showComparison ? (
-          <div className="min-w-0 overflow-hidden rounded-xl">
-            <ComparisonTable
-              vendors={selectedVendors}
-              features={features}
+            <VendorGrid
+              vendors={filteredVendors}
+              selectedVendorIds={selectedVendorIds}
+              onToggleCompare={toggleVendor}
+              onViewDetails={openVendorDetails}
+            />
+
+            {showComparison && (
+              <div
+                id="vendor-comparison-results"
+                className="min-w-0 scroll-mt-24"
+                aria-label="Selected software comparison"
+              >
+                <ComparisonTable
+                  vendors={selectedVendors}
+                  features={features}
+                  onRemoveVendor={removeVendor}
+                  onBack={closeComparison}
+                />
+              </div>
+            )}
+          </div>
+
+          <div className="hidden min-w-0 lg:col-span-4 lg:block">
+            <CompareSelectionPanel
+              selectedVendors={selectedVendors}
+              maxSelection={maxCompare}
+              showComparison={showComparison}
               onRemoveVendor={removeVendor}
-              onBack={closeComparison}
+              onClearSelection={clearSelection}
+              onOpenComparison={openComparison}
+              onCloseComparison={closeComparison}
             />
           </div>
-        ) : (
-          <VendorGrid
-            vendors={filteredVendors}
-            selectedVendorIds={selectedVendorIds}
-            onToggleCompare={toggleVendor}
-            onViewDetails={openVendorDetails}
-          />
-        )}
+        </div>
 
         {!showComparison && (
           <CompareSelectionBar
@@ -122,12 +142,6 @@ function ComparisonSection({
           onToggleCompare={toggleVendor}
           isSelected={selectedVendorIds.includes(activeVendor?.id)}
         />
-
-        {selectedVendorIds.length >= maxCompare && !showComparison && (
-          <p className="text-center text-sm text-gray-500">
-            You've reached the limit of {maxCompare} tools per comparison.
-          </p>
-        )}
 
         <p className="text-center text-xs leading-5 text-gray-500">
           SaaS Compare is an independent research tool, not a reseller.
