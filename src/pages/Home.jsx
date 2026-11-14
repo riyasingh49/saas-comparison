@@ -1,4 +1,6 @@
 
+import { useState } from 'react'
+
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
 import SummarySection from '../components/home/SummarySection'
@@ -16,6 +18,8 @@ import categories from '../data/categories.json'
 import comparisonFeatures from '../data/comparison-features.json'
 
 function Home() {
+  const [recommendedVendorIds, setRecommendedVendorIds] = useState([])
+
   const {
     pageState,
     visibleVendors,
@@ -25,6 +29,31 @@ function Home() {
     handleSubcategoryChange,
     handleSearchResult,
   } = useHomePage(categories, vendors)
+
+  const resetRecommendations = () => {
+    setRecommendedVendorIds([])
+  }
+
+  const handleCategorySelection = (category) => {
+    resetRecommendations()
+    handleCategoryChange(category)
+  }
+
+  const handleSubcategorySelection = (subcategory) => {
+    resetRecommendations()
+    handleSubcategoryChange(subcategory)
+  }
+
+  const handleSearchSelection = (result) => {
+    resetRecommendations()
+    handleSearchResult(result)
+  }
+
+  const handleRecommendationsChange = (vendorIds) => {
+    setRecommendedVendorIds(
+      Array.isArray(vendorIds) ? vendorIds : []
+    )
+  }
 
   const summarySources = visibleVendors
     .flatMap((vendor) => vendor.sources || [])
@@ -58,7 +87,7 @@ function Home() {
           <SoftwareSearch
             key={pageState.searchTerm}
             initialQuery={pageState.searchTerm}
-            onSearchResult={handleSearchResult}
+            onSearchResult={handleSearchSelection}
           />
         </div>
 
@@ -66,8 +95,8 @@ function Home() {
           <CategoryNavigation
             initialCategoryId={pageState.category?.id || 'all'}
             initialSubcategory={pageState.subcategory}
-            onCategoryChange={handleCategoryChange}
-            onSubcategoryChange={handleSubcategoryChange}
+            onCategoryChange={handleCategorySelection}
+            onSubcategoryChange={handleSubcategorySelection}
           />
         </div>
 
@@ -78,18 +107,22 @@ function Home() {
 
         <PricingExplainer />
 
+        <DecisionSupport
+          categoryName={
+            pageState.category?.name || 'business software'
+          }
+          vendors={visibleVendors}
+          region={pageState.region}
+          onRecommendationsChange={handleRecommendationsChange}
+        />
+
         <ComparisonSection
           vendors={visibleVendors}
           features={comparisonFeatures}
           selectedCategory={pageState.category}
           selectedSubcategory={pageState.subcategory}
+          recommendedVendorIds={recommendedVendorIds}
           title="Explore and compare software"
-        />
-
-        <DecisionSupport
-          categoryName={
-            pageState.category?.name || 'business software'
-          }
         />
       </main>
 

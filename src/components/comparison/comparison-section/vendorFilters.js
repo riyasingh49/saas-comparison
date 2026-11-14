@@ -1,3 +1,4 @@
+
 function normalize(value) {
     return String(value || '').trim().toLowerCase()
   }
@@ -20,6 +21,7 @@ function normalize(value) {
     selectedSubcategory = '',
     searchQuery = '',
     sortBy = 'recommended',
+    recommendedVendorIds = [],
   } = {}) {
     if (!Array.isArray(vendors)) {
       return []
@@ -74,15 +76,34 @@ function normalize(value) {
       results = [...results].sort((a, b) =>
         a.name.localeCompare(b.name)
       )
-    }
-  
-    if (sortBy === 'name-desc') {
+    } else if (sortBy === 'name-desc') {
       results = [...results].sort((a, b) =>
         b.name.localeCompare(a.name)
       )
+    } else if (
+      sortBy === 'recommended' &&
+      Array.isArray(recommendedVendorIds) &&
+      recommendedVendorIds.length > 0
+    ) {
+      const rankMap = new Map(
+        recommendedVendorIds.map((id, index) => [id, index])
+      )
+  
+      results = [...results].sort((a, b) => {
+        const rankA = rankMap.has(a.id)
+          ? rankMap.get(a.id)
+          : Number.MAX_SAFE_INTEGER
+  
+        const rankB = rankMap.has(b.id)
+          ? rankMap.get(b.id)
+          : Number.MAX_SAFE_INTEGER
+  
+        return rankA - rankB
+      })
     }
   
     return results
   }
   
   export { filterAndSortVendors }
+  

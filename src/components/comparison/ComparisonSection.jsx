@@ -1,3 +1,4 @@
+
 import { useMemo, useState } from 'react'
 import ComparisonToolbar from './ComparisonToolbar'
 import VendorGrid from './VendorGrid'
@@ -14,6 +15,7 @@ function ComparisonSection({
   title = 'Explore and compare software',
   selectedCategory = null,
   selectedSubcategory = '',
+  recommendedVendorIds = [],
 }) {
   const [searchQuery, setSearchQuery] = useState('')
   const [sortBy, setSortBy] = useState('recommended')
@@ -44,6 +46,7 @@ function ComparisonSection({
         selectedSubcategory,
         searchQuery,
         sortBy,
+        recommendedVendorIds,
       }),
     [
       vendors,
@@ -51,6 +54,7 @@ function ComparisonSection({
       selectedSubcategory,
       searchQuery,
       sortBy,
+      recommendedVendorIds,
     ]
   )
 
@@ -125,7 +129,11 @@ function ComparisonSection({
           </p>
         )}
 
-        <p className="text-center text-xs leading-5 text-gray-500">SaaS Compare is an independent research tool, not a reseller. Prices are list prices from the recorded sources, may change, and can exclude taxes, onboarding, add-ons, or usage charges.</p>
+        <p className="text-center text-xs leading-5 text-gray-500">
+          SaaS Compare is an independent research tool, not a reseller.
+          Prices are list prices from the recorded sources, may change,
+          and can exclude taxes, onboarding, add-ons, or usage charges.
+        </p>
       </div>
     </section>
   )
