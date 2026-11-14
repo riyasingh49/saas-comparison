@@ -74,53 +74,52 @@ test('does not turn organization or usage-based pricing into per-seat rates', ()
   assert.deepEqual(getVerifiedPricingPlans(amplitude), [])
 })
 
+test('does not treat account-based or usage-based pricing as per-seat rates', () => {
+  const enriched = enrichVendorsWithResearch(vendors)
+
+  const vendorIds = [
+    'zoho-books',
+    'mixpanel',
+    'amplitude',
+    'quickbooks',
+    'freshbooks'
+  ]
+
+  vendorIds.forEach((vendorId) => {
+    const vendor = enriched.find((item) => item.id === vendorId)
+
+    assert.ok(vendor, `Expected ${vendorId} to exist`)
+    assert.equal(
+      isVendorPricingVerified(vendor),
+      false,
+      `${vendorId} should not have verified per-seat pricing`
+    )
+    assert.deepEqual(
+      getVerifiedPricingPlans(vendor),
+      [],
+      `${vendorId} should not expose verified per-seat plans`
+    )
+  })
+})
+
 test('retains free-plan details when the vendor publishes a free tier', () => {
   const enriched = enrichVendorsWithResearch(vendors)
 
   const asana = enriched.find((vendor) => vendor.id === 'asana')
   const powerBi = enriched.find((vendor) => vendor.id === 'power-bi')
+  const zohoBooks = enriched.find((vendor) => vendor.id === 'zoho-books')
+  const mixpanel = enriched.find((vendor) => vendor.id === 'mixpanel')
+  const amplitude = enriched.find((vendor) => vendor.id === 'amplitude')
 
-  assert.ok(asana.pricing.plans.some((plan) => plan.price === 0))
-  assert.ok(powerBi.pricing.plans.some((plan) => plan.price === 0))
+  for (const vendor of [asana, powerBi, zohoBooks, mixpanel, amplitude]) {
+    assert.ok(
+      vendor.pricing.plans.some((plan) => plan.price === 0),
+      `${vendor.id} should retain its published free plan`
+    )
+  }
 })
 
 test('returns an empty array for invalid vendor input', () => {
   assert.deepEqual(enrichVendorsWithResearch(null), [])
   assert.deepEqual(enrichVendorsWithResearch({}), [])
 })
-
-test('does not treat account-based or usage-based pricing as per-seat rates', () => {
-    const enriched = enrichVendorsWithResearch(vendors)
-  
-    const zohoBooks = enriched.find((vendor) => vendor.id === 'zoho-books')
-    const mixpanel = enriched.find((vendor) => vendor.id === 'mixpanel')
-    const amplitude = enriched.find((vendor) => vendor.id === 'amplitude')
-    const quickBooks = enriched.find((vendor) => vendor.id === 'quickbooks')
-    const freshBooks = enriched.find((vendor) => vendor.id === 'freshbooks')
-  
-    for (const vendor of [zohoBooks, mixpanel, amplitude, quickBooks, freshBooks]) {
-        assert.ok(vendor, 'Expected vendor to exist')
-      
-        assert.equal(
-          isVendorPricingVerified(vendor),
-          false,
-          `${vendor.id} should not have verified per-seat pricing`
-        )
-      
-        assert.deepEqual(
-          getVerifiedPricingPlans(vendor),
-          [],
-          `${vendor.id} should not expose verified per-seat plans`
-        )
-      }
-  })
-
-  test('retains free-plan details when the vendor publishes a free tier', () => {
-    const enriched = enrichVendorsWithResearch(vendors)
-  
-    const asana = enriched.find((vendor) => vendor.id === 'asana')
-    const powerBi = enriched.find((vendor) => vendor.id === 'power-bi')
-  
-    assert.ok(asana.pricing.plans.some((plan) => plan.price === 0))
-    assert.ok(powerBi.pricing.plans.some((plan) => plan.price === 0))
-  })

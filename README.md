@@ -1,9 +1,23 @@
 
 # SaaS Comparison Platform
 
-A responsive SaaS discovery and comparison platform that helps users explore software categories, filter products, review pricing information, and compare vendors.
+A responsive SaaS discovery and comparison application. Search for business software, explore categories and subcategories, review sourced pricing information, estimate team costs, and compare vendors.
 
-## Tech Stack
+## Features
+
+- Search software categories and vendors using natural-language keywords.
+- Share and reload searches through URL query parameters.
+- Browse eight software categories and their subcategories.
+- Review vendor pricing and official source links with verification dates.
+- Calculate monthly and annual team costs where comparable pricing is available.
+- Get guided vendor recommendations based on team size, budget, features, and current tools.
+- Compare selected vendors side by side.
+- Browse vendor research in a searchable panel.
+- Explore annual billing, unused-seat, and renewal-increase calculators.
+- Review category-specific follow-up questions.
+- Use the responsive layout on mobile, tablet, and desktop.
+
+## Technology
 
 - React
 - Vite
@@ -11,140 +25,19 @@ A responsive SaaS discovery and comparison platform that helps users explore sof
 - Tailwind CSS
 - React Router
 - Lucide React
+- Node.js test runner
 
-## Project Features
+## Requirements
 
-- SaaS category navigation
-- Subcategory filtering
-- Software search
-- Vendor listing and details
-- Side-by-side vendor comparison
-- Pricing and feature comparison
-- Responsive layouts
-- URL-based search and category state
+Use Node.js 22.12 or newer.
 
-## Vendor Data Methodology
+## Getting started
 
-Vendor information is maintained in:
-
-`src/data/vendors.json`
-
-Each vendor record can contain:
-
-- Vendor name and category
-- Description
-- Subcategory assignments
-- Pricing plans
-- Feature availability
-- Source references
-- Verification status
-
-### Data Classification
-
-Every vendor claim should follow one of these classifications:
-
-| Status | Meaning |
-|---|---|
-| Verified | Supported by an official vendor source |
-| Assumed | Inferred from documented product capabilities |
-| Unverified | Not sufficiently supported by available evidence |
-
-Assumptions must never be displayed as confirmed vendor facts.
-
-### Subcategory Assignment Rules
-
-Subcategory assignments are based on the subcategories listed in the original project assessment.
-
-When an official source confirms that a vendor supports a relevant use case, the assignment can be marked verified.
-
-When an assignment is inferred from product documentation rather than explicitly stated by the vendor, it must be marked assumed.
-
-An unsupported assignment must remain unverified and must not be used to claim confirmed compatibility.
-
-### Pricing Research Rules
-
-Pricing information should be collected from official vendor pricing pages whenever possible.
-
-For each pricing plan, record:
-
-- Plan name
-- Price
-- Currency
-- Billing period
-- Per-user or per-organization pricing
-- Minimum seat requirements
-- Free plan or trial availability
-- Pricing source
-- Verification date
-
-Prices from third-party websites must not be presented as official vendor prices.
-
-Regional pricing must be kept separate. USD and INR prices must not be treated as interchangeable.
-
-### Feature Comparison Rules
-
-Feature availability should be recorded with its relevant plan or tier.
-
-A feature should not simply be marked available if it requires:
-
-- A higher subscription tier
-- A paid add-on
-- An additional integration
-- A separate product subscription
-
-Unknown feature availability must be displayed as unverified rather than assumed unavailable.
-
-## Source and Verification Requirements
-
-Preferred source order:
-
-1. Official vendor pricing page
-2. Official product documentation
-3. Official vendor feature comparison pages
-4. Official vendor help center
-5. Reliable third-party sources, used only when official information is unavailable
-
-Every researched claim should have a source URL and a checked date.
-
-Example source record:
-
-```json
-{
-  "label": "Official pricing page",
-  "url": "https://example.com/pricing",
-  "type": "official",
-  "checkedAt": "2026-11-14",
-  "status": "verified"
-}
-```
-
-The example URL above is a schema illustration, not a real vendor source.
-
-## Filtering Behavior
-
-Category filtering must return vendors belonging to the selected category.
-
-Subcategory filtering must use explicit vendor-to-subcategory assignments.
-
-Search, category, subcategory, and sorting filters should work together.
-
-If no vendor matches the selected filters, the application must show an empty state rather than unrelated vendors.
-
-## Comparison Behavior
-
-The comparison table should:
-
-- Compare selected vendors using consistent feature definitions.
-- Show plan-specific feature availability where known.
-- Distinguish verified, assumed, and unverified values.
-- Avoid inventing prices or feature claims.
-- Clearly identify missing information.
-
-## Development
-
-Install dependencies:
+Clone the repository and install dependencies:
 
 ```bash
+git clone https://github.com/riyasingh49/saas-comparison.git
+cd saas-comparison
 npm install
 ```
 
@@ -160,10 +53,139 @@ Create a production build:
 npm run build
 ```
 
-## Data Accuracy Disclaimer
+Preview the production build:
 
-Vendor pricing, plan names, features, and availability may change.
+```bash
+npm run preview
+```
 
-Information shown in the application should include its source and verification date wherever possible.
+Run automated tests:
 
-The platform is an independent comparison resource and is not a reseller or representative of the listed vendors.
+```bash
+npm test
+```
+
+Run lint checks:
+
+```bash
+npm run lint
+```
+
+## Search and URL behavior
+
+Search terms are matched against the category, subcategory, vendor, and keyword data.
+
+Examples:
+
+- `?q=zoom+pricing`
+- `?q=crm+software`
+- `?q=hris+software`
+- `?q=accounting+software`
+- `?q=asana+pricing`
+
+Category and subcategory selections are reflected in the URL. This allows a selected view to be refreshed or shared.
+
+An unknown keyword falls back to the All software view.
+
+## Data structure
+
+The application uses JSON data rather than embedding vendor information in UI components.
+
+| File | Purpose |
+|---|---|
+| `src/data/categories.json` | Categories, keywords, vendors and subcategories |
+| `src/data/vendors.json` | Vendor records and base information |
+| `src/data/vendor-research-overrides.json` | Researched vendor information and source links |
+| `src/data/vendor-subcategory-mappings.json` | Vendor-to-subcategory assignments |
+| `src/data/pricing-billing-options.json` | Explicit monthly and annual billing rates |
+| `src/data/comparison-features.json` | Feature definitions used in comparisons |
+| `src/data/guided-recommendation-questions.json` | Guided recommendation questions |
+| `src/data/follow-up-question-templates.json` | Category-specific follow-up questions |
+
+## Data verification
+
+Vendor data should distinguish between:
+
+- **Verified:** Supported by an official source and a recorded check date.
+- **Assumed:** A provisional assignment that needs confirmation.
+- **Unverified:** Not sufficiently supported to be used as a confirmed claim.
+
+Pricing must not be treated as comparable unless its billing unit is suitable for the calculation.
+
+For example:
+
+- Per-user pricing can be used for a per-seat team estimate.
+- Organization-based pricing must not be converted into a per-seat rate.
+- Usage-based pricing must not be treated as a fixed per-user rate.
+- Annual-only prices must not be presented as monthly billing prices.
+- USD and INR prices must remain separate.
+
+Free plans may be recorded even when paid pricing is not suitable for a per-seat comparison.
+
+## Pricing and regional behavior
+
+The application supports India-specific URL context using:
+
+`?loc=IN`
+
+Only available, verified INR prices should be presented as INR. USD prices should remain labelled as USD rather than being converted using an invented exchange rate.
+
+Published list prices may exclude taxes, add-ons, onboarding, minimum seat requirements, or usage charges.
+
+## Demo limitations
+
+Some interactions are currently frontend demonstrations:
+
+- Price Watch validates the form and records interest only for the current session. It does not send or store email addresses.
+- Comparison ratings and feedback are not submitted to a backend.
+- The explainer currently has a poster and chapter list. A video asset still needs to be supplied to enable playback.
+- Vendor research and pricing are maintained in local JSON data. They are not refreshed automatically from vendor websites.
+
+These limitations should be considered before presenting the project as a production subscription or monitoring service.
+
+## Project structure
+
+```text
+src/
+  assets/
+  components/
+    common/
+    comparison/
+    home/
+    layout/
+  data/
+  hooks/
+  pages/
+  utils/
+
+tests/
+docs/
+```
+
+Reusable UI components are kept separate from application logic and data-processing utilities.
+
+## Quality checks
+
+Before submitting changes, run:
+
+```bash
+npm test
+npm run lint
+npm run build
+```
+
+Also complete the manual checks in `docs/qa-checklist.md`.
+
+## Deployment
+
+The production build is generated in the `dist/` directory.
+
+Deploy that directory to a static hosting provider. If the hosting provider uses client-side routing, configure its fallback to serve `index.html`.
+
+Add the actual public deployment URL here once deployment is complete.
+
+## Disclaimer
+
+This project is an independent software comparison resource. It is not a reseller or representative of the listed vendors.
+
+Vendor pricing, features, availability, and plan terms can change. Always check the linked official vendor source before making a purchasing decision.
