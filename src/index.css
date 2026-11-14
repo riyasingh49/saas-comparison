@@ -163,6 +163,24 @@ svg {
   margin-inline: auto;
 }
 
+
+/* Two-line summary preview with an accessible expanded state. */
+.summary-preview {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+.summary-preview--expanded {
+  display: block;
+  overflow: visible;
+  -webkit-line-clamp: unset;
+  line-clamp: unset;
+}
+
+
 @media (max-width: 640px) {
   .fixed-search-dock {
     padding-inline: 10px;
