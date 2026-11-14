@@ -87,7 +87,6 @@ Check for horizontal page overflow, clipped controls, unreadable text, and overl
 ## Explainer and external integrations
 
 - [ ] Confirm the explainer poster appears when no video is configured.
-- [ ] Add a real video asset before marking video playback complete.
 - [ ] Confirm Price Watch is labelled as a frontend demonstration.
 - [ ] Confirm feedback is not described as server-submitted.
 

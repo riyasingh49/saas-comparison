@@ -1,47 +1,113 @@
+# Final QA Checklist
 
-# SaaS Comparison Platform — Project Summary
+Run the automated checks first:
 
-## Objective
+```bash
+npm test
+npm run lint
+npm run build
+```
 
-The project provides a searchable platform for discovering and comparing SaaS products. It helps users explore software categories, review vendor pricing, estimate team costs, and make more informed comparisons.
+## Search and navigation
 
-## Solution
+- [ ] Search `crm software`.
+- [ ] Search `asana pricing`.
+- [ ] Search `accounting software`.
+- [ ] Search `hris software`.
+- [ ] Search `zoom pricing`.
+- [ ] Search an unknown keyword and confirm the All view appears.
+- [ ] Search `christmas` and confirm it does not match HRIS.
+- [ ] Refresh a category URL and confirm the selected category remains active.
+- [ ] Refresh a subcategory URL and confirm the selected subcategory remains active.
+- [ ] Use browser Back and Forward after changing categories.
+- [ ] Clear the search and confirm the All view returns.
 
-The application organizes vendors across eight software categories: CRM, project management, accounting, HR and payroll, team collaboration, video conferencing, analytics, and reviews and comparisons.
+## Category coverage
 
-Users can search by keyword, navigate category-specific subtypes, review available vendor research, and compare selected products. URL query parameters preserve the selected search and category context.
+- [ ] CRM Software and its four subcategories.
+- [ ] Project Management and its four subcategories.
+- [ ] Accounting and its four subcategories.
+- [ ] HR & Payroll and its four subcategories.
+- [ ] Team Collaboration and its three subcategories.
+- [ ] Video Conferencing and its three subcategories.
+- [ ] Analytics and its three subcategories.
+- [ ] Reviews & Comparisons and its three subcategories.
+- [ ] Confirm that changing categories resets the previous subcategory.
+- [ ] Confirm that empty filters show a useful empty state.
 
-The pricing tools calculate team costs only where the available pricing data supports a meaningful comparison. Annual-only, organization-based, and usage-based pricing are not silently converted into per-seat monthly prices.
+## Pricing and comparisons
 
-## Technical approach
+- [ ] Verified prices show the correct currency.
+- [ ] Annual-only prices are not presented as monthly billing prices.
+- [ ] Unverified prices are excluded from paid cost calculations.
+- [ ] Organization-based and usage-based plans are not treated as per-seat rates.
+- [ ] Free plans remain visible where recorded.
+- [ ] INR and USD prices are not combined into one range.
+- [ ] Select two or more vendors and compare them.
+- [ ] Remove a selected vendor.
+- [ ] Clear the comparison selection.
+- [ ] Check the disclaimer and source links.
 
-The frontend uses React and Vite, with Tailwind CSS for styling. Reusable components are separated from hooks and utility functions. Vendor information, category definitions, pricing options, and comparison features are maintained in JSON data files.
+## Decision support and toolkit
 
-The application uses a verification-aware pricing model. Official source links and check dates are recorded alongside researched vendor information. Unverified information is kept separate from confirmed pricing.
+- [ ] Complete all four guided recommendation questions.
+- [ ] Confirm recommendations update when answers change.
+- [ ] Confirm the current tool is ranked below alternatives.
+- [ ] Calculate monthly and annual costs.
+- [ ] Calculate unused-seat costs.
+- [ ] Calculate a renewal increase.
+- [ ] Submit Price Watch with consent.
+- [ ] Confirm the UI explains that this is a demo and no email is stored.
+- [ ] Try the vendor research search and open a vendor.
+- [ ] Test copy and share actions.
+- [ ] Test the feedback rating.
 
-## User-facing functionality
+## Responsive layout
 
-- Keyword search and category navigation
-- Category-specific subcategory filters
-- Vendor research panel
-- Guided recommendations
-- Side-by-side vendor comparisons
-- Team cost calculator
-- Annual/monthly, unused-seat, and renewal tools
-- Price Watch demonstration
-- Follow-up questions and feedback controls
+Test each viewport in browser developer tools:
 
-## Quality assurance
+- [ ] 320px mobile
+- [ ] 375px mobile
+- [ ] 768px tablet
+- [ ] 1280px desktop
+- [ ] Phone landscape
 
-Automated tests cover pricing calculations, recommendation ranking, vendor research enrichment, and category keyword matching. ESLint and the Vite production build are used as additional quality checks.
+Check for horizontal page overflow, clipped controls, unreadable text, and overlapping fixed elements.
 
-Manual QA covers responsive layouts, keyboard navigation, URL behavior, comparison workflows, and pricing display rules.
+## Accessibility
 
-## Known limitations
+- [ ] Navigate using the keyboard only.
+- [ ] Confirm visible focus indicators.
+- [ ] Confirm dialogs close with Escape.
+- [ ] Confirm focus returns after closing a dialog.
+- [ ] Confirm buttons have accessible names.
+- [ ] Check reduced-motion behavior.
+- [ ] Check color contrast for text and controls.
 
-Price Watch and feedback are frontend demonstrations and do not submit data to a backend. Vendor data is maintained locally rather than refreshed automatically. The explainer video still requires a real video asset before playback can be considered complete.
+## Explainer and external integrations
 
-## Submission links
+- [ ] Confirm the explainer poster appears when no video is configured.
+- [ ] Confirm Price Watch is labelled as a frontend demonstration.
+- [ ] Confirm feedback is not described as server-submitted.
 
-- Repository: https://github.com/riyasingh49/saas-comparison
-- Live application: Add the verified deployment URL here.
+## Submission screenshots
+
+Capture these views at desktop and mobile widths:
+
+- [ ] All software view
+- [ ] CRM Software view
+- [ ] Accounting view
+- [ ] Comparison table
+- [ ] Toolkit
+- [ ] Guided recommendations
+
+Capture dark-mode screenshots only if a dark theme has actually been implemented and checked.
+
+## Final submission details
+
+- [ ] README instructions are accurate.
+- [ ] Repository is public.
+- [ ] Production deployment is accessible.
+- [ ] Actual deployment URL is included in the README.
+- [ ] Screenshots are included in the submission.
+- [ ] One-page project write-up is included.
