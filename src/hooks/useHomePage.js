@@ -67,6 +67,22 @@ function useHomePage(categories = [], vendors = []) {
     [applyPageState]
   )
 
+  const handleRegionChange = useCallback(
+    (region) => {
+      if (region !== 'US' && region !== 'IN') {
+        return
+      }
+
+      const nextState = {
+        ...pageStateRef.current,
+        region,
+      }
+
+      applyPageState(nextState)
+    },
+    [applyPageState]
+  )
+
   const visibleVendors = useMemo(
     () => filterVisibleVendors(vendors, pageState),
     [vendors, pageState]
@@ -105,6 +121,7 @@ function useHomePage(categories = [], vendors = []) {
     handleCategoryChange,
     handleSubcategoryChange,
     handleSearchResult,
+    handleRegionChange,
   }
 }
 

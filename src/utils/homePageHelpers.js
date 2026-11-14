@@ -1,7 +1,7 @@
-import vendorSubcategoryMappings from '../data/vendor-subcategory-mappings.json'
-import pricingBillingOptions from '../data/pricing-billing-options.json'
-import { findCategoryByKeyword } from './categoryMatcher'
-import { getVerifiedPricingRange } from './pricing'
+import vendorSubcategoryMappings from '../data/vendor-subcategory-mappings.json' with { type: 'json' }
+import pricingBillingOptions from '../data/pricing-billing-options.json' with { type: 'json' }
+import { findCategoryByKeyword } from './categoryMatcher.js'
+import { getVerifiedPricingRange } from './pricing.js'
 
 const normalize = (value) =>
   String(value || '').trim().toLowerCase()

@@ -1,13 +1,13 @@
-
 import { useState } from 'react'
 import { Menu, X, Search, ArrowRight } from 'lucide-react'
+import RegionSelector from './RegionSelector'
 
 const navigationLinks = [
   { label: 'Categories', href: '#categories' },
   { label: 'Compare Tools', href: '#comparison' },
 ]
 
-function Navbar() {
+function Navbar({ region = 'US', onRegionChange }) {
   const [menuOpen, setMenuOpen] = useState(false)
 
   const closeMenu = () => setMenuOpen(false)
@@ -26,7 +26,8 @@ function Navbar() {
   }
 
   const exploreButtonClass =
-    'inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-black px-5 py-2.5 text-sm font-semibold text-whites shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:bg-gray-800 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2'
+    'inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-black px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:bg-gray-800 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2'
+
   return (
     <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/95 backdrop-blur">
       <nav
@@ -48,7 +49,7 @@ function Navbar() {
           </span>
         </a>
 
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-6 md:flex">
           {navigationLinks.map((link) => (
             <a
               key={link.label}
@@ -61,18 +62,23 @@ function Navbar() {
         </div>
 
         <div className="hidden items-center gap-3 md:flex">
+          <RegionSelector
+            region={region}
+            onChange={onRegionChange}
+          />
+
           <button
             type="button"
             onClick={focusSearch}
             aria-label="Focus software search"
             className="flex h-10 w-10 items-center justify-center rounded-lg text-gray-600 transition-colors hover:bg-gray-100 hover:text-gray-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400"
           >
-            <Search size={19} />
+            <Search size={19} aria-hidden="true" />
           </button>
 
           <a href="#comparison" className={exploreButtonClass}>
             Explore Tools
-            <ArrowRight size={17} strokeWidth={2.5} />
+            <ArrowRight size={17} strokeWidth={2.5} aria-hidden="true" />
           </a>
         </div>
 
@@ -93,7 +99,7 @@ function Navbar() {
           id="mobile-navigation"
           className="border-t border-gray-200 bg-white px-4 py-4 md:hidden"
         >
-          <div className="mx-auto flex max-w-7xl flex-col gap-1 sm:px-2">
+          <div className="mx-auto flex max-w-7xl flex-col gap-2 sm:px-2">
             {navigationLinks.map((link) => (
               <a
                 key={link.label}
@@ -105,22 +111,29 @@ function Navbar() {
               </a>
             ))}
 
+            <div className="px-4 py-2">
+              <RegionSelector
+                region={region}
+                onChange={onRegionChange}
+              />
+            </div>
+
             <button
               type="button"
               onClick={focusSearch}
-              className="mt-2 flex items-center justify-center gap-2 rounded-lg border border-gray-200 px-4 py-3 text-sm font-medium text-gray-300 transition-colors hover:bg-gray-50"
+              className="mt-1 flex items-center justify-center gap-2 rounded-lg border border-gray-200 px-4 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50"
             >
-              <Search size={17} />
+              <Search size={17} aria-hidden="true" />
               Search software
             </button>
 
             <a
               href="#comparison"
               onClick={closeMenu}
-              className={`${exploreButtonClass} mt-2 w-full`}
+              className={`${exploreButtonClass} mt-1 w-full`}
             >
               Explore Tools
-              <ArrowRight size={17} strokeWidth={2.5} />
+              <ArrowRight size={17} strokeWidth={2.5} aria-hidden="true" />
             </a>
           </div>
         </div>

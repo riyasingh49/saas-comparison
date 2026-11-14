@@ -29,6 +29,7 @@ function Home() {
     handleCategoryChange,
     handleSubcategoryChange,
     handleSearchResult,
+    handleRegionChange,
   } = useHomePage(categories, researchedVendors)
 
   const resetRecommendations = () => {
@@ -77,7 +78,10 @@ function Home() {
 
   return (
     <div id="top" className="min-h-screen bg-gray-50">
-      <Navbar />
+      <Navbar
+        region={pageState.region}
+        onRegionChange={handleRegionChange}
+      />
 
       <main className="pb-32">
         <SummarySection
