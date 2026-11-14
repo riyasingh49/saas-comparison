@@ -1,11 +1,14 @@
 import { useMemo, useState } from 'react'
+
 import ComparisonToolbar from './ComparisonToolbar'
 import VendorGrid from './VendorGrid'
 import CompareSelectionBar from './CompareSelectionBar'
 import ComparisonTable from './ComparisonTable'
 import VendorDetailsSheet from './VendorDetailsSheet'
 
-const MAX_COMPARE = 4
+import ComparisonHeader from './comparison-section/ComparisonHeader'
+import { filterAndSortVendors } from './comparison-section/vendorFilters'
+import useVendorComparison from '../../hooks/useVendorComparison'
 
 function ComparisonSection({
   vendors = [],
@@ -16,139 +19,48 @@ function ComparisonSection({
 }) {
   const [searchQuery, setSearchQuery] = useState('')
   const [sortBy, setSortBy] = useState('recommended')
-  const [selectedVendorIds, setSelectedVendorIds] = useState([])
-  const [showComparison, setShowComparison] = useState(false)
-  const [activeVendor, setActiveVendor] = useState(null)
 
-  const validVendors = useMemo(
+  const {
+    selectedVendorIds,
+    selectedVendors,
+    showComparison,
+    activeVendor,
+    toggleVendor,
+    removeVendor,
+    clearSelection,
+    openComparison,
+    closeComparison,
+    openVendorDetails,
+    closeVendorDetails,
+    maxCompare,
+  } = useVendorComparison(vendors, selectedCategory?.id || '')
+
+  const filteredVendors = useMemo(
     () =>
-      vendors.filter(
-        (vendor) => vendor && vendor.id && vendor.name
-      ),
-    [vendors]
+      filterAndSortVendors({
+        vendors,
+        selectedCategory,
+        searchQuery,
+        sortBy,
+      }),
+    [vendors, selectedCategory, searchQuery, sortBy]
   )
-
-  // Keep the selected tools available even when the visible category changes.
-  const selectedVendors = useMemo(
-    () =>
-      selectedVendorIds
-        .map((id) => validVendors.find((vendor) => vendor.id === id))
-        .filter(Boolean),
-    [selectedVendorIds, validVendors]
-  )
-
-  const filteredVendors = useMemo(() => {
-    const query = searchQuery.trim().toLowerCase()
-    const categoryName = selectedCategory?.name?.toLowerCase()
-
-    let results = validVendors.filter((vendor) => {
-      if (
-        categoryName &&
-        vendor.category?.toLowerCase() !== categoryName
-      ) {
-        return false
-      }
-
-      if (!query) return true
-
-      const searchableText = [
-        vendor.name,
-        vendor.description,
-        vendor.category,
-      ]
-        .filter(Boolean)
-        .join(' ')
-        .toLowerCase()
-
-      return searchableText.includes(query)
-    })
-
-    if (sortBy === 'name-asc') {
-      results = [...results].sort((a, b) =>
-        a.name.localeCompare(b.name)
-      )
-    }
-
-    if (sortBy === 'name-desc') {
-      results = [...results].sort((a, b) =>
-        b.name.localeCompare(a.name)
-      )
-    }
-
-    return results
-  }, [validVendors, selectedCategory, searchQuery, sortBy])
-
-  const handleToggleCompare = (vendor) => {
-    if (!vendor?.id) return
-
-    setSelectedVendorIds((current) => {
-      if (current.includes(vendor.id)) {
-        const updated = current.filter((id) => id !== vendor.id)
-
-        if (updated.length < 2) {
-          setShowComparison(false)
-        }
-
-        return updated
-      }
-
-      if (current.length >= MAX_COMPARE) {
-        return current
-      }
-
-      return [...current, vendor.id]
-    })
-  }
-
-  const handleRemoveVendor = (vendorId) => {
-    setSelectedVendorIds((current) => {
-      const updated = current.filter((id) => id !== vendorId)
-
-      if (updated.length < 2) {
-        setShowComparison(false)
-      }
-
-      return updated
-    })
-  }
 
   const handleClearFilters = () => {
     setSearchQuery('')
     setSortBy('recommended')
   }
 
-  const handleClearSelection = () => {
-    setSelectedVendorIds([])
-    setShowComparison(false)
-  }
-
-  const handleOpenComparison = () => {
-    if (selectedVendors.length >= 2) {
-      setShowComparison(true)
-      setActiveVendor(null)
-    }
-  }
-
-  const sectionTitle = selectedCategory
-    ? `${selectedCategory.name} software`
-    : title
-
   return (
     <section
-      id="software-comparison"
+      id="comparison"
       className="container mx-auto space-y-6 py-10"
     >
-      <div>
-        <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
-          {sectionTitle}
-        </h2>
-
-        <p className="mt-2 text-sm leading-6 text-slate-500 sm:text-base">
-          {selectedSubcategory
-            ? `Explore ${selectedSubcategory.toLowerCase()} options and compare available tools.`
-            : 'Find software that fits your needs and compare its features side by side.'}
-        </p>
-      </div>
+      <ComparisonHeader
+        title={title}
+        selectedCategory={selectedCategory}
+        selectedSubcategory={selectedSubcategory}
+      />
 
       <ComparisonToolbar
         searchQuery={searchQuery}
@@ -167,38 +79,38 @@ function ComparisonSection({
         <ComparisonTable
           vendors={selectedVendors}
           features={features}
-          onRemoveVendor={handleRemoveVendor}
-          onBack={() => setShowComparison(false)}
+          onRemoveVendor={removeVendor}
+          onBack={closeComparison}
         />
       ) : (
         <VendorGrid
           vendors={filteredVendors}
           selectedVendorIds={selectedVendorIds}
-          onToggleCompare={handleToggleCompare}
-          onViewDetails={setActiveVendor}
+          onToggleCompare={toggleVendor}
+          onViewDetails={openVendorDetails}
         />
       )}
 
       {!showComparison && (
         <CompareSelectionBar
           selectedVendors={selectedVendors}
-          onOpenComparison={handleOpenComparison}
-          onClearSelection={handleClearSelection}
-          maxSelection={MAX_COMPARE}
+          onOpenComparison={openComparison}
+          onClearSelection={clearSelection}
+          maxSelection={maxCompare}
         />
       )}
 
       <VendorDetailsSheet
         vendor={activeVendor}
         isOpen={Boolean(activeVendor)}
-        onClose={() => setActiveVendor(null)}
-        onToggleCompare={handleToggleCompare}
+        onClose={closeVendorDetails}
+        onToggleCompare={toggleVendor}
         isSelected={selectedVendorIds.includes(activeVendor?.id)}
       />
 
-      {selectedVendorIds.length >= MAX_COMPARE && !showComparison && (
+      {selectedVendorIds.length >= maxCompare && !showComparison && (
         <p className="text-center text-sm text-slate-500">
-          You've reached the limit of {MAX_COMPARE} tools per comparison.
+          You've reached the limit of {maxCompare} tools per comparison.
         </p>
       )}
     </section>

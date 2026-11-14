@@ -1,0 +1,31 @@
+[
+    {
+      "id": "pricing",
+      "label": "Pricing information"
+    },
+    {
+      "id": "freePlan",
+      "label": "Free plan available"
+    },
+    {
+      "id": "mobileApp",
+      "label": "Mobile app"
+    },
+    {
+      "id": "automation",
+      "label": "Workflow automation"
+    },
+    {
+      "id": "reporting",
+      "label": "Reports and analytics"
+    },
+    {
+      "id": "integrations",
+      "label": "Third-party integrations"
+    },
+    {
+      "id": "teamCollaboration",
+      "label": "Team collaboration"
+    }
+  ]
+  

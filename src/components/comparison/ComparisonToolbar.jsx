@@ -1,3 +1,4 @@
+
 import { Search, SlidersHorizontal, X } from 'lucide-react'
 
 function ComparisonToolbar({
@@ -9,14 +10,6 @@ function ComparisonToolbar({
   onClearFilters,
   hasActiveFilters = false,
 }) {
-  const handleSearch = (event) => {
-    onSearchChange?.(event.target.value)
-  }
-
-  const handleSort = (event) => {
-    onSortChange?.(event.target.value)
-  }
-
   return (
     <section
       aria-label="Comparison tools"
@@ -29,15 +22,18 @@ function ComparisonToolbar({
           </h2>
 
           {typeof resultCount === 'number' && (
-            <p className="mt-1 text-sm text-slate-500">
+            <p
+              className="mt-1 text-sm text-slate-500"
+              aria-live="polite"
+            >
               {resultCount} {resultCount === 1 ? 'tool' : 'tools'} found
             </p>
           )}
         </div>
 
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+        <div className="flex min-w-0 flex-col gap-3 sm:flex-row sm:items-center">
           <label className="relative block min-w-0 sm:w-64">
-            <span className="sr-only">Search software</span>
+            <span className="sr-only">Search software in this category</span>
 
             <Search
               size={17}
@@ -48,13 +44,13 @@ function ComparisonToolbar({
             <input
               type="search"
               value={searchQuery}
-              onChange={handleSearch}
+              onChange={(event) => onSearchChange?.(event.target.value)}
               placeholder="Search software..."
-              className="w-full rounded-xl border border-slate-200 bg-white py-2.5 pl-9 pr-3 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
+              className="w-full rounded-xl border border-slate-200 bg-white py-2.5 pl-9 pr-3 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 hover:border-slate-300 focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
             />
           </label>
 
-          <label className="flex items-center gap-2 rounded-xl border border-slate-200 px-3 py-2.5">
+          <label className="flex min-w-0 items-center gap-2 rounded-xl border border-slate-200 px-3 py-2.5 transition hover:border-slate-300 focus-within:border-indigo-400 focus-within:ring-2 focus-within:ring-indigo-100">
             <SlidersHorizontal
               size={16}
               aria-hidden="true"
@@ -65,7 +61,7 @@ function ComparisonToolbar({
 
             <select
               value={sortBy}
-              onChange={handleSort}
+              onChange={(event) => onSortChange?.(event.target.value)}
               className="min-w-0 bg-transparent text-sm text-slate-700 outline-none"
             >
               <option value="recommended">Recommended</option>
@@ -78,7 +74,7 @@ function ComparisonToolbar({
             <button
               type="button"
               onClick={onClearFilters}
-              className="inline-flex items-center justify-center gap-2 rounded-xl px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
             >
               <X size={16} aria-hidden="true" />
               Clear filters

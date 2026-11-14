@@ -3,137 +3,218 @@
       "id": "salesforce",
       "name": "Salesforce",
       "category": "CRM Software",
-      "description": "A customer relationship management platform with tools for sales, customer service, marketing, and business automation.",
-      "website": "https://www.salesforce.com/",
-      "startingPrice": null,
-      "features": {
-        "pricing": "Contact vendor",
-        "freePlan": false,
-        "mobileApp": true,
-        "automation": true,
-        "reporting": true,
-        "integrations": "Extensive integration options",
-        "teamCollaboration": true
-      }
+      "description": "Product details not yet verified.",
+      "features": {}
     },
     {
       "id": "pipedrive",
       "name": "Pipedrive",
       "category": "CRM Software",
-      "description": "A sales-focused CRM designed to help teams manage leads, track deals, and organize their sales pipeline.",
-      "website": "https://www.pipedrive.com/",
-      "startingPrice": null,
-      "features": {
-        "pricing": "See vendor website",
-        "freePlan": false,
-        "mobileApp": true,
-        "automation": true,
-        "reporting": true,
-        "integrations": "Third-party integrations available",
-        "teamCollaboration": true
-      }
+      "description": "Product details not yet verified.",
+      "features": {}
     },
     {
       "id": "zoho-crm",
       "name": "Zoho CRM",
       "category": "CRM Software",
-      "description": "A CRM solution for managing customer relationships, sales activities, workflows, and business processes.",
-      "website": "https://www.zoho.com/crm/",
-      "startingPrice": null,
-      "features": {
-        "pricing": "Free and paid plans available",
-        "freePlan": true,
-        "mobileApp": true,
-        "automation": true,
-        "reporting": true,
-        "integrations": "Zoho and third-party integrations",
-        "teamCollaboration": true
-      }
+      "description": "Product details not yet verified.",
+      "features": {}
     },
     {
       "id": "freshsales",
       "name": "Freshsales",
       "category": "CRM Software",
-      "description": "A sales CRM with customer management, communication, and sales workflow capabilities.",
-      "website": "https://www.freshworks.com/crm/sales/",
-      "startingPrice": null,
-      "features": {
-        "pricing": "See vendor website",
-        "freePlan": true,
-        "mobileApp": true,
-        "automation": true,
-        "reporting": true,
-        "integrations": "Third-party integrations available",
-        "teamCollaboration": true
-      }
+      "description": "Product details not yet verified.",
+      "features": {}
     },
     {
       "id": "asana",
       "name": "Asana",
       "category": "Project Management",
-      "description": "A work management platform for coordinating projects, tasks, timelines, and team activities.",
-      "website": "https://asana.com/",
-      "startingPrice": null,
-      "features": {
-        "pricing": "Free and paid plans available",
-        "freePlan": true,
-        "mobileApp": true,
-        "automation": true,
-        "reporting": true,
-        "integrations": "Third-party integrations available",
-        "teamCollaboration": true
-      }
-    },
-    {
-      "id": "clickup",
-      "name": "ClickUp",
-      "category": "Project Management",
-      "description": "A work management tool combining tasks, documents, goals, and project collaboration.",
-      "website": "https://clickup.com/",
-      "startingPrice": null,
-      "features": {
-        "pricing": "Free and paid plans available",
-        "freePlan": true,
-        "mobileApp": true,
-        "automation": true,
-        "reporting": true,
-        "integrations": "Third-party integrations available",
-        "teamCollaboration": true
-      }
+      "description": "Product details not yet verified.",
+      "features": {}
     },
     {
       "id": "monday",
       "name": "monday.com",
       "category": "Project Management",
-      "description": "A work platform for managing projects, workflows, and team processes using customizable boards.",
-      "website": "https://monday.com/",
-      "startingPrice": null,
-      "features": {
-        "pricing": "Free and paid plans available",
-        "freePlan": true,
-        "mobileApp": true,
-        "automation": true,
-        "reporting": true,
-        "integrations": "Third-party integrations available",
-        "teamCollaboration": true
-      }
+      "description": "Product details not yet verified.",
+      "features": {}
+    },
+    {
+      "id": "clickup",
+      "name": "ClickUp",
+      "category": "Project Management",
+      "description": "Product details not yet verified.",
+      "features": {}
     },
     {
       "id": "jira",
       "name": "Jira",
       "category": "Project Management",
-      "description": "A project tracking platform commonly used by software teams to plan, track, and manage work.",
-      "website": "https://www.atlassian.com/software/jira",
-      "startingPrice": null,
-      "features": {
-        "pricing": "Free and paid plans available",
-        "freePlan": true,
-        "mobileApp": true,
-        "automation": true,
-        "reporting": true,
-        "integrations": "Atlassian and third-party integrations",
-        "teamCollaboration": true
-      }
+      "description": "Product details not yet verified.",
+      "features": {}
+    },
+    {
+      "id": "trello",
+      "name": "Trello",
+      "category": "Project Management",
+      "description": "Product details not yet verified.",
+      "features": {}
+    },
+    {
+      "id": "quickbooks",
+      "name": "QuickBooks",
+      "category": "Accounting",
+      "description": "Product details not yet verified.",
+      "features": {}
+    },
+    {
+      "id": "xero",
+      "name": "Xero",
+      "category": "Accounting",
+      "description": "Product details not yet verified.",
+      "features": {}
+    },
+    {
+      "id": "freshbooks",
+      "name": "FreshBooks",
+      "category": "Accounting",
+      "description": "Product details not yet verified.",
+      "features": {}
+    },
+    {
+      "id": "zoho-books",
+      "name": "Zoho Books",
+      "category": "Accounting",
+      "description": "Product details not yet verified.",
+      "features": {}
+    },
+    {
+      "id": "tallyprime",
+      "name": "TallyPrime",
+      "category": "Accounting",
+      "description": "Product details not yet verified.",
+      "features": {}
+    },
+    {
+      "id": "gusto",
+      "name": "Gusto",
+      "category": "HR & Payroll",
+      "description": "Product details not yet verified.",
+      "features": {}
+    },
+    {
+      "id": "rippling",
+      "name": "Rippling",
+      "category": "HR & Payroll",
+      "description": "Product details not yet verified.",
+      "features": {}
+    },
+    {
+      "id": "keka",
+      "name": "Keka",
+      "category": "HR & Payroll",
+      "description": "Product details not yet verified.",
+      "features": {}
+    },
+    {
+      "id": "greythr",
+      "name": "greytHR",
+      "category": "HR & Payroll",
+      "description": "Product details not yet verified.",
+      "features": {}
+    },
+    {
+      "id": "slack",
+      "name": "Slack",
+      "category": "Team Collaboration",
+      "description": "Product details not yet verified.",
+      "features": {}
+    },
+    {
+      "id": "microsoft-teams",
+      "name": "Microsoft Teams",
+      "category": "Team Collaboration",
+      "description": "Product details not yet verified.",
+      "features": {}
+    },
+    {
+      "id": "zoom",
+      "name": "Zoom",
+      "category": "Video Conferencing",
+      "description": "Product details not yet verified.",
+      "features": {}
+    },
+    {
+      "id": "webex",
+      "name": "Webex",
+      "category": "Video Conferencing",
+      "description": "Product details not yet verified.",
+      "features": {}
+    },
+    {
+      "id": "google-meet",
+      "name": "Google Meet",
+      "category": "Video Conferencing",
+      "description": "Product details not yet verified.",
+      "features": {}
+    },
+    {
+      "id": "gotomeeting",
+      "name": "GoTo Meeting",
+      "category": "Video Conferencing",
+      "description": "Product details not yet verified.",
+      "features": {}
+    },
+    {
+      "id": "mixpanel",
+      "name": "Mixpanel",
+      "category": "Analytics",
+      "description": "Product details not yet verified.",
+      "features": {}
+    },
+    {
+      "id": "amplitude",
+      "name": "Amplitude",
+      "category": "Analytics",
+      "description": "Product details not yet verified.",
+      "features": {}
+    },
+    {
+      "id": "power-bi",
+      "name": "Power BI",
+      "category": "Analytics",
+      "description": "Product details not yet verified.",
+      "features": {}
+    },
+    {
+      "id": "tableau",
+      "name": "Tableau",
+      "category": "Analytics",
+      "description": "Product details not yet verified.",
+      "features": {}
+    },
+    {
+      "id": "g2",
+      "name": "G2",
+      "category": "Reviews & Comparisons",
+      "description": "Product details not yet verified.",
+      "features": {}
+    },
+    {
+      "id": "capterra",
+      "name": "Capterra",
+      "category": "Reviews & Comparisons",
+      "description": "Product details not yet verified.",
+      "features": {}
+    },
+    {
+      "id": "trustradius",
+      "name": "TrustRadius",
+      "category": "Reviews & Comparisons",
+      "description": "Product details not yet verified.",
+      "features": {}
     }
   ]
   

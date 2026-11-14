@@ -68,10 +68,9 @@ function ComparisonTable({
 
   return (
     <section
-      id="comparison"
-      aria-label="Software comparison"
-      className="space-y-5"
-    >
+    aria-label="Software comparison"
+    className="space-y-5"
+  >
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h2 className="text-xl font-bold text-slate-900">

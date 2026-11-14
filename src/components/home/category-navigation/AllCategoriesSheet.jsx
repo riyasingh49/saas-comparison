@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import {
   Users,
   Workflow,
@@ -30,21 +30,59 @@ function AllCategoriesSheet({
   onClose,
   onSelectCategory,
 }) {
+  const dialogRef = useRef(null)
+  const closeButtonRef = useRef(null)
+
   useEffect(() => {
     if (!isOpen) return
 
-    const handleEscape = (event) => {
+    const previouslyFocused = document.activeElement
+    const previousOverflow = document.body.style.overflow
+
+    document.body.style.overflow = 'hidden'
+    closeButtonRef.current?.focus()
+
+    const handleKeyDown = (event) => {
       if (event.key === 'Escape') {
         onClose?.()
+        return
+      }
+
+      if (event.key !== 'Tab') return
+
+      const focusableElements = dialogRef.current?.querySelectorAll(
+        'button:not(:disabled), [href], input:not(:disabled), [tabindex]:not([tabindex="-1"])'
+      )
+
+      if (!focusableElements?.length) {
+        event.preventDefault()
+        return
+      }
+
+      const firstElement = focusableElements[0]
+      const lastElement = focusableElements[focusableElements.length - 1]
+
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault()
+        lastElement.focus()
+      } else if (
+        !event.shiftKey &&
+        document.activeElement === lastElement
+      ) {
+        event.preventDefault()
+        firstElement.focus()
       }
     }
 
-    window.addEventListener('keydown', handleEscape)
-    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', handleKeyDown)
 
     return () => {
-      window.removeEventListener('keydown', handleEscape)
-      document.body.style.overflow = ''
+      window.removeEventListener('keydown', handleKeyDown)
+      document.body.style.overflow = previousOverflow
+
+      if (previouslyFocused instanceof HTMLElement) {
+        previouslyFocused.focus()
+      }
     }
   }, [isOpen, onClose])
 
@@ -74,12 +112,12 @@ function AllCategoriesSheet({
       }}
     >
       <section
+        ref={dialogRef}
         role="dialog"
         aria-modal="true"
         aria-labelledby="all-categories-title"
         className="flex max-h-[85vh] w-full flex-col overflow-hidden rounded-t-3xl bg-white shadow-2xl sm:max-w-lg sm:rounded-3xl"
       >
-        {/* Sheet header */}
         <div className="flex shrink-0 items-center justify-between border-b border-slate-100 px-5 py-5">
           <div>
             <h2
@@ -95,22 +133,21 @@ function AllCategoriesSheet({
           </div>
 
           <button
+            ref={closeButtonRef}
             type="button"
             onClick={onClose}
             aria-label="Close categories"
-            className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-slate-600 transition hover:bg-slate-200"
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-slate-600 transition hover:bg-slate-200 focus-visible:outline-2 focus-visible:outline-indigo-600"
           >
             <X size={19} />
           </button>
         </div>
 
-        {/* Category list */}
         <div className="overflow-y-auto p-3">
           {validCategories.length > 0 ? (
             <div className="divide-y divide-slate-100">
               {validCategories.map((category) => {
-                const Icon =
-                  categoryIcons[category.id] || LayoutGrid
+                const Icon = categoryIcons[category.id] || LayoutGrid
 
                 return (
                   <button

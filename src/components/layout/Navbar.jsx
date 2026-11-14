@@ -12,13 +12,25 @@ function Navbar() {
 
   const closeMenu = () => setMenuOpen(false)
 
+  const focusSearch = () => {
+    closeMenu()
+
+    document.getElementById('software-search')?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center',
+    })
+
+    window.setTimeout(() => {
+      document.getElementById('software-search-input')?.focus()
+    }, 350)
+  }
+
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur-md">
       <nav
         className="container mx-auto flex h-16 items-center justify-between gap-6"
         aria-label="Main navigation"
       >
-        {/* Brand */}
         <a
           href="/"
           className="flex shrink-0 items-center gap-2"
@@ -34,7 +46,6 @@ function Navbar() {
           </span>
         </a>
 
-        {/* Desktop navigation */}
         <div className="hidden items-center gap-8 md:flex">
           {navigationLinks.map((link) => (
             <a
@@ -47,39 +58,37 @@ function Navbar() {
           ))}
         </div>
 
-        {/* Desktop actions */}
         <div className="hidden items-center gap-3 md:flex">
           <button
             type="button"
-            aria-label="Search"
-            className="flex h-10 w-10 items-center justify-center rounded-full text-slate-600 transition hover:bg-slate-100 hover:text-indigo-600"
+            onClick={focusSearch}
+            aria-label="Focus software search"
+            className="flex h-10 w-10 items-center justify-center rounded-full text-slate-600 transition hover:bg-slate-100 hover:text-indigo-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
           >
             <Search size={19} />
           </button>
 
-          <button
-            type="button"
-            className="flex items-center gap-2 rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-indigo-700"
+          <a
+            href="#comparison"
+            className="flex items-center gap-2 rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
           >
             Explore tools
             <ChevronDown size={15} />
-          </button>
+          </a>
         </div>
 
-        {/* Mobile menu button */}
         <button
           type="button"
           onClick={() => setMenuOpen((open) => !open)}
           aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
           aria-expanded={menuOpen}
           aria-controls="mobile-navigation"
-          className="flex h-10 w-10 items-center justify-center rounded-lg text-slate-700 transition hover:bg-slate-100 md:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-lg text-slate-700 transition hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 md:hidden"
         >
           {menuOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </nav>
 
-      {/* Mobile navigation */}
       {menuOpen && (
         <div
           id="mobile-navigation"
@@ -99,12 +108,21 @@ function Navbar() {
 
             <button
               type="button"
+              onClick={focusSearch}
+              className="mt-2 flex items-center justify-center gap-2 rounded-xl border border-slate-200 px-4 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
+            >
+              <Search size={17} />
+              Search software
+            </button>
+
+            <a
+              href="#comparison"
               onClick={closeMenu}
               className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 py-3 text-sm font-medium text-white transition hover:bg-indigo-700"
             >
-              <Search size={17} />
               Explore tools
-            </button>
+              <ChevronDown size={15} />
+            </a>
           </div>
         </div>
       )}
