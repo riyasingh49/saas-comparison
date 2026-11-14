@@ -2,6 +2,7 @@ import { Search, Sparkles } from 'lucide-react'
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
 import CategorySection from '../components/home/CategorySection'
+import ComparisonSection from '../components/comparison/ComparisonSection'
 
 function Home() {
   return (

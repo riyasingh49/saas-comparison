@@ -1,0 +1,139 @@
+[
+    {
+      "id": "salesforce",
+      "name": "Salesforce",
+      "category": "CRM Software",
+      "description": "A customer relationship management platform with tools for sales, customer service, marketing, and business automation.",
+      "website": "https://www.salesforce.com/",
+      "startingPrice": null,
+      "features": {
+        "pricing": "Contact vendor",
+        "freePlan": false,
+        "mobileApp": true,
+        "automation": true,
+        "reporting": true,
+        "integrations": "Extensive integration options",
+        "teamCollaboration": true
+      }
+    },
+    {
+      "id": "pipedrive",
+      "name": "Pipedrive",
+      "category": "CRM Software",
+      "description": "A sales-focused CRM designed to help teams manage leads, track deals, and organize their sales pipeline.",
+      "website": "https://www.pipedrive.com/",
+      "startingPrice": null,
+      "features": {
+        "pricing": "See vendor website",
+        "freePlan": false,
+        "mobileApp": true,
+        "automation": true,
+        "reporting": true,
+        "integrations": "Third-party integrations available",
+        "teamCollaboration": true
+      }
+    },
+    {
+      "id": "zoho-crm",
+      "name": "Zoho CRM",
+      "category": "CRM Software",
+      "description": "A CRM solution for managing customer relationships, sales activities, workflows, and business processes.",
+      "website": "https://www.zoho.com/crm/",
+      "startingPrice": null,
+      "features": {
+        "pricing": "Free and paid plans available",
+        "freePlan": true,
+        "mobileApp": true,
+        "automation": true,
+        "reporting": true,
+        "integrations": "Zoho and third-party integrations",
+        "teamCollaboration": true
+      }
+    },
+    {
+      "id": "freshsales",
+      "name": "Freshsales",
+      "category": "CRM Software",
+      "description": "A sales CRM with customer management, communication, and sales workflow capabilities.",
+      "website": "https://www.freshworks.com/crm/sales/",
+      "startingPrice": null,
+      "features": {
+        "pricing": "See vendor website",
+        "freePlan": true,
+        "mobileApp": true,
+        "automation": true,
+        "reporting": true,
+        "integrations": "Third-party integrations available",
+        "teamCollaboration": true
+      }
+    },
+    {
+      "id": "asana",
+      "name": "Asana",
+      "category": "Project Management",
+      "description": "A work management platform for coordinating projects, tasks, timelines, and team activities.",
+      "website": "https://asana.com/",
+      "startingPrice": null,
+      "features": {
+        "pricing": "Free and paid plans available",
+        "freePlan": true,
+        "mobileApp": true,
+        "automation": true,
+        "reporting": true,
+        "integrations": "Third-party integrations available",
+        "teamCollaboration": true
+      }
+    },
+    {
+      "id": "clickup",
+      "name": "ClickUp",
+      "category": "Project Management",
+      "description": "A work management tool combining tasks, documents, goals, and project collaboration.",
+      "website": "https://clickup.com/",
+      "startingPrice": null,
+      "features": {
+        "pricing": "Free and paid plans available",
+        "freePlan": true,
+        "mobileApp": true,
+        "automation": true,
+        "reporting": true,
+        "integrations": "Third-party integrations available",
+        "teamCollaboration": true
+      }
+    },
+    {
+      "id": "monday",
+      "name": "monday.com",
+      "category": "Project Management",
+      "description": "A work platform for managing projects, workflows, and team processes using customizable boards.",
+      "website": "https://monday.com/",
+      "startingPrice": null,
+      "features": {
+        "pricing": "Free and paid plans available",
+        "freePlan": true,
+        "mobileApp": true,
+        "automation": true,
+        "reporting": true,
+        "integrations": "Third-party integrations available",
+        "teamCollaboration": true
+      }
+    },
+    {
+      "id": "jira",
+      "name": "Jira",
+      "category": "Project Management",
+      "description": "A project tracking platform commonly used by software teams to plan, track, and manage work.",
+      "website": "https://www.atlassian.com/software/jira",
+      "startingPrice": null,
+      "features": {
+        "pricing": "Free and paid plans available",
+        "freePlan": true,
+        "mobileApp": true,
+        "automation": true,
+        "reporting": true,
+        "integrations": "Atlassian and third-party integrations",
+        "teamCollaboration": true
+      }
+    }
+  ]
+  
