@@ -1,0 +1,829 @@
+{
+    "asana": {
+        "website": "https://asana.com/pricing",
+        "startingPrice": "$10.99/user/month",
+        "pricing": {
+            "status": "verified",
+            "currency": "USD",
+            "billingOptions": [
+                "Monthly",
+                "Annually"
+            ],
+            "plans": [
+                {
+                    "name": "Personal",
+                    "price": 0,
+                    "billingPeriod": "Free",
+                    "unit": "up to 2 users",
+                    "note": "Free plan for personal projects."
+                },
+                {
+                    "name": "Starter",
+                    "price": 10.99,
+                    "billingPeriod": "Annually",
+                    "unit": "user/month",
+                    "note": "Billed annually. Monthly billing is $13.49/user/month."
+                },
+                {
+                    "name": "Advanced",
+                    "price": 24.99,
+                    "billingPeriod": "Annually",
+                    "unit": "user/month",
+                    "note": "Billed annually. Monthly billing is $30.49/user/month."
+                }
+            ]
+        },
+        "features": {
+            "freePlan": true
+        },
+        "sources": [
+            {
+                "label": "Official Asana pricing",
+                "url": "https://asana.com/pricing",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "verified",
+            "checkedAt": "2026-11-15"
+        }
+    },
+    "monday": {
+        "website": "https://monday.com/pricing",
+        "startingPrice": "$9/seat/month",
+        "pricing": {
+            "status": "verified",
+            "currency": "USD",
+            "billingOptions": [
+                "Annually"
+            ],
+            "plans": [
+                {
+                    "name": "Free",
+                    "price": 0,
+                    "billingPeriod": "Free",
+                    "unit": "up to 2 seats",
+                    "note": "Free work management plan."
+                },
+                {
+                    "name": "Basic",
+                    "price": 9,
+                    "billingPeriod": "Annually",
+                    "unit": "seat/month",
+                    "note": "Published annual rate. Minimum seat packs and billing-country pricing apply."
+                },
+                {
+                    "name": "Standard",
+                    "price": 12,
+                    "billingPeriod": "Annually",
+                    "unit": "seat/month",
+                    "note": "Published annual rate. Minimum seat packs and billing-country pricing apply."
+                },
+                {
+                    "name": "Pro",
+                    "price": 19,
+                    "billingPeriod": "Annually",
+                    "unit": "seat/month",
+                    "note": "Published annual rate. Minimum seat packs and billing-country pricing apply."
+                }
+            ]
+        },
+        "features": {
+            "freePlan": true
+        },
+        "sources": [
+            {
+                "label": "Official monday.com pricing",
+                "url": "https://monday.com/pricing",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "verified",
+            "checkedAt": "2026-11-15"
+        }
+    },
+    "clickup": {
+        "website": "https://clickup.com/pricing",
+        "startingPrice": "$7/user/month",
+        "pricing": {
+            "status": "verified",
+            "currency": "USD",
+            "billingOptions": [
+                "Monthly",
+                "Annually"
+            ],
+            "plans": [
+                {
+                    "name": "Free Forever",
+                    "price": 0,
+                    "billingPeriod": "Free",
+                    "unit": "per user",
+                    "note": "Free Forever plan."
+                },
+                {
+                    "name": "Unlimited",
+                    "price": 7,
+                    "billingPeriod": "Annually",
+                    "unit": "user/month",
+                    "note": "Billed annually."
+                },
+                {
+                    "name": "Unlimited",
+                    "price": 10,
+                    "billingPeriod": "Monthly",
+                    "unit": "user/month",
+                    "note": "Billed monthly."
+                },
+                {
+                    "name": "Business",
+                    "price": 12,
+                    "billingPeriod": "Annually",
+                    "unit": "user/month",
+                    "note": "Billed annually."
+                },
+                {
+                    "name": "Business",
+                    "price": 19,
+                    "billingPeriod": "Monthly",
+                    "unit": "user/month",
+                    "note": "Billed monthly."
+                }
+            ]
+        },
+        "features": {
+            "freePlan": true
+        },
+        "sources": [
+            {
+                "label": "Official ClickUp pricing",
+                "url": "https://clickup.com/pricing",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "verified",
+            "checkedAt": "2026-11-15"
+        }
+    },
+    "jira": {
+        "website": "https://www.atlassian.com/en/software/jira/pricing",
+        "sources": [
+            {
+                "label": "Official Jira pricing",
+                "url": "https://www.atlassian.com/en/software/jira/pricing",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "source_verified",
+            "checkedAt": "2026-11-15"
+        }
+    },
+    "quickbooks": {
+        "website": "https://quickbooks.intuit.com/pricing/",
+        "sources": [
+            {
+                "label": "Official QuickBooks Online pricing",
+                "url": "https://quickbooks.intuit.com/pricing/",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "source_verified",
+            "checkedAt": "2026-11-15"
+        }
+    },
+    "freshbooks": {
+        "website": "https://www.freshbooks.com/pricing",
+        "sources": [
+            {
+                "label": "Official FreshBooks pricing",
+                "url": "https://www.freshbooks.com/pricing",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "source_verified",
+            "checkedAt": "2026-11-15"
+        }
+    },
+    "zoho-books": {
+        "website": "https://www.zoho.com/in/books/pricing/",
+        "pricing": {
+            "status": "unverified",
+            "currency": "INR",
+            "billingOptions": [
+                "Monthly",
+                "Annually"
+            ],
+            "plans": [
+                {
+                    "name": "Free",
+                    "price": 0,
+                    "billingPeriod": "Free",
+                    "unit": "1 user + 1 accountant",
+                    "note": "Free India plan. Paid editions are priced per organization, not per user."
+                }
+            ]
+        },
+        "features": {
+            "freePlan": true
+        },
+        "sources": [
+            {
+                "label": "Official Zoho Books India pricing",
+                "url": "https://www.zoho.com/in/books/pricing/",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "partially_verified",
+            "checkedAt": "2026-11-15"
+        }
+    },
+    "xero": {
+        "website": "https://www.xero.com/",
+        "sources": [
+            {
+                "label": "Official Xero pricing plan information",
+                "url": "https://central.xero.com/0/article/Xero-pricing-plans",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "source_verified",
+            "checkedAt": "2026-11-15"
+        }
+    },
+    "tallyprime": {
+        "website": "https://tallysolutions.com/",
+        "sources": [
+            {
+                "label": "Official TallyPrime licence and subscription pricing",
+                "url": "https://tallysolutions.com/buy-tally/",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            },
+            {
+                "label": "Official TallyPrime monthly subscription information",
+                "url": "https://tallysolutions.com/tally-monthly-subscription/",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "source_verified",
+            "checkedAt": "2026-11-15"
+        }
+    },
+    "gusto": {
+        "website": "https://gusto.com/product/pricing",
+        "sources": [
+            {
+                "label": "Official Gusto pricing",
+                "url": "https://gusto.com/product/pricing",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "source_verified",
+            "checkedAt": "2026-11-15"
+        }
+    },
+    "rippling": {
+        "website": "https://www.rippling.com/pricing",
+        "sources": [
+            {
+                "label": "Official Rippling pricing information",
+                "url": "https://www.rippling.com/pricing",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "source_verified",
+            "checkedAt": "2026-11-15"
+        }
+    },
+    "keka": {
+        "website": "https://keka.com/pricing",
+        "sources": [
+            {
+                "label": "Official Keka pricing",
+                "url": "https://keka.com/pricing",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "source_verified",
+            "checkedAt": "2026-11-15"
+        }
+    },
+    "greythr": {
+        "website": "https://www.greythr.com/pricing",
+        "sources": [
+            {
+                "label": "Official greytHR India pricing",
+                "url": "https://www.greythr.com/pricing",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "source_verified",
+            "checkedAt": "2026-11-15"
+        }
+    },
+    "slack": {
+        "website": "https://slack.com/pricing",
+        "startingPrice": "$7.25/user/month",
+        "pricing": {
+            "status": "verified",
+            "currency": "USD",
+            "billingOptions": [
+                "Monthly",
+                "Annually"
+            ],
+            "plans": [
+                {
+                    "name": "Free",
+                    "price": 0,
+                    "billingPeriod": "Free",
+                    "unit": "per user",
+                    "note": "Free plan with limited message history."
+                },
+                {
+                    "name": "Pro",
+                    "price": 7.25,
+                    "billingPeriod": "Annually",
+                    "unit": "user/month",
+                    "note": "Billed annually."
+                },
+                {
+                    "name": "Pro",
+                    "price": 8.75,
+                    "billingPeriod": "Monthly",
+                    "unit": "user/month",
+                    "note": "Billed monthly."
+                },
+                {
+                    "name": "Business+",
+                    "price": 15,
+                    "billingPeriod": "Annually",
+                    "unit": "user/month",
+                    "note": "Billed annually."
+                },
+                {
+                    "name": "Business+",
+                    "price": 18,
+                    "billingPeriod": "Monthly",
+                    "unit": "user/month",
+                    "note": "Billed monthly."
+                }
+            ]
+        },
+        "features": {
+            "freePlan": true
+        },
+        "sources": [
+            {
+                "label": "Official Slack pricing",
+                "url": "https://slack.com/pricing",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "verified",
+            "checkedAt": "2026-11-15"
+        }
+    },
+    "microsoft-teams": {
+        "website": "https://www.microsoft.com/en-in/microsoft-teams/compare-microsoft-teams-business-options",
+        "startingPrice": "₹115/user/month",
+        "pricing": {
+            "status": "verified",
+            "currency": "INR",
+            "billingOptions": [
+                "Annually"
+            ],
+            "plans": [
+                {
+                    "name": "Teams Essentials",
+                    "price": 115,
+                    "billingPeriod": "Annually",
+                    "unit": "user/month",
+                    "note": "India pricing; annual subscription; GST extra as applicable."
+                }
+            ]
+        },
+        "sources": [
+            {
+                "label": "Official Microsoft Teams business pricing for India",
+                "url": "https://www.microsoft.com/en-in/microsoft-teams/compare-microsoft-teams-business-options",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "verified",
+            "checkedAt": "2026-11-15"
+        }
+    },
+    "zoom": {
+        "website": "https://zoom.us/pricing",
+        "startingPrice": "$14.16/user/month",
+        "pricing": {
+            "status": "verified",
+            "currency": "USD",
+            "billingOptions": [
+                "Monthly",
+                "Annually"
+            ],
+            "plans": [
+                {
+                    "name": "Basic",
+                    "price": 0,
+                    "billingPeriod": "Free",
+                    "unit": "per user",
+                    "note": "Free plan; meeting duration and participant limits apply."
+                },
+                {
+                    "name": "Pro",
+                    "price": 14.16,
+                    "billingPeriod": "Annually",
+                    "unit": "user/month",
+                    "note": "Billed annually."
+                },
+                {
+                    "name": "Pro",
+                    "price": 16.99,
+                    "billingPeriod": "Monthly",
+                    "unit": "user/month",
+                    "note": "Billed monthly."
+                },
+                {
+                    "name": "Business",
+                    "price": 18.33,
+                    "billingPeriod": "Annually",
+                    "unit": "user/month",
+                    "note": "Billed annually."
+                },
+                {
+                    "name": "Business",
+                    "price": 21.99,
+                    "billingPeriod": "Monthly",
+                    "unit": "user/month",
+                    "note": "Billed monthly."
+                }
+            ]
+        },
+        "features": {
+            "freePlan": true
+        },
+        "sources": [
+            {
+                "label": "Official Zoom Workplace pricing",
+                "url": "https://zoom.us/pricing",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "verified",
+            "checkedAt": "2026-11-15"
+        }
+    },
+    "webex": {
+        "website": "https://pricing.webex.com/in/",
+        "pricing": {
+            "status": "verified",
+            "currency": "INR",
+            "billingOptions": [],
+            "plans": [
+                {
+                    "name": "Webex Free",
+                    "price": 0,
+                    "billingPeriod": "Free",
+                    "unit": "per user",
+                    "note": "Free plan; meetings are limited to 40 minutes and 100 attendees."
+                }
+            ]
+        },
+        "features": {
+            "freePlan": true
+        },
+        "sources": [
+            {
+                "label": "Official Webex India pricing",
+                "url": "https://pricing.webex.com/in/",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "partially_verified",
+            "checkedAt": "2026-11-15"
+        }
+    },
+    "google-meet": {
+        "website": "https://workspace.google.com/intl/en_in/business/",
+        "startingPrice": "₹160.65/user/month",
+        "pricing": {
+            "status": "verified",
+            "currency": "INR",
+            "billingOptions": [
+                "Annually"
+            ],
+            "plans": [
+                {
+                    "name": "Google Workspace Business Starter",
+                    "price": 160.65,
+                    "billingPeriod": "Annually",
+                    "unit": "user/month",
+                    "note": "Annual commitment rate in India; includes Google Meet. Confirm final billing and taxes with Google."
+                }
+            ]
+        },
+        "sources": [
+            {
+                "label": "Official Google Workspace India plans",
+                "url": "https://workspace.google.com/intl/en_in/business/",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "partially_verified",
+            "checkedAt": "2026-11-15"
+        }
+    },
+    "gotomeeting": {
+        "website": "https://www.goto.com/pricing/meeting",
+        "sources": [
+            {
+                "label": "Official GoTo Meeting pricing",
+                "url": "https://www.goto.com/pricing/meeting",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "source_verified",
+            "checkedAt": "2026-11-15"
+        }
+    },
+    "mixpanel": {
+        "website": "https://mixpanel.com/pricing/",
+        "pricing": {
+            "status": "unverified",
+            "currency": "USD",
+            "billingOptions": [
+                "Usage based"
+            ],
+            "plans": [
+                {
+                    "name": "Free",
+                    "price": 0,
+                    "billingPeriod": "Free",
+                    "unit": "up to 1M events/month",
+                    "note": "Usage-based analytics pricing; paid Growth costs depend on event volume."
+                }
+            ]
+        },
+        "features": {
+            "freePlan": true
+        },
+        "sources": [
+            {
+                "label": "Official Mixpanel pricing",
+                "url": "https://mixpanel.com/pricing/",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "partially_verified",
+            "checkedAt": "2026-11-15"
+        }
+    },
+    "amplitude": {
+        "website": "https://www.amplitude.com/pricing",
+        "pricing": {
+            "status": "unverified",
+            "currency": "USD",
+            "billingOptions": [
+                "Usage based"
+            ],
+            "plans": [
+                {
+                    "name": "Free",
+                    "price": 0,
+                    "billingPeriod": "Free",
+                    "unit": "up to 2M events/month",
+                    "note": "Usage-based analytics pricing; paid plans require an event-volume estimate or sales quote."
+                }
+            ]
+        },
+        "features": {
+            "freePlan": true
+        },
+        "sources": [
+            {
+                "label": "Official Amplitude pricing",
+                "url": "https://www.amplitude.com/pricing",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "partially_verified",
+            "checkedAt": "2026-11-15"
+        }
+    },
+    "power-bi": {
+        "website": "https://www.microsoft.com/en-in/power-platform/products/power-bi/pricing",
+        "startingPrice": "₹1,165/user/month",
+        "pricing": {
+            "status": "verified",
+            "currency": "INR",
+            "billingOptions": [
+                "Annually"
+            ],
+            "plans": [
+                {
+                    "name": "Free account",
+                    "price": 0,
+                    "billingPeriod": "Free",
+                    "unit": "per user",
+                    "note": "Free account; sharing and collaboration require an eligible paid licence."
+                },
+                {
+                    "name": "Power BI Pro",
+                    "price": 1165,
+                    "billingPeriod": "Annually",
+                    "unit": "user/month",
+                    "note": "India pricing; paid yearly; GST extra as applicable."
+                },
+                {
+                    "name": "Power BI Premium Per User",
+                    "price": 1995,
+                    "billingPeriod": "Annually",
+                    "unit": "user/month",
+                    "note": "India pricing; paid yearly; GST extra as applicable."
+                }
+            ]
+        },
+        "features": {
+            "freePlan": true
+        },
+        "sources": [
+            {
+                "label": "Official Microsoft Power BI pricing for India",
+                "url": "https://www.microsoft.com/en-in/power-platform/products/power-bi/pricing",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "verified",
+            "checkedAt": "2026-11-15"
+        }
+    },
+    "tableau": {
+        "website": "https://www.tableau.com/pricing",
+        "startingPrice": "$15/user/month",
+        "pricing": {
+            "status": "verified",
+            "currency": "USD",
+            "billingOptions": [
+                "Annually"
+            ],
+            "plans": [
+                {
+                    "name": "Tableau Standard",
+                    "price": 15,
+                    "billingPeriod": "Annually",
+                    "unit": "user/month",
+                    "note": "Starting rate billed annually. Deployment requires at least one Creator licence."
+                },
+                {
+                    "name": "Tableau Enterprise",
+                    "price": 35,
+                    "billingPeriod": "Annually",
+                    "unit": "user/month",
+                    "note": "Starting rate billed annually. Deployment requires at least one Creator licence."
+                }
+            ]
+        },
+        "sources": [
+            {
+                "label": "Official Tableau pricing",
+                "url": "https://www.tableau.com/pricing",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "partially_verified",
+            "checkedAt": "2026-11-15"
+        }
+    },
+    "g2": {
+        "website": "https://www.g2.com/",
+        "sources": [
+            {
+                "label": "Official G2 software review marketplace",
+                "url": "https://www.g2.com/",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            },
+            {
+                "label": "G2 review verification and methodology",
+                "url": "https://www.g2.com/ai-instructions",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "source_verified",
+            "checkedAt": "2026-11-15"
+        }
+    },
+    "capterra": {
+        "website": "https://www.capterra.in/",
+        "sources": [
+            {
+                "label": "Official Capterra India software directory",
+                "url": "https://www.capterra.in/",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            },
+            {
+                "label": "Capterra pricing enquiry guidance",
+                "url": "https://www.capterra.in/company/contact",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "source_verified",
+            "checkedAt": "2026-11-15"
+        }
+    },
+    "trustradius": {
+        "website": "https://www.trustradius.com/",
+        "sources": [
+            {
+                "label": "Official TrustRadius software reviews",
+                "url": "https://www.trustradius.com/",
+                "type": "official",
+                "checkedAt": "2026-11-15",
+                "status": "verified"
+            }
+        ],
+        "verification": {
+            "status": "source_verified",
+            "checkedAt": "2026-11-15"
+        }
+    }
+}

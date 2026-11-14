@@ -1,4 +1,3 @@
-
 import { useState } from 'react'
 import SaaSToolkit from '../components/home/SaaSToolkit'
 import Navbar from '../components/layout/Navbar'
@@ -10,8 +9,8 @@ import SoftwareCostCalculator from '../components/home/SoftwareCostCalculator'
 import DecisionSupport from '../components/home/DecisionSupport'
 import PricingExplainer from '../components/home/PricingExplainer'
 import ComparisonSection from '../components/comparison/ComparisonSection'
-
 import useHomePage from '../hooks/useHomePage'
+import enrichVendorsWithResearch from '../utils/vendorResearch'
 
 import vendors from '../data/vendors.json'
 import categories from '../data/categories.json'
@@ -19,6 +18,7 @@ import comparisonFeatures from '../data/comparison-features.json'
 
 function Home() {
   const [recommendedVendorIds, setRecommendedVendorIds] = useState([])
+  const researchedVendors = enrichVendorsWithResearch(vendors)
 
   const {
     pageState,
@@ -27,8 +27,8 @@ function Home() {
     pricingRange,
     handleCategoryChange,
     handleSubcategoryChange,
-    handleSearchResult,
-  } = useHomePage(categories, vendors)
+    handleSearchResult
+  } = useHomePage(categories, researchedVendors)
 
   const resetRecommendations = () => {
     setRecommendedVendorIds([])
@@ -106,7 +106,6 @@ function Home() {
         />
 
         <PricingExplainer />
-
         <SaaSToolkit />
 
         <DecisionSupport
