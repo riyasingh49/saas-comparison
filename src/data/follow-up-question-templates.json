@@ -1,0 +1,51 @@
+{
+    "CRM Software": [
+      "Which CRM features are included in the entry-level paid plan?",
+      "How does the price change as the team adds more users?",
+      "Can the tool support the team's sales pipeline and reporting needs?",
+      "What data migration or onboarding costs should be checked?"
+    ],
+    "Project Management": [
+      "Does this tool support {{subtype}} workflows?",
+      "Which collaboration and automation features require a paid plan?",
+      "How are guests, viewers, and external collaborators charged?",
+      "What limits apply to projects, storage, and integrations?"
+    ],
+    "Accounting": [
+      "Does the software support {{subtype}} requirements?",
+      "Are invoicing, tax, and reconciliation features included in the listed plan?",
+      "Are there additional charges for users, transactions, or integrations?",
+      "Which regional tax and compliance requirements should be verified?"
+    ],
+    "HR & Payroll": [
+      "Does the product cover {{subtype}} requirements?",
+      "Are payroll, employee records, and compliance features priced separately?",
+      "Are there minimum employee counts or implementation fees?",
+      "Which country-specific payroll rules and integrations are supported?"
+    ],
+    "Team Collaboration": [
+      "Does the product cover {{subtype}} workflows?",
+      "Are external guests and shared workspaces included?",
+      "Which security, administration, and storage features require a paid plan?",
+      "What happens to team data if the subscription is downgraded?"
+    ],
+    "Video Conferencing": [
+      "Does the product support {{subtype}} use cases?",
+      "What meeting duration and participant limits apply?",
+      "Are recordings, webinars, and administration included or charged separately?",
+      "Which features require a higher-tier subscription?"
+    ],
+    "Analytics": [
+      "Does the product support {{subtype}} reporting needs?",
+      "Are pricing limits based on users, events, data volume, or queries?",
+      "Which dashboards, exports, and integrations are included?",
+      "What happens when usage exceeds the plan allowance?"
+    ],
+    "Reviews & Comparisons": [
+      "How are reviews verified and moderated on this platform?",
+      "Can reviews be filtered by company size, industry, and use case?",
+      "How recent are the reviews and product comparisons?",
+      "Does the platform disclose sponsored placements or commercial relationships?"
+    ]
+  }
+  

@@ -113,6 +113,7 @@ function Home() {
           categoryName={
             pageState.category?.name || 'business software'
           }
+          subcategory={pageState.subcategory}
           vendors={visibleVendors}
           region={pageState.region}
           onRecommendationsChange={handleRecommendationsChange}
