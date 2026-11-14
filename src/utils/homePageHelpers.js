@@ -1,5 +1,7 @@
 import vendorSubcategoryMappings from '../data/vendor-subcategory-mappings.json'
+import pricingBillingOptions from '../data/pricing-billing-options.json'
 import { findCategoryByKeyword } from './categoryMatcher'
+import { getVerifiedPricingRange } from './pricing'
 
 const normalize = (value) =>
   String(value || '').trim().toLowerCase()
@@ -13,10 +15,6 @@ const subcategoryMappings = new Map(
   ])
 )
 
-/**
- * Adds assessment-based subcategory assignments to a vendor.
- * The original vendor object is not mutated.
- */
 function enrichVendor(vendor) {
   const assignments = subcategoryMappings.get(vendor.id) || []
 
@@ -36,25 +34,31 @@ export function getPageState(categories = [], vendors = []) {
   const subcategory = params.get('subcategory') || ''
   const searchTerm = params.get('q') || ''
   const searchType = params.get('type') || ''
-  const region = params.get('loc')?.toUpperCase() === 'IN' ? 'IN' : 'US'
+  const region =
+    params.get('loc')?.toUpperCase() === 'IN' ? 'IN' : 'US'
 
   let category =
     categories.find((item) => item.id === categoryId) || null
 
-  const matchedResult = searchTerm && !category
-    ? findCategoryByKeyword(searchTerm)
-    : null
+  const matchedResult =
+    searchTerm && !category
+      ? findCategoryByKeyword(searchTerm)
+      : null
 
-  if (matchedResult?.category) category = matchedResult.category
+  if (matchedResult?.category) {
+    category = matchedResult.category
+  }
 
-  const resolvedType = matchedResult?.type === 'no-results'
-    ? 'all'
-    : (searchType || matchedResult?.type || '')
+  const resolvedType =
+    matchedResult?.type === 'no-results'
+      ? 'all'
+      : searchType || matchedResult?.type || ''
 
   const vendor =
     resolvedType === 'vendor'
       ? vendors.find(
-          (item) => normalize(item.name) === normalize(searchTerm)
+          (item) =>
+            normalize(item.name) === normalize(searchTerm)
         ) || null
       : null
 
@@ -87,7 +91,9 @@ export function updatePageUrl(nextState = {}) {
     params.set('type', nextState.searchType)
   }
 
-  if (nextState.region === 'IN') params.set('loc', 'IN')
+  if (nextState.region === 'IN') {
+    params.set('loc', 'IN')
+  }
 
   const queryString = params.toString()
   const nextUrl = queryString
@@ -127,7 +133,8 @@ export function filterVisibleVendors(vendors = [], pageState = {}) {
 
     results = results.filter((vendor) =>
       vendor.subcategories.some(
-        (subcategory) => normalize(subcategory) === selectedSubcategory
+        (subcategory) =>
+          normalize(subcategory) === selectedSubcategory
       )
     )
   }
@@ -136,11 +143,11 @@ export function filterVisibleVendors(vendors = [], pageState = {}) {
 }
 
 export function getSummaryContent(pageState = {}, visibleVendors = []) {
-
   if (pageState.searchType === 'vendor' && pageState.vendor) {
     return {
       title: pageState.vendor.name,
-      summary: pageState.vendor.description ||
+      summary:
+        pageState.vendor.description ||
         'Explore the available information and compare this software with other tools.',
       details:
         'Pricing and feature information should be checked against reliable sources before being treated as verified.',
@@ -171,21 +178,31 @@ export function getSummaryContent(pageState = {}, visibleVendors = []) {
 }
 
 export function getPricingRange(vendors = [], region = 'US') {
-  const pricesByCurrency = new Map()
+  const ranges = getVerifiedPricingRange(
+    vendors,
+    region,
+    pricingBillingOptions
+  )
 
-  vendors.forEach((vendor) => {
-    const currency = vendor?.pricing?.currency
-    const prices = (vendor?.pricing?.plans || []).map((plan) => plan?.price)
-      .filter((price) => Number.isFinite(price) && price > 0)
-    if (currency && prices.length) {
-      pricesByCurrency.set(currency, [...(pricesByCurrency.get(currency) || []), ...prices])
-    }
-  })
+  return ranges
+    .map(({ currency, minimum, maximum }) => {
+      const locale = currency === 'INR' ? 'en-IN' : 'en-US'
 
-  const preferred = region === 'IN' && pricesByCurrency.has('INR') ? ['INR'] : [...pricesByCurrency.keys()]
-  return preferred.map((currency) => {
-    const prices = pricesByCurrency.get(currency)
-    const formatted = new Intl.NumberFormat(currency === 'INR' ? 'en-IN' : 'en-US', { style: 'currency', currency, maximumFractionDigits: 0 })
-    return `${formatted.format(Math.min(...prices))}-${formatted.format(Math.max(...prices))}/user/month`
-  }).join(' · ')
+      const formatter = new Intl.NumberFormat(locale, {
+        style: 'currency',
+        currency,
+        maximumFractionDigits: 0,
+      })
+
+      const label =
+        region === 'IN' && currency === 'USD'
+          ? ' (billed in USD)'
+          : ''
+
+      return (
+        `${formatter.format(minimum)}–` +
+        `${formatter.format(maximum)}/user/month${label}`
+      )
+    })
+    .join(' · ')
 }

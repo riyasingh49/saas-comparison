@@ -12,7 +12,6 @@ function useHomePage(categories = [], vendors = []) {
     getPageState(categories, vendors)
   )
 
-  // Keep the latest state available to handlers called back-to-back.
   const pageStateRef = useRef(pageState)
 
   const applyPageState = useCallback((nextState) => {
@@ -21,42 +20,52 @@ function useHomePage(categories = [], vendors = []) {
     updatePageUrl(nextState)
   }, [])
 
-  const handleCategoryChange = useCallback((category) => {
-    const nextState = {
-      ...pageStateRef.current,
-      category: category || null,
-      subcategory: '',
-      searchTerm: '',
-      searchType: '',
-      vendor: null,
-    }
+  const handleCategoryChange = useCallback(
+    (category) => {
+      const nextState = {
+        ...pageStateRef.current,
+        category: category || null,
+        subcategory: '',
+        searchTerm: '',
+        searchType: '',
+        vendor: null,
+      }
 
-    applyPageState(nextState)
-  }, [applyPageState])
+      applyPageState(nextState)
+    },
+    [applyPageState]
+  )
 
-  const handleSubcategoryChange = useCallback((subcategory) => {
-    const nextState = {
-      ...pageStateRef.current,
-      subcategory: subcategory || '',
-      searchTerm: '',
-      searchType: '',
-      vendor: null,
-    }
+  const handleSubcategoryChange = useCallback(
+    (subcategory) => {
+      const nextState = {
+        ...pageStateRef.current,
+        subcategory: subcategory || '',
+        searchTerm: '',
+        searchType: '',
+        vendor: null,
+      }
 
-    applyPageState(nextState)
-  }, [applyPageState])
+      applyPageState(nextState)
+    },
+    [applyPageState]
+  )
 
-  const handleSearchResult = useCallback((result) => {
-    const nextState = {
-      category: result?.category || null,
-      subcategory: result?.subcategory || '',
-      searchTerm: result?.searchTerm || '',
-      searchType: result?.type || '',
-      vendor: result?.vendor || null,
-    }
+  const handleSearchResult = useCallback(
+    (result) => {
+      const nextState = {
+        ...pageStateRef.current,
+        category: result?.category || null,
+        subcategory: result?.subcategory || '',
+        searchTerm: result?.searchTerm || '',
+        searchType: result?.type || '',
+        vendor: result?.vendor || null,
+      }
 
-    applyPageState(nextState)
-  }, [applyPageState])
+      applyPageState(nextState)
+    },
+    [applyPageState]
+  )
 
   const visibleVendors = useMemo(
     () => filterVisibleVendors(vendors, pageState),

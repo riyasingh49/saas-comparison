@@ -1,0 +1,63 @@
+
+{
+  "salesforce": {
+    "Starter Suite": {
+      "monthly": 25,
+      "annual": 25
+    },
+    "Pro Suite": {
+      "monthly": null,
+      "annual": 100
+    }
+  },
+  "pipedrive": {
+    "Lite": {
+      "monthly": null,
+      "annual": 14
+    },
+    "Growth": {
+      "monthly": null,
+      "annual": 39
+    },
+    "Premium": {
+      "monthly": null,
+      "annual": 59
+    },
+    "Ultimate": {
+      "monthly": null,
+      "annual": 79
+    }
+  },
+  "zoho-crm": {
+    "Standard": {
+      "monthly": 1300,
+      "annual": 800
+    },
+    "Professional": {
+      "monthly": 2100,
+      "annual": 1400
+    },
+    "Enterprise": {
+      "monthly": 3000,
+      "annual": 2400
+    },
+    "Ultimate": {
+      "monthly": 3200,
+      "annual": 2600
+    }
+  },
+  "freshsales": {
+    "Growth": {
+      "monthly": 11,
+      "annual": 9
+    },
+    "Pro": {
+      "monthly": 47,
+      "annual": 39
+    },
+    "Enterprise": {
+      "monthly": 71,
+      "annual": 59
+    }
+  }
+}

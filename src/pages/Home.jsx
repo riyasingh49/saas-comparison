@@ -26,8 +26,19 @@ function Home() {
     handleSearchResult,
   } = useHomePage(categories, vendors)
 
-  const summarySources = visibleVendors.flatMap((vendor) => vendor.sources || []).slice(0, 5)
-  const checkedDates = summarySources.map((source) => source.checkedAt).filter(Boolean)
+  const summarySources = visibleVendors
+    .flatMap((vendor) => vendor.sources || [])
+    .filter(
+      (source) =>
+        source?.status === 'verified' &&
+        source?.url &&
+        source?.checkedAt
+    )
+    .slice(0, 5)
+
+  const checkedDates = summarySources
+    .map((source) => source.checkedAt)
+    .filter(Boolean)
 
   return (
     <div id="top" className="min-h-screen bg-gray-50">
@@ -44,7 +55,11 @@ function Home() {
         />
 
         <div className="container mx-auto px-4 pt-6">
-          <SoftwareSearch key={pageState.searchTerm} initialQuery={pageState.searchTerm} onSearchResult={handleSearchResult} />
+          <SoftwareSearch
+            key={pageState.searchTerm}
+            initialQuery={pageState.searchTerm}
+            onSearchResult={handleSearchResult}
+          />
         </div>
 
         <div id="categories" className="scroll-mt-24">
@@ -56,7 +71,10 @@ function Home() {
           />
         </div>
 
-        <SoftwareCostCalculator vendors={visibleVendors} />
+        <SoftwareCostCalculator
+          vendors={visibleVendors}
+          region={pageState.region}
+        />
 
         <PricingExplainer />
 
@@ -68,7 +86,11 @@ function Home() {
           title="Explore and compare software"
         />
 
-        <DecisionSupport categoryName={pageState.category?.name || 'business software'} />
+        <DecisionSupport
+          categoryName={
+            pageState.category?.name || 'business software'
+          }
+        />
       </main>
 
       <Footer />

@@ -1,10 +1,14 @@
-import { useEffect, useMemo, useState } from 'react'
+
+import { useMemo, useState } from 'react'
 import { MAX_COMPARE } from '../components/comparison/comparison-section/constants'
 
 function useVendorComparison(vendors = [], categoryId = '') {
-  const [selectedVendorIds, setSelectedVendorIds] = useState([])
-  const [showComparison, setShowComparison] = useState(false)
-  const [activeVendor, setActiveVendor] = useState(null)
+  const [comparisonState, setComparisonState] = useState({
+    categoryId,
+    selectedVendorIds: [],
+    showComparison: false,
+    activeVendorId: null,
+  })
 
   const validVendors = useMemo(
     () =>
@@ -14,6 +18,25 @@ function useVendorComparison(vendors = [], categoryId = '') {
     [vendors]
   )
 
+  const isCurrentCategory = comparisonState.categoryId === categoryId
+
+  const availableIds = useMemo(
+    () => new Set(validVendors.map((vendor) => vendor.id)),
+    [validVendors]
+  )
+
+  const selectedVendorIds = useMemo(() => {
+    const storedIds = isCurrentCategory
+      ? comparisonState.selectedVendorIds
+      : []
+
+    return storedIds.filter((id) => availableIds.has(id))
+  }, [
+    isCurrentCategory,
+    comparisonState.selectedVendorIds,
+    availableIds,
+  ])
+
   const selectedVendors = useMemo(
     () =>
       selectedVendorIds
@@ -22,57 +45,95 @@ function useVendorComparison(vendors = [], categoryId = '') {
     [selectedVendorIds, validVendors]
   )
 
-  useEffect(() => {
-    setSelectedVendorIds([])
-    setShowComparison(false)
-    setActiveVendor(null)
-  }, [categoryId])
-
-  useEffect(() => {
-    const availableIds = new Set(validVendors.map((vendor) => vendor.id))
-
-    setSelectedVendorIds((current) =>
-      current.filter((id) => availableIds.has(id))
-    )
-
-    setActiveVendor((current) =>
-      current && availableIds.has(current.id) ? current : null
-    )
-  }, [validVendors])
-
-  useEffect(() => {
-    if (selectedVendors.length < 2) {
-      setShowComparison(false)
+  const activeVendor = useMemo(() => {
+    if (!isCurrentCategory || !comparisonState.activeVendorId) {
+      return null
     }
-  }, [selectedVendors.length])
+
+    return (
+      validVendors.find(
+        (vendor) => vendor.id === comparisonState.activeVendorId
+      ) || null
+    )
+  }, [
+    isCurrentCategory,
+    comparisonState.activeVendorId,
+    validVendors,
+  ])
+
+  const showComparison =
+    isCurrentCategory &&
+    comparisonState.showComparison &&
+    selectedVendors.length >= 2
+
+  const updateCurrentCategory = (updater) => {
+    setComparisonState((current) => {
+      const currentState =
+        current.categoryId === categoryId
+          ? current
+          : {
+              categoryId,
+              selectedVendorIds: [],
+              showComparison: false,
+              activeVendorId: null,
+            }
+
+      return updater(currentState)
+    })
+  }
 
   const toggleVendor = (vendor) => {
-    if (!vendor?.id || !validVendors.some((item) => item.id === vendor.id)) {
+    if (!vendor?.id || !availableIds.has(vendor.id)) {
       return
     }
 
-    setSelectedVendorIds((current) => {
-      if (current.includes(vendor.id)) {
-        return current.filter((id) => id !== vendor.id)
+    updateCurrentCategory((current) => {
+      const selectedIds = current.selectedVendorIds.filter(
+        (id) => availableIds.has(id)
+      )
+
+      if (selectedIds.includes(vendor.id)) {
+        return {
+          ...current,
+          selectedVendorIds: selectedIds.filter(
+            (id) => id !== vendor.id
+          ),
+          showComparison: false,
+        }
       }
 
-      if (current.length >= MAX_COMPARE) {
+      if (selectedIds.length >= MAX_COMPARE) {
         return current
       }
 
-      return [...current, vendor.id]
+      return {
+        ...current,
+        selectedVendorIds: [...selectedIds, vendor.id],
+      }
     })
   }
 
   const removeVendor = (vendorId) => {
-    setSelectedVendorIds((current) =>
-      current.filter((id) => id !== vendorId)
-    )
+    updateCurrentCategory((current) => {
+      const selectedIds = current.selectedVendorIds.filter(
+        (id) => availableIds.has(id) && id !== vendorId
+      )
+
+      return {
+        ...current,
+        selectedVendorIds: selectedIds,
+        showComparison:
+          current.showComparison && selectedIds.length >= 2,
+      }
+    })
   }
 
   const clearSelection = () => {
-    setSelectedVendorIds([])
-    setShowComparison(false)
+    updateCurrentCategory((current) => ({
+      ...current,
+      selectedVendorIds: [],
+      showComparison: false,
+    }))
   }
 
   const openComparison = () => {
@@ -80,25 +141,38 @@ function useVendorComparison(vendors = [], categoryId = '') {
       return false
     }
 
-    setShowComparison(true)
-    setActiveVendor(null)
+    updateCurrentCategory((current) => ({
+      ...current,
+      showComparison: true,
+      activeVendorId: null,
+    }))
+
     return true
   }
 
   const closeComparison = () => {
-    setShowComparison(false)
+    updateCurrentCategory((current) => ({
+      ...current,
+      showComparison: false,
+    }))
   }
 
   const openVendorDetails = (vendor) => {
-    if (!vendor?.id || !validVendors.some((item) => item.id === vendor.id)) {
+    if (!vendor?.id || !availableIds.has(vendor.id)) {
       return
     }
 
-    setActiveVendor(vendor)
+    updateCurrentCategory((current) => ({
+      ...current,
+      activeVendorId: vendor.id,
+    }))
   }
 
   const closeVendorDetails = () => {
-    setActiveVendor(null)
+    updateCurrentCategory((current) => ({
+      ...current,
+      activeVendorId: null,
+    }))
   }
 
   return {
