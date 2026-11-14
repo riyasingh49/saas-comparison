@@ -15,7 +15,9 @@ function PricingPlans({ vendor }) {
     )
   }
 
-  const plans = Array.isArray(pricing.plans) ? pricing.plans : []
+  const plans = Array.isArray(pricing.plans)
+    ? pricing.plans.filter((plan) => plan && typeof plan === 'object')
+    : []
 
   if (plans.length === 0) {
     return (
@@ -25,19 +27,20 @@ function PricingPlans({ vendor }) {
     )
   }
 
+  const trialDays = pricing.freeTrialDays || pricing.trialDays
+  const hasFreeTrial = pricing.freeTrial === true || Number(trialDays) > 0
+
   return (
-    <div className="space-y-3">
+    <div className="min-w-0">
       {pricing.status !== 'verified' && (
-        <div className="flex items-start gap-2 rounded-lg bg-gray-50 p-2 text-xs text-gray-600">
+        <div className="mb-3 flex items-start gap-2 rounded-lg bg-gray-50 px-3 py-2 text-xs text-gray-600">
           <Info size={14} className="mt-0.5 shrink-0" />
           <span>Pricing details still need verification.</span>
         </div>
       )}
 
-      <div className="grid gap-3">
+      <div className="divide-y divide-gray-100">
         {plans.map((plan, index) => {
-          if (!plan || typeof plan !== 'object') return null
-
           const planName = plan.name || `Plan ${index + 1}`
           const price = formatPrice(plan.price, pricing.currency)
           const billingPeriod = formatBillingPeriod(plan.billingPeriod)
@@ -45,26 +48,26 @@ function PricingPlans({ vendor }) {
           return (
             <div
               key={`${vendor.id}-${planName}-${index}`}
-              className="rounded-xl border border-gray-200 bg-white p-3"
+              className="flex flex-col gap-1 py-3 first:pt-0 last:pb-0"
             >
-              <div className="flex flex-wrap items-start justify-between gap-2">
-                <h4 className="font-semibold text-gray-900">
+              <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+                <span className="text-sm font-medium text-gray-800">
                   {planName}
-                </h4>
+                </span>
 
-                <span className="text-sm font-semibold text-gray-900">
+                <span className="text-sm font-semibold tabular-nums text-gray-900">
                   {price}
                 </span>
               </div>
 
-              {billingPeriod && (
-                <p className="mt-1 text-xs text-gray-500">
-                  {billingPeriod}
+              {(billingPeriod || plan.unit) && (
+                <p className="text-xs text-gray-500">
+                  {[billingPeriod, plan.unit].filter(Boolean).join(' · ')}
                 </p>
               )}
 
               {plan.note && (
-                <p className="mt-2 text-xs leading-5 text-gray-600">
+                <p className="text-xs leading-5 text-gray-500">
                   {plan.note}
                 </p>
               )}
@@ -73,22 +76,30 @@ function PricingPlans({ vendor }) {
         })}
       </div>
 
-      {pricing.trialDays > 0 && (
-        <div className="flex items-center gap-2 text-xs text-gray-600">
-          <Clock3 size={14} />
-          <span>{pricing.trialDays}-day free trial</span>
-        </div>
-      )}
+      {(hasFreeTrial || pricing.freePlan === true) && (
+        <div className="mt-3 space-y-2 border-t border-gray-100 pt-3">
+          {hasFreeTrial && (
+            <div className="flex items-center gap-2 text-xs text-gray-600">
+              <Clock3 size={14} className="shrink-0" />
+              <span>
+                {Number(trialDays) > 0
+                  ? `${trialDays}-day free trial`
+                  : 'Free trial available'}
+              </span>
+            </div>
+          )}
 
-      {pricing.freePlan && (
-        <div className="flex items-center gap-2 text-xs text-gray-600">
-          <Check size={14} />
-          <span>Free plan available</span>
+          {pricing.freePlan === true && (
+            <div className="flex items-center gap-2 text-xs text-gray-600">
+              <Check size={14} className="shrink-0" />
+              <span>Free plan available</span>
+            </div>
+          )}
         </div>
       )}
 
       {pricing.freePlanNote && (
-        <p className="text-xs text-gray-500">
+        <p className="mt-2 text-xs leading-5 text-gray-500">
           {pricing.freePlanNote}
         </p>
       )}
