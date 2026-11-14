@@ -1,78 +1,308 @@
+
 [
     {
       "id": "salesforce",
       "name": "Salesforce",
       "category": "CRM Software",
-      "description": "Vendor information is awaiting verification.",
+      "description": "A CRM platform for managing leads, customer relationships, sales processes, marketing activities and business workflows.",
+      "website": "https://www.salesforce.com/",
+      "startingPrice": "$25/user/month",
       "subcategories": [],
       "pricing": {
-        "status": "unverified",
-        "currency": null,
-        "billingOptions": [],
-        "plans": []
+        "status": "verified",
+        "currency": "USD",
+        "billingOptions": ["Monthly", "Annually"],
+        "plans": [
+          {
+            "name": "Free Suite",
+            "price": 0,
+            "billingPeriod": "Monthly",
+            "unit": "user/month",
+            "note": "Includes 2 user licenses."
+          },
+          {
+            "name": "Starter Suite",
+            "price": 25,
+            "billingPeriod": "Monthly or annually",
+            "unit": "user/month",
+            "note": "Starting price; transaction fees may apply."
+          },
+          {
+            "name": "Pro Suite",
+            "price": 100,
+            "billingPeriod": "Annually",
+            "unit": "user/month",
+            "note": "Contract required; transaction fees may apply."
+          }
+        ],
+        "freeTrial": true
       },
-      "features": {},
-      "sources": [],
+      "features": {
+        "pricing": "Free plan; paid plans start at $25/user/month.",
+        "freePlan": true,
+        "mobileApp": null,
+        "automation": true,
+        "reporting": true,
+        "integrations": true,
+        "teamCollaboration": true
+      },
+      "sources": [
+        {
+          "label": "Official CRM pricing",
+          "url": "https://www.salesforce.com/crm/pricing/",
+          "type": "official",
+          "checkedAt": "2026-11-14",
+          "status": "verified"
+        },
+        {
+          "label": "Official free CRM information",
+          "url": "https://www.salesforce.com/crm/free-crm/",
+          "type": "official",
+          "checkedAt": "2026-11-14",
+          "status": "verified"
+        }
+      ],
       "verification": {
-        "status": "pending",
-        "checkedAt": null
+        "status": "partially_verified",
+        "checkedAt": "2026-11-14"
       }
     },
     {
       "id": "pipedrive",
       "name": "Pipedrive",
       "category": "CRM Software",
-      "description": "Vendor information is awaiting verification.",
+      "description": "A sales-focused CRM designed to manage leads, deals, contacts, sales pipelines and follow-up activities.",
+      "website": "https://www.pipedrive.com/",
+      "startingPrice": "$14/seat/month",
       "subcategories": [],
       "pricing": {
-        "status": "unverified",
-        "currency": null,
-        "billingOptions": [],
-        "plans": []
+        "status": "verified",
+        "currency": "USD",
+        "billingOptions": ["Monthly", "Annually"],
+        "plans": [
+          {
+            "name": "Lite",
+            "price": 14,
+            "billingPeriod": "Annually",
+            "unit": "seat/month",
+            "note": "Billed as $168 per seat/year."
+          },
+          {
+            "name": "Growth",
+            "price": 39,
+            "billingPeriod": "Annually",
+            "unit": "seat/month",
+            "note": "Billed as $468 per seat/year."
+          },
+          {
+            "name": "Premium",
+            "price": 59,
+            "billingPeriod": "Annually",
+            "unit": "seat/month",
+            "note": "Billed as $708 per seat/year."
+          },
+          {
+            "name": "Ultimate",
+            "price": 79,
+            "billingPeriod": "Annually",
+            "unit": "seat/month",
+            "note": "Billed as $948 per seat/year."
+          }
+        ],
+        "freeTrial": true,
+        "freeTrialDays": 14
       },
-      "features": {},
-      "sources": [],
+      "features": {
+        "pricing": "Paid plans start at $14/seat/month, billed annually.",
+        "freePlan": false,
+        "mobileApp": null,
+        "automation": true,
+        "reporting": true,
+        "integrations": true,
+        "teamCollaboration": null
+      },
+      "sources": [
+        {
+          "label": "Official pricing and plans",
+          "url": "https://www.pipedrive.com/en/pricing",
+          "type": "official",
+          "checkedAt": "2026-11-14",
+          "status": "verified"
+        },
+        {
+          "label": "Official billing information",
+          "url": "https://support.pipedrive.com/en/article/how-does-pricing-work-in-pipedrive",
+          "type": "official",
+          "checkedAt": "2026-11-14",
+          "status": "verified"
+        }
+      ],
       "verification": {
-        "status": "pending",
-        "checkedAt": null
+        "status": "partially_verified",
+        "checkedAt": "2026-11-14"
       }
     },
     {
       "id": "zoho-crm",
       "name": "Zoho CRM",
       "category": "CRM Software",
-      "description": "Vendor information is awaiting verification.",
+      "description": "A customer relationship management platform offering lead management, sales automation, customization and analytics for businesses.",
+      "website": "https://www.zoho.com/crm/",
+      "startingPrice": "₹800/user/month",
       "subcategories": [],
       "pricing": {
-        "status": "unverified",
-        "currency": null,
-        "billingOptions": [],
-        "plans": []
+        "status": "verified",
+        "currency": "INR",
+        "billingOptions": ["Monthly", "Annually"],
+        "plans": [
+          {
+            "name": "Free",
+            "price": 0,
+            "billingPeriod": "Free",
+            "unit": "up to 3 users",
+            "note": "Free edition."
+          },
+          {
+            "name": "Standard",
+            "price": 800,
+            "billingPeriod": "Annually",
+            "unit": "user/month",
+            "note": "Monthly billing is ₹1,300/user/month."
+          },
+          {
+            "name": "Professional",
+            "price": 1400,
+            "billingPeriod": "Annually",
+            "unit": "user/month",
+            "note": "Monthly billing is ₹2,100/user/month."
+          },
+          {
+            "name": "Enterprise",
+            "price": 2400,
+            "billingPeriod": "Annually",
+            "unit": "user/month",
+            "note": "Monthly billing is ₹3,000/user/month."
+          },
+          {
+            "name": "Ultimate",
+            "price": 2600,
+            "billingPeriod": "Annually",
+            "unit": "user/month",
+            "note": "Monthly billing is ₹3,200/user/month."
+          }
+        ],
+        "freeTrial": true,
+        "freeTrialDays": 15
       },
-      "features": {},
-      "sources": [],
+      "features": {
+        "pricing": "Free edition; paid plans start at ₹800/user/month, billed annually.",
+        "freePlan": true,
+        "mobileApp": null,
+        "automation": true,
+        "reporting": true,
+        "integrations": true,
+        "teamCollaboration": null
+      },
+      "sources": [
+        {
+          "label": "Official CRM edition comparison",
+          "url": "https://www.zoho.com/crm/complete-feature-list.html",
+          "type": "official",
+          "checkedAt": "2026-11-14",
+          "status": "verified"
+        },
+        {
+          "label": "Official CRM pricing calculator",
+          "url": "https://www.zoho.com/crm/zohocrm-pricing-calculator.html",
+          "type": "official",
+          "checkedAt": "2026-11-14",
+          "status": "verified"
+        }
+      ],
       "verification": {
-        "status": "pending",
-        "checkedAt": null
+        "status": "partially_verified",
+        "checkedAt": "2026-11-14"
       }
     },
     {
       "id": "freshsales",
       "name": "Freshsales",
       "category": "CRM Software",
-      "description": "Vendor information is awaiting verification.",
+      "description": "A sales CRM for managing contacts, accounts, deals, sales pipelines, automated workflows and customer interactions.",
+      "website": "https://www.freshworks.com/crm/",
+      "startingPrice": "$9/user/month",
       "subcategories": [],
       "pricing": {
-        "status": "unverified",
-        "currency": null,
-        "billingOptions": [],
-        "plans": []
+        "status": "verified",
+        "currency": "USD",
+        "billingOptions": ["Monthly", "Annually"],
+        "plans": [
+          {
+            "name": "Free",
+            "price": 0,
+            "billingPeriod": "Free",
+            "unit": "up to 3 users",
+            "note": "Free plan for up to 3 users."
+          },
+          {
+            "name": "Growth",
+            "price": 9,
+            "billingPeriod": "Annually",
+            "unit": "user/month",
+            "note": "Monthly billing is $11/user/month."
+          },
+          {
+            "name": "Pro",
+            "price": 39,
+            "billingPeriod": "Annually",
+            "unit": "user/month",
+            "note": "Monthly billing is $47/user/month."
+          },
+          {
+            "name": "Enterprise",
+            "price": 59,
+            "billingPeriod": "Annually",
+            "unit": "user/month",
+            "note": "Monthly billing is $71/user/month."
+          }
+        ],
+        "freeTrial": true
       },
-      "features": {},
-      "sources": [],
+      "features": {
+        "pricing": "Free plan available; paid plans start at $9/user/month, billed annually.",
+        "freePlan": true,
+        "mobileApp": true,
+        "automation": true,
+        "reporting": true,
+        "integrations": true,
+        "teamCollaboration": true
+      },
+      "sources": [
+        {
+          "label": "Official Freshsales pricing",
+          "url": "https://www.freshworks.com/crm/pricing/",
+          "type": "official",
+          "checkedAt": "2026-11-14",
+          "status": "verified"
+        },
+        {
+          "label": "Official Freshsales feature information",
+          "url": "https://www.freshworks.com/crm/features/",
+          "type": "official",
+          "checkedAt": "2026-11-14",
+          "status": "verified"
+        },
+        {
+          "label": "Official plan feature comparison",
+          "url": "https://www.freshworks.com/crm/pricing-compare/",
+          "type": "official",
+          "checkedAt": "2026-11-14",
+          "status": "verified"
+        }
+      ],
       "verification": {
-        "status": "pending",
-        "checkedAt": null
+        "status": "partially_verified",
+        "checkedAt": "2026-11-14"
       }
     },
     {
@@ -81,18 +311,10 @@
       "category": "Project Management",
       "description": "Vendor information is awaiting verification.",
       "subcategories": [],
-      "pricing": {
-        "status": "unverified",
-        "currency": null,
-        "billingOptions": [],
-        "plans": []
-      },
+      "pricing": {"status": "unverified", "currency": null, "billingOptions": [], "plans": []},
       "features": {},
       "sources": [],
-      "verification": {
-        "status": "pending",
-        "checkedAt": null
-      }
+      "verification": {"status": "pending", "checkedAt": null}
     },
     {
       "id": "monday",
@@ -100,18 +322,10 @@
       "category": "Project Management",
       "description": "Vendor information is awaiting verification.",
       "subcategories": [],
-      "pricing": {
-        "status": "unverified",
-        "currency": null,
-        "billingOptions": [],
-        "plans": []
-      },
+      "pricing": {"status": "unverified", "currency": null, "billingOptions": [], "plans": []},
       "features": {},
       "sources": [],
-      "verification": {
-        "status": "pending",
-        "checkedAt": null
-      }
+      "verification": {"status": "pending", "checkedAt": null}
     },
     {
       "id": "clickup",
@@ -119,18 +333,10 @@
       "category": "Project Management",
       "description": "Vendor information is awaiting verification.",
       "subcategories": [],
-      "pricing": {
-        "status": "unverified",
-        "currency": null,
-        "billingOptions": [],
-        "plans": []
-      },
+      "pricing": {"status": "unverified", "currency": null, "billingOptions": [], "plans": []},
       "features": {},
       "sources": [],
-      "verification": {
-        "status": "pending",
-        "checkedAt": null
-      }
+      "verification": {"status": "pending", "checkedAt": null}
     },
     {
       "id": "jira",
@@ -138,18 +344,10 @@
       "category": "Project Management",
       "description": "Vendor information is awaiting verification.",
       "subcategories": [],
-      "pricing": {
-        "status": "unverified",
-        "currency": null,
-        "billingOptions": [],
-        "plans": []
-      },
+      "pricing": {"status": "unverified", "currency": null, "billingOptions": [], "plans": []},
       "features": {},
       "sources": [],
-      "verification": {
-        "status": "pending",
-        "checkedAt": null
-      }
+      "verification": {"status": "pending", "checkedAt": null}
     },
     {
       "id": "trello",
@@ -157,18 +355,10 @@
       "category": "Project Management",
       "description": "Vendor information is awaiting verification.",
       "subcategories": [],
-      "pricing": {
-        "status": "unverified",
-        "currency": null,
-        "billingOptions": [],
-        "plans": []
-      },
+      "pricing": {"status": "unverified", "currency": null, "billingOptions": [], "plans": []},
       "features": {},
       "sources": [],
-      "verification": {
-        "status": "pending",
-        "checkedAt": null
-      }
+      "verification": {"status": "pending", "checkedAt": null}
     },
     {
       "id": "quickbooks",
@@ -176,18 +366,10 @@
       "category": "Accounting",
       "description": "Vendor information is awaiting verification.",
       "subcategories": [],
-      "pricing": {
-        "status": "unverified",
-        "currency": null,
-        "billingOptions": [],
-        "plans": []
-      },
+      "pricing": {"status": "unverified", "currency": null, "billingOptions": [], "plans": []},
       "features": {},
       "sources": [],
-      "verification": {
-        "status": "pending",
-        "checkedAt": null
-      }
+      "verification": {"status": "pending", "checkedAt": null}
     },
     {
       "id": "xero",
@@ -195,18 +377,10 @@
       "category": "Accounting",
       "description": "Vendor information is awaiting verification.",
       "subcategories": [],
-      "pricing": {
-        "status": "unverified",
-        "currency": null,
-        "billingOptions": [],
-        "plans": []
-      },
+      "pricing": {"status": "unverified", "currency": null, "billingOptions": [], "plans": []},
       "features": {},
       "sources": [],
-      "verification": {
-        "status": "pending",
-        "checkedAt": null
-      }
+      "verification": {"status": "pending", "checkedAt": null}
     },
     {
       "id": "freshbooks",
@@ -214,18 +388,10 @@
       "category": "Accounting",
       "description": "Vendor information is awaiting verification.",
       "subcategories": [],
-      "pricing": {
-        "status": "unverified",
-        "currency": null,
-        "billingOptions": [],
-        "plans": []
-      },
+      "pricing": {"status": "unverified", "currency": null, "billingOptions": [], "plans": []},
       "features": {},
       "sources": [],
-      "verification": {
-        "status": "pending",
-        "checkedAt": null
-      }
+      "verification": {"status": "pending", "checkedAt": null}
     },
     {
       "id": "zoho-books",
@@ -233,18 +399,10 @@
       "category": "Accounting",
       "description": "Vendor information is awaiting verification.",
       "subcategories": [],
-      "pricing": {
-        "status": "unverified",
-        "currency": null,
-        "billingOptions": [],
-        "plans": []
-      },
+      "pricing": {"status": "unverified", "currency": null, "billingOptions": [], "plans": []},
       "features": {},
       "sources": [],
-      "verification": {
-        "status": "pending",
-        "checkedAt": null
-      }
+      "verification": {"status": "pending", "checkedAt": null}
     },
     {
       "id": "tallyprime",
@@ -252,18 +410,10 @@
       "category": "Accounting",
       "description": "Vendor information is awaiting verification.",
       "subcategories": [],
-      "pricing": {
-        "status": "unverified",
-        "currency": null,
-        "billingOptions": [],
-        "plans": []
-      },
+      "pricing": {"status": "unverified", "currency": null, "billingOptions": [], "plans": []},
       "features": {},
       "sources": [],
-      "verification": {
-        "status": "pending",
-        "checkedAt": null
-      }
+      "verification": {"status": "pending", "checkedAt": null}
     },
     {
       "id": "gusto",
@@ -271,18 +421,10 @@
       "category": "HR & Payroll",
       "description": "Vendor information is awaiting verification.",
       "subcategories": [],
-      "pricing": {
-        "status": "unverified",
-        "currency": null,
-        "billingOptions": [],
-        "plans": []
-      },
+      "pricing": {"status": "unverified", "currency": null, "billingOptions": [], "plans": []},
       "features": {},
       "sources": [],
-      "verification": {
-        "status": "pending",
-        "checkedAt": null
-      }
+      "verification": {"status": "pending", "checkedAt": null}
     },
     {
       "id": "rippling",
@@ -290,18 +432,10 @@
       "category": "HR & Payroll",
       "description": "Vendor information is awaiting verification.",
       "subcategories": [],
-      "pricing": {
-        "status": "unverified",
-        "currency": null,
-        "billingOptions": [],
-        "plans": []
-      },
+      "pricing": {"status": "unverified", "currency": null, "billingOptions": [], "plans": []},
       "features": {},
       "sources": [],
-      "verification": {
-        "status": "pending",
-        "checkedAt": null
-      }
+      "verification": {"status": "pending", "checkedAt": null}
     },
     {
       "id": "keka",
@@ -309,18 +443,10 @@
       "category": "HR & Payroll",
       "description": "Vendor information is awaiting verification.",
       "subcategories": [],
-      "pricing": {
-        "status": "unverified",
-        "currency": null,
-        "billingOptions": [],
-        "plans": []
-      },
+      "pricing": {"status": "unverified", "currency": null, "billingOptions": [], "plans": []},
       "features": {},
       "sources": [],
-      "verification": {
-        "status": "pending",
-        "checkedAt": null
-      }
+      "verification": {"status": "pending", "checkedAt": null}
     },
     {
       "id": "greythr",
@@ -328,18 +454,10 @@
       "category": "HR & Payroll",
       "description": "Vendor information is awaiting verification.",
       "subcategories": [],
-      "pricing": {
-        "status": "unverified",
-        "currency": null,
-        "billingOptions": [],
-        "plans": []
-      },
+      "pricing": {"status": "unverified", "currency": null, "billingOptions": [], "plans": []},
       "features": {},
       "sources": [],
-      "verification": {
-        "status": "pending",
-        "checkedAt": null
-      }
+      "verification": {"status": "pending", "checkedAt": null}
     },
     {
       "id": "slack",
@@ -347,18 +465,10 @@
       "category": "Team Collaboration",
       "description": "Vendor information is awaiting verification.",
       "subcategories": [],
-      "pricing": {
-        "status": "unverified",
-        "currency": null,
-        "billingOptions": [],
-        "plans": []
-      },
+      "pricing": {"status": "unverified", "currency": null, "billingOptions": [], "plans": []},
       "features": {},
       "sources": [],
-      "verification": {
-        "status": "pending",
-        "checkedAt": null
-      }
+      "verification": {"status": "pending", "checkedAt": null}
     },
     {
       "id": "microsoft-teams",
@@ -366,18 +476,10 @@
       "category": "Team Collaboration",
       "description": "Vendor information is awaiting verification.",
       "subcategories": [],
-      "pricing": {
-        "status": "unverified",
-        "currency": null,
-        "billingOptions": [],
-        "plans": []
-      },
+      "pricing": {"status": "unverified", "currency": null, "billingOptions": [], "plans": []},
       "features": {},
       "sources": [],
-      "verification": {
-        "status": "pending",
-        "checkedAt": null
-      }
+      "verification": {"status": "pending", "checkedAt": null}
     },
     {
       "id": "zoom",
@@ -385,18 +487,10 @@
       "category": "Video Conferencing",
       "description": "Vendor information is awaiting verification.",
       "subcategories": [],
-      "pricing": {
-        "status": "unverified",
-        "currency": null,
-        "billingOptions": [],
-        "plans": []
-      },
+      "pricing": {"status": "unverified", "currency": null, "billingOptions": [], "plans": []},
       "features": {},
       "sources": [],
-      "verification": {
-        "status": "pending",
-        "checkedAt": null
-      }
+      "verification": {"status": "pending", "checkedAt": null}
     },
     {
       "id": "webex",
@@ -404,18 +498,10 @@
       "category": "Video Conferencing",
       "description": "Vendor information is awaiting verification.",
       "subcategories": [],
-      "pricing": {
-        "status": "unverified",
-        "currency": null,
-        "billingOptions": [],
-        "plans": []
-      },
+      "pricing": {"status": "unverified", "currency": null, "billingOptions": [], "plans": []},
       "features": {},
       "sources": [],
-      "verification": {
-        "status": "pending",
-        "checkedAt": null
-      }
+      "verification": {"status": "pending", "checkedAt": null}
     },
     {
       "id": "google-meet",
@@ -423,18 +509,10 @@
       "category": "Video Conferencing",
       "description": "Vendor information is awaiting verification.",
       "subcategories": [],
-      "pricing": {
-        "status": "unverified",
-        "currency": null,
-        "billingOptions": [],
-        "plans": []
-      },
+      "pricing": {"status": "unverified", "currency": null, "billingOptions": [], "plans": []},
       "features": {},
       "sources": [],
-      "verification": {
-        "status": "pending",
-        "checkedAt": null
-      }
+      "verification": {"status": "pending", "checkedAt": null}
     },
     {
       "id": "gotomeeting",
@@ -442,18 +520,10 @@
       "category": "Video Conferencing",
       "description": "Vendor information is awaiting verification.",
       "subcategories": [],
-      "pricing": {
-        "status": "unverified",
-        "currency": null,
-        "billingOptions": [],
-        "plans": []
-      },
+      "pricing": {"status": "unverified", "currency": null, "billingOptions": [], "plans": []},
       "features": {},
       "sources": [],
-      "verification": {
-        "status": "pending",
-        "checkedAt": null
-      }
+      "verification": {"status": "pending", "checkedAt": null}
     },
     {
       "id": "mixpanel",
@@ -461,18 +531,10 @@
       "category": "Analytics",
       "description": "Vendor information is awaiting verification.",
       "subcategories": [],
-      "pricing": {
-        "status": "unverified",
-        "currency": null,
-        "billingOptions": [],
-        "plans": []
-      },
+      "pricing": {"status": "unverified", "currency": null, "billingOptions": [], "plans": []},
       "features": {},
       "sources": [],
-      "verification": {
-        "status": "pending",
-        "checkedAt": null
-      }
+      "verification": {"status": "pending", "checkedAt": null}
     },
     {
       "id": "amplitude",
@@ -480,18 +542,10 @@
       "category": "Analytics",
       "description": "Vendor information is awaiting verification.",
       "subcategories": [],
-      "pricing": {
-        "status": "unverified",
-        "currency": null,
-        "billingOptions": [],
-        "plans": []
-      },
+      "pricing": {"status": "unverified", "currency": null, "billingOptions": [], "plans": []},
       "features": {},
       "sources": [],
-      "verification": {
-        "status": "pending",
-        "checkedAt": null
-      }
+      "verification": {"status": "pending", "checkedAt": null}
     },
     {
       "id": "power-bi",
@@ -499,18 +553,10 @@
       "category": "Analytics",
       "description": "Vendor information is awaiting verification.",
       "subcategories": [],
-      "pricing": {
-        "status": "unverified",
-        "currency": null,
-        "billingOptions": [],
-        "plans": []
-      },
+      "pricing": {"status": "unverified", "currency": null, "billingOptions": [], "plans": []},
       "features": {},
       "sources": [],
-      "verification": {
-        "status": "pending",
-        "checkedAt": null
-      }
+      "verification": {"status": "pending", "checkedAt": null}
     },
     {
       "id": "tableau",
@@ -518,18 +564,10 @@
       "category": "Analytics",
       "description": "Vendor information is awaiting verification.",
       "subcategories": [],
-      "pricing": {
-        "status": "unverified",
-        "currency": null,
-        "billingOptions": [],
-        "plans": []
-      },
+      "pricing": {"status": "unverified", "currency": null, "billingOptions": [], "plans": []},
       "features": {},
       "sources": [],
-      "verification": {
-        "status": "pending",
-        "checkedAt": null
-      }
+      "verification": {"status": "pending", "checkedAt": null}
     },
     {
       "id": "g2",
@@ -537,18 +575,10 @@
       "category": "Reviews & Comparisons",
       "description": "Vendor information is awaiting verification.",
       "subcategories": [],
-      "pricing": {
-        "status": "unverified",
-        "currency": null,
-        "billingOptions": [],
-        "plans": []
-      },
+      "pricing": {"status": "unverified", "currency": null, "billingOptions": [], "plans": []},
       "features": {},
       "sources": [],
-      "verification": {
-        "status": "pending",
-        "checkedAt": null
-      }
+      "verification": {"status": "pending", "checkedAt": null}
     },
     {
       "id": "capterra",
@@ -556,18 +586,10 @@
       "category": "Reviews & Comparisons",
       "description": "Vendor information is awaiting verification.",
       "subcategories": [],
-      "pricing": {
-        "status": "unverified",
-        "currency": null,
-        "billingOptions": [],
-        "plans": []
-      },
+      "pricing": {"status": "unverified", "currency": null, "billingOptions": [], "plans": []},
       "features": {},
       "sources": [],
-      "verification": {
-        "status": "pending",
-        "checkedAt": null
-      }
+      "verification": {"status": "pending", "checkedAt": null}
     },
     {
       "id": "trustradius",
@@ -575,18 +597,10 @@
       "category": "Reviews & Comparisons",
       "description": "Vendor information is awaiting verification.",
       "subcategories": [],
-      "pricing": {
-        "status": "unverified",
-        "currency": null,
-        "billingOptions": [],
-        "plans": []
-      },
+      "pricing": {"status": "unverified", "currency": null, "billingOptions": [], "plans": []},
       "features": {},
       "sources": [],
-      "verification": {
-        "status": "pending",
-        "checkedAt": null
-      }
+      "verification": {"status": "pending", "checkedAt": null}
     }
   ]
   

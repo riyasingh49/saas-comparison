@@ -1,4 +1,5 @@
-import { ExternalLink, Check } from 'lucide-react'
+
+import { ExternalLink, Info, Plus, Check } from 'lucide-react'
 
 function VendorCard({
   vendor,
@@ -6,101 +7,92 @@ function VendorCard({
   onToggleCompare,
   onViewDetails,
 }) {
-  if (!vendor || !vendor.id || !vendor.name) {
+  if (!vendor?.id || !vendor?.name) {
     return null
   }
 
-  const handleCompare = () => {
-    onToggleCompare?.(vendor)
-  }
-
-  const handleViewDetails = () => {
-    onViewDetails?.(vendor)
-  }
+  const website = vendor.website || vendor.url || ''
 
   return (
-    <article
-      className={`flex h-full flex-col rounded-2xl border bg-white p-5 transition ${
-        isSelected
-          ? 'border-indigo-400 ring-2 ring-indigo-100'
-          : 'border-slate-200 hover:border-slate-300 hover:shadow-sm'
-      }`}
-    >
+    <article className="flex h-full flex-col rounded-2xl border border-gray-200 bg-white p-5 transition-all duration-200 hover:border-gray-400 hover:bg-gray-50 hover:shadow-md">
       <div className="flex items-start justify-between gap-3">
-        <div className="flex min-w-0 items-center gap-3">
-          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-indigo-50 text-lg font-bold text-indigo-600">
-            {vendor.name.charAt(0).toUpperCase()}
-          </div>
+        <div className="min-w-0">
+          <h3 className="break-words text-base font-semibold text-gray-900">
+            {vendor.name}
+          </h3>
 
-          <div className="min-w-0">
-            <h3 className="truncate font-semibold text-slate-900">
-              {vendor.name}
-            </h3>
-
-            {vendor.category && (
-              <p className="mt-1 text-xs text-slate-500">
-                {vendor.category}
-              </p>
-            )}
-          </div>
+          {vendor.category && (
+            <p className="mt-1 text-xs font-medium text-gray-500">
+              {vendor.category}
+            </p>
+          )}
         </div>
 
-        {isSelected && (
-          <span
-            className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-indigo-600 text-white"
-            aria-label="Selected for comparison"
-          >
-            <Check size={14} />
-          </span>
-        )}
+        <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-gray-100 text-sm font-semibold text-gray-700">
+          {vendor.name.charAt(0).toUpperCase()}
+        </span>
       </div>
 
-      <p className="mt-4 line-clamp-3 flex-1 text-sm leading-6 text-slate-600">
-        {vendor.description || 'Explore this software to learn more about its features and pricing.'}
+      <p className="mt-4 line-clamp-3 min-h-[4.5rem] text-sm leading-6 text-gray-600">
+        {vendor.description || 'Vendor information is not available yet.'}
       </p>
 
-      {vendor.startingPrice && (
-        <p className="mt-4 text-sm font-semibold text-slate-900">
-          {vendor.startingPrice}
-          <span className="ml-1 font-normal text-slate-500">
-            starting price
-          </span>
-        </p>
+      {vendor.subcategories?.length > 0 && (
+        <div className="mt-4 flex flex-wrap gap-2">
+          {vendor.subcategories.slice(0, 3).map((subcategory) => (
+            <span
+              key={subcategory}
+              className="rounded-full bg-gray-100 px-2.5 py-1 text-xs text-gray-700"
+            >
+              {subcategory}
+            </span>
+          ))}
+
+          {vendor.subcategories.length > 3 && (
+            <span className="rounded-full bg-gray-100 px-2.5 py-1 text-xs text-gray-600">
+              +{vendor.subcategories.length - 3}
+            </span>
+          )}
+        </div>
       )}
 
-      <div className="mt-5 flex flex-wrap items-center gap-2 border-t border-slate-100 pt-4">
+      <div className="mt-auto flex flex-wrap items-center gap-2 border-t border-gray-100 pt-5">
         <button
           type="button"
-          onClick={handleCompare}
+          onClick={() => onToggleCompare?.(vendor)}
           aria-pressed={isSelected}
-          className={`flex-1 rounded-xl px-3 py-2.5 text-sm font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 ${
+          className={`inline-flex flex-1 items-center justify-center gap-2 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2 ${
             isSelected
-              ? 'bg-indigo-50 text-indigo-700 hover:bg-indigo-100'
-              : 'bg-indigo-600 text-white hover:bg-indigo-700'
+              ? 'bg-gray-900 text-white hover:bg-gray-700'
+              : 'border border-gray-200 bg-white text-gray-700 hover:border-gray-400 hover:bg-gray-200'
           }`}
         >
-          {isSelected ? 'Remove from compare' : 'Add to compare'}
+          {isSelected ? (
+            <Check size={16} aria-hidden="true" />
+          ) : (
+            <Plus size={16} aria-hidden="true" />
+          )}
+          {isSelected ? 'Added to compare' : 'Add to compare'}
         </button>
 
-        {onViewDetails && (
-          <button
-            type="button"
-            onClick={handleViewDetails}
-            className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-slate-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          >
-            Details
-          </button>
-        )}
+        <button
+          type="button"
+          onClick={() => onViewDetails?.(vendor)}
+          aria-label={`View details for ${vendor.name}`}
+          className="inline-flex items-center justify-center rounded-xl border border-gray-200 p-2.5 text-gray-600 transition-colors hover:border-gray-400 hover:bg-gray-200 hover:text-gray-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-500"
+        >
+          <Info size={17} aria-hidden="true" />
+        </button>
 
-        {vendor.website && (
+        {website && (
           <a
-            href={vendor.website}
+            href={website}
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`Visit ${vendor.name} website`}
-            className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-slate-200 text-slate-500 transition hover:bg-slate-50 hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className="inline-flex items-center justify-center rounded-xl border border-gray-200 p-2.5 text-gray-600 transition-colors hover:border-gray-400 hover:bg-gray-200 hover:text-gray-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-500"
           >
-            <ExternalLink size={16} />
+            <ExternalLink size={17} aria-hidden="true" />
           </a>
         )}
       </div>

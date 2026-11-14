@@ -1,84 +1,105 @@
-import { ArrowUpRight } from 'lucide-react'
 
-const footerLinks = [
+import { ArrowUpRight, Layers3, Mail } from 'lucide-react'
+
+const footerGroups = [
   {
     title: 'Explore',
     links: [
-      { label: 'Categories', href: '#categories' },
-      { label: 'Compare Tools', href: '#comparison' },
-      { label: 'Guides', href: '#guides' },
+      { label: 'All categories', href: '#categories' },
+      { label: 'Compare software', href: '#comparison' },
+      { label: 'Search tools', href: '#software-search' },
     ],
   },
   {
-    title: 'Platform',
+    title: 'Resources',
     links: [
-      { label: 'About Us', href: '#about' },
-      { label: 'How It Works', href: '#how-it-works' },
-      { label: 'Contact', href: 'mailto:hello@example.com' },
-    ],
-  },
-  {
-    title: 'Legal',
-    links: [
-      { label: 'Privacy Policy', href: '#privacy' },
-      { label: 'Terms of Service', href: '#terms' },
+      { label: 'How it works', href: '#how-it-works' },
+      { label: 'Software guides', href: '#guides' },
     ],
   },
 ]
 
 function Footer() {
+  const currentYear = new Date().getFullYear()
+
   return (
-    <footer className="border-t border-slate-200 bg-white">
-      <div className="container mx-auto py-12 sm:py-16">
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          {/* Brand */}
-          <div>
-            <a href="/" className="inline-flex items-center gap-2">
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-600 text-lg font-bold text-white">
-                S
+    <footer className="mt-16 border-t border-gray-200 bg-white">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
+          <div className="max-w-sm">
+            <a
+              href="#top"
+              className="inline-flex items-center gap-2 text-gray-900"
+              aria-label="Back to top"
+            >
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gray-900 text-white">
+                <Layers3 size={19} />
               </span>
 
-              <span className="text-lg font-bold text-slate-900">
-                SaaS<span className="text-indigo-600">Compare</span>
+              <span className="text-lg font-bold tracking-tight">
+                SaaS Compare
               </span>
             </a>
 
-            <p className="mt-4 max-w-xs text-sm leading-6 text-slate-500">
-              Find and compare software tools to make better decisions
-              for your business.
+            <p className="mt-4 text-sm leading-6 text-gray-500">
+              Find, explore, and compare software tools to make more
+              informed decisions for your business.
             </p>
+
+            <a
+              href="mailto:hello@example.com"
+              className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-gray-700 transition-colors hover:text-black"
+            >
+              <Mail size={16} />
+              Contact us
+              <ArrowUpRight size={14} />
+            </a>
           </div>
 
-          {/* Footer links */}
-          {footerLinks.map((group) => (
+          {footerGroups.map((group) => (
             <div key={group.title}>
-              <h3 className="mb-4 text-sm font-semibold text-slate-900">
+              <h2 className="text-sm font-semibold text-gray-900">
                 {group.title}
-              </h3>
+              </h2>
 
-              <ul className="space-y-3">
+              <ul className="mt-4 space-y-3">
                 {group.links.map((link) => (
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="inline-flex items-center gap-1 text-sm text-slate-500 transition hover:text-indigo-600"
+                      className="text-sm text-gray-500 transition-colors hover:text-gray-900"
                     >
                       {link.label}
-                      <ArrowUpRight size={13} />
                     </a>
                   </li>
                 ))}
               </ul>
             </div>
           ))}
+
+          <div>
+            <h2 className="text-sm font-semibold text-gray-900">
+              About
+            </h2>
+
+            <p className="mt-4 text-sm leading-6 text-gray-500">
+              Our goal is to make software research simpler with
+              organized categories and side-by-side comparisons.
+            </p>
+          </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-slate-100 pt-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-3 border-t border-gray-200 pt-6 text-sm text-gray-500 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {new Date().getFullYear()} SaaSCompare. All rights reserved.
+            © {currentYear} SaaS Compare. All rights reserved.
           </p>
 
-          <p>Built to make software decisions easier.</p>
+          <a
+            href="#top"
+            className="w-fit font-medium text-gray-600 transition-colors hover:text-gray-900"
+          >
+            Back to top ↑
+          </a>
         </div>
       </div>
     </footer>

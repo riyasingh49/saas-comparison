@@ -1,88 +1,81 @@
 
-import { Search, SlidersHorizontal, X } from 'lucide-react'
+import { Search, X } from 'lucide-react'
+import { SORT_OPTIONS } from './comparison-section/constants'
 
 function ComparisonToolbar({
   searchQuery = '',
   onSearchChange,
   sortBy = 'recommended',
   onSortChange,
-  resultCount,
-  onClearFilters,
+  resultCount = 0,
   hasActiveFilters = false,
+  onClearFilters,
 }) {
   return (
-    <section
-      aria-label="Comparison tools"
-      className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-5"
-    >
-      <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-        <div>
-          <h2 className="text-base font-semibold text-slate-900">
-            Compare software
-          </h2>
+    <div className="flex flex-col gap-3 rounded-2xl border border-gray-200 bg-white p-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className="relative min-w-0 flex-1 sm:max-w-md">
+        <label htmlFor="vendor-search" className="sr-only">
+          Search software vendors
+        </label>
 
-          {typeof resultCount === 'number' && (
-            <p
-              className="mt-1 text-sm text-slate-500"
-              aria-live="polite"
-            >
-              {resultCount} {resultCount === 1 ? 'tool' : 'tools'} found
-            </p>
-          )}
-        </div>
+        <Search
+          size={18}
+          className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+          aria-hidden="true"
+        />
 
-        <div className="flex min-w-0 flex-col gap-3 sm:flex-row sm:items-center">
-          <label className="relative block min-w-0 sm:w-64">
-            <span className="sr-only">Search software in this category</span>
-
-            <Search
-              size={17}
-              aria-hidden="true"
-              className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
-            />
-
-            <input
-              type="search"
-              value={searchQuery}
-              onChange={(event) => onSearchChange?.(event.target.value)}
-              placeholder="Search software..."
-              className="w-full rounded-xl border border-slate-200 bg-white py-2.5 pl-9 pr-3 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 hover:border-slate-300 focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
-            />
-          </label>
-
-          <label className="flex min-w-0 items-center gap-2 rounded-xl border border-slate-200 px-3 py-2.5 transition hover:border-slate-300 focus-within:border-indigo-400 focus-within:ring-2 focus-within:ring-indigo-100">
-            <SlidersHorizontal
-              size={16}
-              aria-hidden="true"
-              className="shrink-0 text-slate-500"
-            />
-
-            <span className="sr-only">Sort software</span>
-
-            <select
-              value={sortBy}
-              onChange={(event) => onSortChange?.(event.target.value)}
-              className="min-w-0 bg-transparent text-sm text-slate-700 outline-none"
-            >
-              <option value="recommended">Recommended</option>
-              <option value="name-asc">Name: A to Z</option>
-              <option value="name-desc">Name: Z to A</option>
-            </select>
-          </label>
-
-          {hasActiveFilters && onClearFilters && (
-            <button
-              type="button"
-              onClick={onClearFilters}
-              className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
-            >
-              <X size={16} aria-hidden="true" />
-              Clear filters
-            </button>
-          )}
-        </div>
+        <input
+          id="vendor-search"
+          type="search"
+          value={searchQuery}
+          onChange={(event) => onSearchChange?.(event.target.value)}
+          placeholder="Search software vendors..."
+          maxLength={100}
+          className="w-full rounded-xl border border-gray-200 bg-gray-50 py-2.5 pl-10 pr-4 text-sm text-gray-800 outline-none transition-colors placeholder:text-gray-400 hover:border-gray-400 focus:border-gray-500 focus:bg-white focus:ring-2 focus:ring-gray-100"
+        />
       </div>
-    </section>
+
+      <div className="flex flex-wrap items-center gap-3">
+        <label
+          htmlFor="vendor-sort"
+          className="text-sm font-medium text-gray-600"
+        >
+          Sort by
+        </label>
+
+        <select
+          id="vendor-sort"
+          value={sortBy}
+          onChange={(event) => onSortChange?.(event.target.value)}
+          className="min-w-36 rounded-xl border border-gray-200 bg-white px-3 py-2.5 text-sm text-gray-700 outline-none transition-colors hover:border-gray-400 hover:bg-gray-100 focus:border-gray-500 focus:ring-2 focus:ring-gray-100"
+        >
+          {SORT_OPTIONS.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+
+        <span
+          className="text-sm text-gray-500"
+          aria-live="polite"
+          aria-atomic="true"
+        >
+          {resultCount} {resultCount === 1 ? 'result' : 'results'}
+        </span>
+
+        {hasActiveFilters && (
+          <button
+            type="button"
+            onClick={onClearFilters}
+            className="inline-flex items-center gap-1 rounded-lg px-2 py-2 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-200 hover:text-gray-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400"
+          >
+            <X size={15} aria-hidden="true" />
+            Clear
+          </button>
+        )}
+      </div>
+    </div>
   )
 }
 
