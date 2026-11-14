@@ -1,6 +1,6 @@
 
 import { useState } from 'react'
-
+import SaaSToolkit from '../components/home/SaaSToolkit'
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
 import SummarySection from '../components/home/SummarySection'
@@ -106,6 +106,8 @@ function Home() {
         />
 
         <PricingExplainer />
+
+        <SaaSToolkit />
 
         <DecisionSupport
           categoryName={
